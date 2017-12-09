@@ -198,6 +198,7 @@ DEPENDENCIES
   capybara (~> 2.13)
   devise
   font-awesome-rails
+  i18n
   jquery-rails
   listen (>= 3.0.5, < 3.2)
   pg (~> 0.18)
