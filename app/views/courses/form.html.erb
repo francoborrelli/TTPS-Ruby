@@ -1,6 +1,6 @@
 <div class="card card-form">
   <div class="card-header">
-    <h5><%= @title %></h5>
+    <h5><%= title %></h5>
   </div>
   <div class="card-body">
     <%= simple_form_for(@course) do |f| %>
@@ -12,7 +12,7 @@
 
         <div class="form-actions text-right">
           <%= link_to 'Cancel', courses_path, class: "btn btn-default" %>
-          <%= f.button :submit, class: "btn btn-primary" %>
+          <%= f.button :button, class: "btn btn-primary", data: {} %>
         </div>
         <% end %>
   </div>

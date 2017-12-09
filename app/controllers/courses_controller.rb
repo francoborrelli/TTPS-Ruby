@@ -14,10 +14,12 @@ class CoursesController < ApplicationController
   # GET /courses/new
   def new
     @course = Course.new
+    render :form, locals: {title: "New Course"}
   end
 
   # GET /courses/1/edit
   def edit
+    render :form, locals: {title: "Edit Course"}
   end
 
   # POST /courses
