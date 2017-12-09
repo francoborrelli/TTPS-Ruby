@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :courses
   #User routes
   devise_for :users, skip: :all
 
