@@ -1,11 +1,19 @@
-<%= simple_form_for(@course) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :year %>
+<div class="card card-form">
+  <div class="card-header">
+    <h5><%= @title %></h5>
   </div>
+  <div class="card-body">
+    <%= simple_form_for(@course) do |f| %>
+      <%= f.error_notification %>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+        <div class="form-group">
+          <%= f.input :year, required: true, input_html: { class: 'form-control custom-select' }, collection: (Time.current.year - 35 )..(Time.current.year + 1 ), :include_blank => 'Debe eligir un año'%>
+        </div>
+
+        <div class="form-actions text-right">
+          <%= link_to 'Cancel', courses_path, class: "btn btn-default" %>
+          <%= f.button :submit, class: "btn btn-primary" %>
+        </div>
+        <% end %>
   </div>
-<% end %>
+</div>
