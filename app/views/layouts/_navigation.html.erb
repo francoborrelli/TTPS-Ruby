@@ -1,0 +1,15 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-light">
+ <button class="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mt-2 mt-md-0 ml-auto">
+      <li class="nav-item active ">
+          <%= link_to "Inicio", "/", class: 'navbar-brand' %>
+      </li>
+        <%= render 'layouts/navigation_links' %>
+    </ul>
+
+  </div>
+</nav>

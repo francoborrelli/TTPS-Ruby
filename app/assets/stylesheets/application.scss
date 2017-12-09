@@ -14,3 +14,24 @@
 
  @import "bootstrap";
  @import "font-awesome";
+ @import "navbar";
+
+
+ body {
+    cursor: default;
+    color: #444;
+    background-color: #1c1c1c;
+    [type="button"],
+    [type="reset"],
+    [type="submit"] {
+        -webkit-appearance: initial;
+    }
+    .content {
+        background: #fafafa;
+        padding: 110px 0 70px;
+    }
+
+.alert{
+    position:relative;
+}
+}
