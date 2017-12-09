@@ -14,6 +14,8 @@
   }
   
   nav {
+    padding-top: 18px!important;
+    padding-bottom: 18px!important;
     &.navbar {
       box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.22);
       -webkit-transition: 0.5s;
@@ -22,17 +24,11 @@
       transition: 0.5s;
       background-color: #fff;
     }
-    a {
+    nav-link  {
       -webkit-transition: 0.5s;
       -moz-transition: 0.5s;
       -ms-transition: 0.5s;
       transition: 0.5s;
-      padding-top: 17px !important;
-      padding-bottom: 17px !important;
-      &.dropdown-item {
-        padding-top: 6px !important;
-        padding-bottom: 6px !important;
-      }
     }
     .dropdown-item:active {
       background-color: rgba(8, 34, 58, 0.15);
@@ -58,6 +54,7 @@
   
   .dropdown-menu {
     padding: 3px 0;
+    left: -72px;
   }
   
   @media (max-width: 767px) {

@@ -2,14 +2,21 @@
  <button class="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-    <ul class="navbar-nav mt-2 mt-md-0 ml-auto">
-      <li class="nav-item active ">
-          <%= link_to "Inicio", "/", class: 'navbar-brand' %>
-      </li>
-        <%= render 'layouts/navigation_links' %>
-    </ul>
-
+      <ul class="navbar-nav mt-2 mt-md-0 ml-auto">
+        <li class="nav-item dropdown ml-auto">
+            <% if user_signed_in? %>
+              <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= current_user.username %>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: 'navbar-brand' %>
+              </div>
+              <%= render 'layouts/navigation_links' %>
+            <% else %>
+                <%= link_to "Inicio", "/", class: 'navbar-brand' %>
+            <% end %>
+        </li>        
+      </ul>
   </div>
 </nav>
