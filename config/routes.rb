@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root to: "courses#index"
+
   resources :courses
   #User routes
   devise_for :users, skip: :all
@@ -9,7 +11,5 @@ Rails.application.routes.draw do
     post 'sign_in', to: 'devise/sessions#create', as: :user_session
     delete 'sign_out', to: 'devise/sessions#destroy', as: :destroy_user_session
   end
-
-
 
 end
