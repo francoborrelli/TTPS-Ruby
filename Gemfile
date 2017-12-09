@@ -24,7 +24,6 @@ gem 'uglifier', '>= 1.3.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 
-
 #Use bootstrap as front-end component library
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 
@@ -33,9 +32,6 @@ gem 'jquery-rails'
 
 #Use devise for authentication
 gem 'devise'
-
-#Use simple for to create forms
-gem 'simple_form'
 
 gem "font-awesome-rails"
 
@@ -57,6 +53,12 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
+  #Use simple for to create forms
+  gem 'simple_form'
+
+  #Use RailsLayout to set up layout files
+  gem 'rails_layout'
 end
 
 # Use Capistrano for deployment
