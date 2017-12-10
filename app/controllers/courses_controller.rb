@@ -29,7 +29,7 @@ class CoursesController < ApplicationController
     if @course.save
       redirect_to @course, notice: 'Course was successfully created.'
     else
-      render :new
+      render :form, locals: {title: "New Course"}
     end
   end
 
@@ -38,7 +38,7 @@ class CoursesController < ApplicationController
     if @course.update(course_params)
       redirect_to @course, notice: 'Course was successfully updated.'
     else
-      render :edit
+      render :form, locals: {title: "Edit Course"}
     end
   end
 
