@@ -4,7 +4,7 @@ class CoursesController < ApplicationController
 
   # GET /courses
   def index
-    @courses = Course.all
+    @courses = Course.order('year DESC')
   end
 
   # GET /courses/new
