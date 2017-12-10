@@ -1,6 +1,8 @@
 es-AR:
+  home: "Inicio"
   course: "curso"
   signIn: "Iniciar Sesión"
+  signOut: "Cerrar Sesión"
   student: "Estudiante"
   examinations: "Evaluaciones"
   edit: "Editar"
@@ -11,6 +13,9 @@ es-AR:
   select_year: "Debe seleccionar un año"
   no_results: "No se encontraron resultados"
   delete_course_msg: "Estas a punto de eliminar el curso, ¿estás seguro que deseas continuar?"
+  created_course: "Curso creado correctamente."
+  updated_course: "Curso actualizado correctamente."
+  destroyed_course: "Curso eliminado correctamente."
   activerecord:
     errors:
       messages:
@@ -120,36 +125,36 @@ es-AR:
   errors:
     format: "%{attribute} %{message}"
     messages:
-      accepted: debe ser aceptado
-      blank: no puede estar en blanco
-      present: debe estar en blanco
-      confirmation: no coincide
-      empty: no puede estar vacío
-      equal_to: debe ser igual a %{count}
-      even: debe ser un número par
-      exclusion: está reservado
-      greater_than: debe ser mayor que %{count}
-      greater_than_or_equal_to: debe ser mayor o igual que %{count}
-      inclusion: no está incluido en la lista
-      invalid: es inválido
-      less_than: debe ser menor que %{count}
-      less_than_or_equal_to: debe ser menor o igual que %{count}
+      accepted: Debe ser aceptado
+      blank: No puede estar en blanco
+      present: Debe estar en blanco
+      confirmation: No coincide
+      empty: No puede estar vacío
+      equal_to: Debe ser igual a %{count}
+      even: Debe ser un número par
+      exclusion: Está reservado
+      greater_than: Debe ser mayor que %{count}
+      greater_than_or_equal_to: Debe ser mayor o igual que %{count}
+      inclusion: No está incluido en la lista
+      invalid: Es inválido
+      less_than: Debe ser menor que %{count}
+      less_than_or_equal_to: Debe ser menor o igual que %{count}
       model_invalid: "La validación falló: %{errors}"
-      not_a_number: no es un número
-      not_an_integer: debe ser un entero
-      odd: debe ser un número non
-      required: debe existir
-      taken: ya ha sido tomado
+      not_a_number: No es un número
+      not_an_integer: Debe ser un entero
+      odd: Debe ser un número impar
+      required: Debe existir
+      taken: Ya ha sido usado
       too_long:
-        one: es demasiado largo (máximo 1 caracter)
-        other: es demasiado largo (máximo %{count} caracteres)
+        one: Es demasiado largo (máximo 1 caracter)
+        other: Es demasiado largo (máximo %{count} caracteres)
       too_short:
-        one: es demasiado corto (mínimo 1 caracter)
-        other: es demasiado corto (mínimo %{count} caracteres)
+        one: Es demasiado corto (mínimo 1 caracter)
+        other: Es demasiado corto (mínimo %{count} caracteres)
       wrong_length:
-        one: longitud errónea (debe ser de 1 caracter)
-        other: longitud errónea (debe ser de %{count} caracteres)
-      other_than: debe ser distinto de %{count}
+        one: Longitud errónea (debe ser de 1 caracter)
+        other: Longitud errónea (debe ser de %{count} caracteres)
+      other_than: Debe ser distinto de %{count}
     template:
       body: 'Revise que los siguientes campos sean válidos:'
       header:

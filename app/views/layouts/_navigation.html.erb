@@ -12,11 +12,11 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <%= link_to destroy_user_session_path,  method: :delete, class: "dropdown-item" do %>
-                  <i class="fa fa-sign-out" aria-hidden="true"></i> Log Out
+                  <i class="fa fa-sign-out" aria-hidden="true"></i> <%= t :signOut %>
                 <% end %>
               </div>
           <% else %>
-                <%= link_to "Inicio", "/", class: "navbar-brand" %>
+                <%= link_to t(:home), "/", class: "nav-link" %>
             <% end %>
         </li>        
       </ul>
