@@ -7,6 +7,9 @@ es-AR:
   delete: "Borrar"
   year: "Año"
   new: "Nuevo"
+  cancel: "Cancelar"
+  select_year: "Debe seleccionar un año"
+  no_results: "No se encontraron resultados"
   activerecord:
     errors:
       messages:

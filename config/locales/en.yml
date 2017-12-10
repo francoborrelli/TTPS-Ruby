@@ -37,3 +37,7 @@ en:
   delete: "Delete"
   year: "Year"
   course: "Course"
+  no_results: "No Results"
+  cancel: "Cancel"
+  new: "New"
+  select_year: "You must select a year"

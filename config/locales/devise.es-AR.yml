@@ -1,5 +1,7 @@
 es-AR:
   activerecord:
+    models:
+      course: "Curso"
     attributes:
       user:
         confirmation_sent_at: Fecha de envío de confirmación

@@ -16,6 +16,8 @@ es-AR:
          password: 'Contraseña'
          username: 'Nombre de usuario'
          remember_me: 'Recordarme'
+         year: 'Año'
+         course: 'Curso'
     #   user:
     #     new:
     #       email: 'E-mail to sign in.'

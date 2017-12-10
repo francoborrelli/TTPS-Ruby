@@ -13,12 +13,12 @@ class CoursesController < ApplicationController
   # GET /courses/new
   def new
     @course = Course.new
-    render :form, locals: {title: "New Course"}
+    render :form, locals: {title: (t(:new) +' ' + t(:course))}
   end
 
   # GET /courses/1/edit
   def edit
-    render :form, locals: {title: "Edit Course"}
+    render :form, locals: {title: (t(:edit) +' ' + t(:course))}
   end
 
   # POST /courses
@@ -28,7 +28,7 @@ class CoursesController < ApplicationController
     if @course.save
       redirect_to courses_url, notice: 'Course was successfully created.'
     else
-      render :form, locals: {title: "New Course"}
+      render :form, locals: {title: (t(:new) +' ' + t(:course))}
     end
   end
 
@@ -37,7 +37,7 @@ class CoursesController < ApplicationController
     if @course.update(course_params)
       redirect_to courses_url, notice: 'Course was successfully updated.'
     else
-      render :form, locals: {title: "Edit Course"}
+      render :form, locals: {title: (t(:edit) +' ' + t(:course))}
     end
   end
 

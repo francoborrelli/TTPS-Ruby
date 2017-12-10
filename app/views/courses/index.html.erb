@@ -3,7 +3,7 @@
 
 <div class="card card-table">
   <div class="container card-body">
-    <h1><%= (t :course).pluralize %></h1>
+    <h1><%= (t :course).pluralize.capitalize %></h1>
     <hr>
     <div class="card-btns">
       <%= link_to t(:new) +' ' + t(:course), new_course_path, class: "btn btn-primary float-right btn-sm" %>
