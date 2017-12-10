@@ -23,9 +23,7 @@
             <%= link_to edit_course_path(course), class: "btn btn-warning btn-sm", :title => "editar", :data => { :toggle => "tooltip" } do %>
               <% fa_icon "pencil" %>
             <% end %>
-            <%= link_to course, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm", :title => "eliminar" do %>
-              <% fa_icon "trash",  data: {:toggle => "tooltip"}  %>
-            <% end %>
+            <button data-id="<%= course.id %>" data-toggle="modal" data-target="#delete-confirm" class="btn-delete btn btn-sm btn-danger"><%= fa_icon "trash" %></button>
           </td>
         </tr>
       <% end %>

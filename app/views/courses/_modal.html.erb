@@ -1,4 +1,4 @@
-<div class="modal" tabindex="-1" role="dialog">
+<div class="modal fade" tabindex="-1" role="dialog" id="delete-confirm">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -11,9 +11,10 @@
         <p>Modal body text goes here.</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn" data-dismiss="modal">Close</button>
+        <%= link_to 'Delete', courses_path+'/pony', method: :delete, :class => 'btn btn-danger' %>
       </div>
     </div>
   </div>
 </div>
+
