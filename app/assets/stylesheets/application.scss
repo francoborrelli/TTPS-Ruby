@@ -12,6 +12,12 @@
  *
  */
 
+ $theme-colors: (
+    warning: #FF7043,
+    success: #5092B9,
+  ) !default;
+
+
 @import "bootstrap";
 @import "font-awesome";
 @import "navbar";
@@ -86,8 +92,8 @@ a:hover {
     color: rgba(0, 0, 0, .5);
     outline: 0;
 
-    &.btn{
-        color: white;
+    &.btn {
+        color: white!important;
     }
 
     &.btn-default, &.btn-default:active, &.btn-default:focus, &.btn-default:hover{
@@ -105,6 +111,4 @@ a:hover {
         color: white!important;
     }
 }
-
-
 

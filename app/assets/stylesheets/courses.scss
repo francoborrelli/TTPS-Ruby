@@ -8,3 +8,16 @@
     margin: 0 auto;
 }
 
+.card-table{
+    .card-body{
+        padding: 40px;
+        .card-btns{
+            padding-bottom: 50px;
+        }
+        .table-responsive{
+            @media(min-width: 540px){
+                display: inline-table;
+            }
+        }
+    }
+}
