@@ -1,1 +1,10 @@
 <%# add navigation links to this file %>
+
+<li class="nav-item">
+<% if I18n.locale == I18n.default_locale %>
+
+  <%= link_to "EN",  { :lang => :'en', :controller => :locale, :action => :set_locale }, class: "nav-link" %>
+<% else %>
+  <%= link_to "ES", { :lang => :'es-AR', :controller => :locale, :action => :set_locale }, class: "nav-link"%>
+<%end%>
+</li>

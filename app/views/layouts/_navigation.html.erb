@@ -5,7 +5,8 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav mt-2 mt-md-0 ml-auto">
         <li class="nav-item dropdown ml-auto">
-            <% if user_signed_in? %>
+          <%= render "layouts/navigation_links" %>
+          <% if user_signed_in? %>
               <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <%= current_user.username %>
               </a>
@@ -14,7 +15,6 @@
                   <i class="fa fa-sign-out" aria-hidden="true"></i> Log Out
                 <% end %>
               </div>
-              <%= render "layouts/navigation_links" %>
             <% else %>
                 <%= link_to "Inicio", "/", class: "navbar-brand" %>
             <% end %>
