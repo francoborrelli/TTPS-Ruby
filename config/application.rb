@@ -24,13 +24,10 @@ module App
     config.i18n.default_locale = :'es-AR'
     config.time_zone = 'America/Argentina/Buenos_Aires'
 
-    if cookies[:lang].blank?
-      cookies[:lang] = :'es-AR'
-    else
-      config.i18n.locale = cookies[:lang]
+    if cookies[:language].blank?
+      cookies.permanent[:language]  = :I18n.default_locale
     end
 
-    
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
