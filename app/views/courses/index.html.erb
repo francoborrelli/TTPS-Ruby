@@ -6,7 +6,7 @@
     <h1>Courses</h1>
     <hr>
     <div class="card-btns">
-      <%= link_to 'New Course', new_course_path, class: "btn btn-success float-right btn-sm" %>
+      <%= link_to 'New Course', new_course_path, class: "btn btn-primary float-right btn-sm" %>
     </div>
 
     <table class="table table-striped text-center table-responsive">
@@ -28,12 +28,12 @@
               <%= course.year %>
             </td>
             <td>
-              <%= link_to edit_course_path(course), class: "btn btn-success btn-sm", :title => "evaluaciones" do %>
+              <%= link_to edit_course_path(course), class: "btn btn-primary btn-sm", :title => "evaluaciones" do %>
                 <% fa_icon "book" %>
               <% end %>
             </td>
             <td>
-              <%= link_to edit_course_path(course), class: "btn btn-success btn-sm", :title => "estudiantes" do %>
+              <%= link_to edit_course_path(course), class: "btn btn-primary btn-sm", :title => "estudiantes" do %>
                 <% fa_icon "users" %>
               <% end %>
             </td>
