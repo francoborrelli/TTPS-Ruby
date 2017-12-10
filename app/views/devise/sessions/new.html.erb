@@ -1,22 +1,16 @@
-<div class="container">
-
-  <h2>Log in</h2>
-
-  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<div class="container card-form card">
+  <div class="card-body">
+    <h2>Sign in</h2>
+    <hr>
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-group">
-        <%= f.input :username, required: true, autofocus: true, input_html: { class: 'form-control' }%>
+        <%= f.input :username, required: true, autofocus: true %>
       </div>
       <div class="form-group">
-        <%= f.input :password, required: true, input_html: { class: 'form-control' } %>
-      </div> 
-        <div class="">
-            <div class="form-check">
-            <%= f.input :remember_me, input_html: { class: 'form-check-input' },  as: :boolean if devise_mapping.rememberable? %>
-          </div>
-          <%= f.button :submit, "Log in", class: "btn btn-primary" %>
-        </div>
-    </div>
-  <% end %>
-  
+        <%= f.input :password, required: true %>
+      </div>
+      <%= f.input :remember_me,  as: :boolean if devise_mapping.rememberable? %>
+      <%= f.button :submit, "Sign in", class: "btn-primary float-right" %>
+    <% end %>
+  </div>
 </div>
-
