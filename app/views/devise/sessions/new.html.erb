@@ -1,6 +1,6 @@
 <div class="container card-form card">
   <div class="card-body">
-    <h2>Sign in</h2>
+    <h2><%= t(:signIn) %></h2>
     <hr>
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-group">
@@ -10,7 +10,7 @@
         <%= f.input :password, required: true %>
       </div>
       <%= f.input :remember_me,  as: :boolean if devise_mapping.rememberable? %>
-      <%= f.button :submit, "Sign in", class: "btn-primary float-right" %>
+      <%= f.button :submit, t(:signIn) , class: "btn-primary float-right" %>
     <% end %>
   </div>
 </div>
