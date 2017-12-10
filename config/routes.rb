@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     root :to => redirect("/sign_in")
 
 
-    get 'set_locale', to: 'locale#set_locale'
+    patch 'set_locale', to: 'locale#set_locale'
   end
 
 
