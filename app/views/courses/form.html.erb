@@ -1,17 +1,18 @@
-<div class="card card-form">
-  <div class="card-header">
-    <h5><%= title %></h5>
-  </div>
-  <div class="card-body">
-    <%= simple_form_for(@course) do |f| %>
-        <div class="form-group">
-          <%= f.input :year, required: true,  input_html: { class: 'custom-select' }, collection: (Time.current.year - 35 )..(Time.current.year + 1 ), :include_blank => 'Debe eligir un año'%>
-        </div>
-
-        <div class="form-actions text-right">
-          <%= link_to 'Cancel', courses_path, class: "btn btn-default" %>
-          <%= f.button :submit, class: "btn btn-primary" %>
-        </div>
-        <% end %>
+<div class="card-form">
+  <div class="card">
+    <div class="card-body">
+      <h5><%= title %></h5> 
+      <hr>
+      <%= simple_form_for(@course) do |f| %>
+          <div class="form-group">
+            <%= f.input :year, required: true,  input_html: { class: 'custom-select' }, collection: (Time.current.year - 35 )..(Time.current.year + 1 ), :include_blank => 'Debe eligir un año'%>
+          </div>
+          <br>
+          <div class="form-actions text-right">
+            <%= link_to 'Cancel', courses_path, class: "btn btn-default" %>
+            <%= f.button :submit, class: "btn btn-primary" %>
+          </div>
+      <% end %>
+    </div>
   </div>
 </div>
