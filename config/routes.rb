@@ -16,6 +16,9 @@ Rails.application.routes.draw do
 
     #if user is not authenticated redirect to singIn
     root :to => redirect("/sign_in")
+
+
+    patch 'set_locale', to: 'locale#set_locale'
   end
 
 

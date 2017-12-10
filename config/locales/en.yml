@@ -30,4 +30,20 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  home: "Home"
+  signIn: "Sign In"
+  signOut: "Sing Out"
+  student: "Student"
+  examinations: "Examinations"
+  edit: "Edit"
+  delete: "Delete"
+  year: "Year"
+  course: "course"
+  no_results: "No Results"
+  cancel: "Cancel"
+  new: "New"
+  select_year: "You must select a year"
+  delete_course_msg: "You are about to delete the course, are you sure you want to continue?"
+  created_course: "Course was successfully created."
+  updated_course: "Course was successfully updated."
+  destroyed_course: "Course was successfully destroyed."
