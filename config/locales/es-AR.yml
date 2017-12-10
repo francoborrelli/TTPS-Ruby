@@ -1,6 +1,12 @@
 es-AR:
-  course: "Cursos"
+  course: "curso"
   signIn: "Iniciar Sesión"
+  student: "Estudiante"
+  examinations: "Evaluaciones"
+  edit: "Editar"
+  delete: "Borrar"
+  year: "Año"
+  new: "Nuevo"
   activerecord:
     errors:
       messages:

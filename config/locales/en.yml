@@ -31,3 +31,9 @@
 
 en:
   signIn: "Sign In"
+  student: "Student"
+  examinations: "Examinations"
+  edit: "Edit"
+  delete: "Delete"
+  year: "Year"
+  course: "Course"
