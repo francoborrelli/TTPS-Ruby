@@ -84,6 +84,12 @@ a, input[type="submit"] {
     cursor: pointer;
 }
 
+.dropdown-menu {
+    left: inherit;
+    right: 10px;
+    top: 80%;
+}
+
 a,
 a:active,
 a:focus,
