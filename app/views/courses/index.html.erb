@@ -22,6 +22,9 @@
       </thead>
 
        <tbody>
+       <% if @courses.empty? %>
+          <td colspan="5">No results</td>
+       <% else %>
         <% @courses.each do |course| %>
           <tr>
             <td>
@@ -49,9 +52,10 @@
             </td>
           </tr>
         <% end %>
+      <% end %>
        </tbody>
-
     </table>
+    <%= paginate @courses, window: 2 %>
     <br>
   </div>
 </div>
