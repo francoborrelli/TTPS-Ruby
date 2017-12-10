@@ -7,10 +7,6 @@ class CoursesController < ApplicationController
     @courses = Course.all
   end
 
-  # GET /courses/1
-  def show
-  end
-
   # GET /courses/new
   def new
     @course = Course.new
@@ -27,7 +23,7 @@ class CoursesController < ApplicationController
     @course = Course.new(course_params)
 
     if @course.save
-      redirect_to @course, notice: 'Course was successfully created.'
+      redirect_to courses_url, notice: 'Course was successfully created.'
     else
       render :form, locals: {title: "New Course"}
     end
@@ -36,7 +32,7 @@ class CoursesController < ApplicationController
   # PATCH/PUT /courses/1
   def update
     if @course.update(course_params)
-      redirect_to @course, notice: 'Course was successfully updated.'
+      redirect_to courses_url, notice: 'Course was successfully updated.'
     else
       render :form, locals: {title: "Edit Course"}
     end
