@@ -13,12 +13,12 @@ class CoursesController < ApplicationController
   # GET /courses/new
   def new
     @course = Course.new
-    render :form, locals: {title: "New Course"}
+    render :form, locals: {title: (t(:new) +' ' + t(:course))}
   end
 
   # GET /courses/1/edit
   def edit
-    render :form, locals: {title: "Edit Course"}
+    render :form, locals: {title: (t(:edit) +' ' + t(:course))}
   end
 
   # POST /courses
@@ -26,25 +26,25 @@ class CoursesController < ApplicationController
     @course = Course.new(course_params)
 
     if @course.save
-      redirect_to courses_url, notice: 'Course was successfully created.'
+      redirect_to courses_url, notice: t(:created_course)
     else
-      render :form, locals: {title: "New Course"}
+      render :form, locals: {title: (t(:new) +' ' + t(:course))}
     end
   end
 
   # PATCH/PUT /courses/1
   def update
     if @course.update(course_params)
-      redirect_to courses_url, notice: 'Course was successfully updated.'
+      redirect_to courses_url, notice: t(:updated_course)
     else
-      render :form, locals: {title: "Edit Course"}
+      render :form, locals: {title: (t(:edit) +' ' + t(:course))}
     end
   end
 
   # DELETE /courses/1
   def destroy
     @course.destroy
-    redirect_to courses_url, notice: 'Course was successfully destroyed.'
+    redirect_to courses_url, notice: t(:destroyed_course)
   end
 
   private

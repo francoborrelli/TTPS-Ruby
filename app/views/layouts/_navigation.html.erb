@@ -5,18 +5,18 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav mt-2 mt-md-0 ml-auto">
         <li class="nav-item dropdown ml-auto">
-            <% if user_signed_in? %>
+          <%= render "layouts/navigation_links" %>
+          <% if user_signed_in? %>
               <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <%= current_user.username %>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <%= link_to destroy_user_session_path,  method: :delete, class: "dropdown-item" do %>
-                  <i class="fa fa-sign-out" aria-hidden="true"></i> Log Out
+                  <i class="fa fa-sign-out" aria-hidden="true"></i> <%= t :signOut %>
                 <% end %>
               </div>
-              <%= render "layouts/navigation_links" %>
-            <% else %>
-                <%= link_to "Inicio", "/", class: "navbar-brand" %>
+          <% else %>
+                <%= link_to t(:home), "/", class: "nav-link" %>
             <% end %>
         </li>        
       </ul>
