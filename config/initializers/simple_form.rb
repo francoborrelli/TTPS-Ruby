@@ -46,7 +46,7 @@ SimpleForm.setup do |config|
     ## Inputs
     b.use :label_input
     b.use :hint,  wrap_with: { tag: :span, class: :hint }
-    b.use :error, wrap_with: { tag: :span, class: :error }
+    b.use :error, wrap_with: { tag: :small, class: :error }
 
     ## full_messages_for
     # If you want to display the full error message for the attribute, you can
@@ -155,7 +155,7 @@ SimpleForm.setup do |config|
   # config.cache_discovery = !Rails.env.development?
 
   # Default class for inputs
-  # config.input_class = nil
+  config.input_class = "form-control"
 
   # Define the default class of the input wrapper of the boolean input.
   config.boolean_label_class = 'checkbox'

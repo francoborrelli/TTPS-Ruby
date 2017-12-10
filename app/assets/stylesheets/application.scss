@@ -34,4 +34,11 @@
 .alert{
     position:relative;
 }
+
+.field_with_errors { 
+    input, select{
+        border-color: #dc3545;
+    }
+ }
+
 }
