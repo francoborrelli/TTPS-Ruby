@@ -4,7 +4,10 @@ class CoursesController < ApplicationController
 
   # GET /courses
   def index
-    @courses = Course.order('year DESC')
+    @courses = Course.order('year DESC').page params[:page]
+    if @courses.empty? && params[:page]
+      not_found
+    end
   end
 
   # GET /courses/new
