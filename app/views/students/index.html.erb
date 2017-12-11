@@ -1,26 +1,73 @@
-<p id="notice"><%= notice %></p>
+<div class="card card-table">
+  <div class="container card-body">
+    <h1>
+      <%= (t :student).pluralize.capitalize %>
+    </h1>
+    <hr>
+    <div class="card-btns">
+      <%= link_to t(:new) +' ' + t(:student), new_course_student_path, class: "btn btn-primary float-right btn-sm" %>
+    </div>
 
-<h1>Students</h1>
+    <table class="table table-striped text-center table-responsive">
+      <thead>
+        <tr>
+          <th>
+            <%= t :name %>
+          </th>
+          <th>
+            <%= t :surname %>
+          </th>
+          <th>
+            <%= t :s_number %>
+          </th>
+          <th>
+            <%= t :edit %>
+          </th>
+          <th>
+            <%= t :delete %>
+          </th>
+        </tr>
+      </thead>
+        <tbody>
+          <% if @students.empty? %>
+            <td colspan="5">
+              <%= t :no_results %>
+            </td>
+          <% else %>
+            <% @students.each do |student| %>
+              <tr>
+                <td>
+                  <%= student.surname %>
+                </td>
+                <td>
+                  <%= link_to course_student_path(@course, student), class: "btn btn-primary btn-sm", :title => (t(:examinations)) do %>
+                    <% fa_icon "book" %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to course_students_path(@course), class: "btn btn-primary btn-sm", :title => (t(:student).pluralize) do %>
+                    <% fa_icon "users" %>
+                  <% end %>
+               </td>
+                <td>
+                  <%= link_to edit_course_student_path(@course, student), class: "btn btn-warning btn-sm", :title => (t(:edit)) do %>
+                    <% fa_icon "pencil" %>
+                  <% end %>
+                </td>
+                <td>
+                  <button data-id="<%= @course.id %>" data-toggle="modal" data-target="#delete-confirm" title="<%= t(:delete) %>" class="btn-delete btn btn-sm btn-danger">
+                    <%= fa_icon "trash" %>
+                  </button>
+                </td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="float-right">
+        <%= paginate @students %>
+      </div>
+      <br>
+    </div>
+  </div>  
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @students.each do |student| %>
-      <tr>
-        <td><%= student.name %></td>
-        <td><%= link_to 'Show', course_student_path(@course, student) %></td>
-        <td><%= link_to 'Edit', edit_course_student_path(@course, student) %></td>
-        <td><%= link_to 'Destroy', course_student_path(@course, student), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Student', new_course_student_path %>

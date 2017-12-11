@@ -5,7 +5,7 @@ class StudentsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @students = @course.students
+    @students = @course.students.order("surname DESC, name DESC").page params[:page]
   end
 
   def show
