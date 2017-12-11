@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20171210235641) do
   create_table "students", force: :cascade do |t|
     t.string "surname", null: false
     t.string "name", null: false
-    t.integer "s_number", null: false
+    t.string "s_number", null: false
     t.string "email", null: false
     t.bigint "course_id", null: false
     t.datetime "created_at", null: false
