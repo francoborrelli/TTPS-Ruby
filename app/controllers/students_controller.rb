@@ -1,7 +1,7 @@
 class StudentsController < ApplicationController
 
   before_action :set_student, only: [:show, :edit, :update, :destroy]
-  before_action :set_course, only: [:create, :index ]
+  before_action :set_course
   before_action :authenticate_user!
 
   def index
@@ -30,7 +30,7 @@ class StudentsController < ApplicationController
 
   def update
     if @student.update(student_params)
-      redirect_to @student, notice: 'Student was successfully updated.'
+      redirect_to course_student_path(@course, @student), notice: 'Student was successfully updated.'
     else
       render :edit
     end
@@ -38,12 +38,12 @@ class StudentsController < ApplicationController
 
   def destroy
     @student.destroy
-    redirect_to students_url, notice: 'Student was successfully destroyed.'
+    redirect_to course_students_path(@course), notice: 'Student was successfully destroyed.'
   end
 
   private
     def set_student
-      @student = Student.find(params[:student_id])
+      @student = Student.find(params[:id])
     end
 
     def set_course
