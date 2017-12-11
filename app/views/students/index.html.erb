@@ -8,7 +8,7 @@
       <%= link_to t(:new) +' ' + t(:student), new_course_student_path, class: "btn btn-primary float-right btn-sm" %>
     </div>
 
-    <table class="table table-striped text-center table-responsive">
+    <table class="table table-striped text-center table-responsive table-students">
       <thead>
         <tr>
           <th>
@@ -19,6 +19,12 @@
           </th>
           <th>
             <%= t :s_number %>
+          </th>
+          <th>
+            Email
+          </th>
+          <th>
+            <%= t :marks %>
           </th>
           <th>
             <%= t :edit %>
@@ -40,15 +46,19 @@
                   <%= student.surname %>
                 </td>
                 <td>
-                  <%= link_to course_student_path(@course, student), class: "btn btn-primary btn-sm", :title => (t(:examinations)) do %>
-                    <% fa_icon "book" %>
-                  <% end %>
+                  <%= student.name %>
                 </td>
                 <td>
-                  <%= link_to course_students_path(@course), class: "btn btn-primary btn-sm", :title => (t(:student).pluralize) do %>
-                    <% fa_icon "users" %>
-                  <% end %>
+                  <%= student.s_number %>
                </td>
+                <td>
+                  <%= student.email %>
+               </td>
+                <td>
+                  <%= link_to edit_course_student_path(@course, student), class: "btn btn-warning btn-sm", :title => (t(:edit)) do %>
+                    <% fa_icon "pencil" %>
+                  <% end %>
+                </td>
                 <td>
                   <%= link_to edit_course_student_path(@course, student), class: "btn btn-warning btn-sm", :title => (t(:edit)) do %>
                     <% fa_icon "pencil" %>
