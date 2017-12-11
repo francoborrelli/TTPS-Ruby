@@ -13,9 +13,11 @@ class StudentsController < ApplicationController
 
   def new
     @student = Student.new
+    render :form, locals: {title: (t(:new) +' ' + t(:student))}
   end
 
   def edit
+    render :form, locals: {title: (t(:edit) +' ' + t(:student))}
   end
 
   def create
@@ -24,7 +26,7 @@ class StudentsController < ApplicationController
     if @student.save
       redirect_to course_students_path(@course, @student), notice: 'Student was successfully created.'
     else
-      render :new
+      render :form, locals: {title: (t(:edit) +' ' + t(:student))}
     end
   end
 
@@ -32,7 +34,7 @@ class StudentsController < ApplicationController
     if @student.update(student_params)
       redirect_to course_student_path(@course, @student), notice: 'Student was successfully updated.'
     else
-      render :edit
+      render :form, locals: {title: (t(:new) +' ' + t(:student))}
     end
   end
 
