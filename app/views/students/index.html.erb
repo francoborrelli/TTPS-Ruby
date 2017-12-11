@@ -1,5 +1,8 @@
 <div class="card card-table">
   <div class="container card-body">
+    <%= link_to courses_path, class: "btn btn-default float-right", :title => (t(:back)) do %>
+      <%= fa_icon "reply" %>
+    <% end %>
     <h1>
       <%= (t :student).pluralize.capitalize %>
     </h1>
@@ -36,7 +39,6 @@
       </thead>
         <tbody>
           <% if @students.empty? %>
-            <td colspan="5">
             <td colspan="7">
               <%= t :no_results %>
             </td>
@@ -56,13 +58,13 @@
                   <%= student.email %>
                </td>
                 <td>
-                  <%= link_to edit_course_student_path(@course, student), class: "btn btn-warning btn-sm", :title => (t(:edit)) do %>
-                    <% fa_icon "pencil" %>
+                  <%= link_to edit_course_path(@course), class: "btn btn-primary btn-sm", :title => (t(:examinations)) do %>
+                    <%= fa_icon "book" %>
                   <% end %>
                 </td>
                 <td>
                   <%= link_to edit_course_student_path(@course, student), class: "btn btn-warning btn-sm", :title => (t(:edit)) do %>
-                    <% fa_icon "pencil" %>
+                    <%= fa_icon "pencil" %>
                   <% end %>
                 </td>
                 <td>

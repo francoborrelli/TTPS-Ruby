@@ -30,20 +30,21 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  home: "Home"
-  signIn: "Sign In"
-  signOut: "Sing Out"
-  student: "student"
-  examinations: "Examinations"
-  edit: "Edit"
-  delete: "Delete"
-  year: "Year"
-  course: "course"
-  no_results: "No Results"
-  cancel: "Cancel"
-  new: "New"
-  s_number: "Student number"
-  marks: "Marks"
+  home: Home
+  signIn: Sign In
+  signOut: Sing Out
+  student: student
+  examinations: Examinations
+  edit: Edit
+  delete: Delete
+  year: Year
+  course: course
+  no_results: No Results
+  cancel: Cancel
+  new: New
+  s_number: Student number
+  marks: Marks
+  back: Go Back
 
   select_year: "You must select a year"
   delete_course_msg: "You are about to delete the course, are you sure you want to continue?"

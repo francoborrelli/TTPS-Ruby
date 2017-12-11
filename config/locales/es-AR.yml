@@ -15,7 +15,8 @@ es-AR:
   cancel: Cancelar
   s_number: Legajo
   marks: Notas
-
+  back: Volver
+  
   select_year: "Debe seleccionar un año"
   no_results: "No se encontraron resultados"
   delete_course_msg: "Estas a punto de eliminar el curso, ¿estás seguro que deseas continuar?"
