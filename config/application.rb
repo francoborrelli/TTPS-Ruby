@@ -24,9 +24,9 @@ module App
     config.i18n.default_locale = :'es-AR'
     config.time_zone = 'America/Argentina/Buenos_Aires'
 
-    if cookies[:language].blank?
-      cookies.permanent[:language]  = :I18n.default_locale
-    end
+    #if cookies[:language].blank?
+    #  cookies.permanent[:language]  = :I18n.default_locale
+    #end
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
