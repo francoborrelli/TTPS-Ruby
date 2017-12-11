@@ -16,10 +16,10 @@ es-AR:
   s_number: Legajo
   marks: Notas
   back: Volver
-  
+
   select_year: "Debe seleccionar un año"
   no_results: "No se encontraron resultados"
-  delete_course_msg: "Estas a punto de eliminar el curso, ¿estás seguro que deseas continuar?"
+  delete_course_msg: "Estas a punto de eliminar el curso. Todo alumno y evaluacion asociado al mismo se eliminará. ¿Estás seguro que deseas continuar?"
   created_course: "Curso creado correctamente."
   updated_course: "Curso actualizado correctamente."
   destroyed_course: "Curso eliminado correctamente."
