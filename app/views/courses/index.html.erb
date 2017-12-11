@@ -47,7 +47,7 @@
                   <% end %>
                 </td>
                 <td>
-                  <%= link_to edit_course_path(course), class: "btn btn-primary btn-sm", :title => (t(:student).pluralize) do %>
+                  <%= link_to course_students_path(course), class: "btn btn-primary btn-sm", :title => (t(:student).pluralize) do %>
                     <% fa_icon "users" %>
                   <% end %>
                </td>
