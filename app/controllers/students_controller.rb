@@ -4,10 +4,13 @@ class StudentsController < ApplicationController
   # GET /students
   def index
     @students = Student.all
+    @course = Course.find(params[:course_id])
   end
 
   # GET /students/1
   def show
+    @student = Student.find(params[:student_id])
+    @course = @student.course
   end
 
   # GET /students/new
@@ -22,9 +25,10 @@ class StudentsController < ApplicationController
   # POST /students
   def create
     @student = Student.new(student_params)
-
+    @course = Course.find(params[:course_id])
+    @student.course = @course
     if @student.save
-      redirect_to @student, notice: 'Student was successfully created.'
+      redirect_to course_students_path(@course, @student), notice: 'Student was successfully created.'
     else
       render :new
     end
