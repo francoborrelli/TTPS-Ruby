@@ -43,7 +43,8 @@ en:
   cancel: "Cancel"
   new: "New"
   s_number: "Student number"
-  
+  marks: "Marks"
+
   select_year: "You must select a year"
   delete_course_msg: "You are about to delete the course, are you sure you want to continue?"
   created_course: "Course was successfully created."

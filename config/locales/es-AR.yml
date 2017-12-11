@@ -14,6 +14,7 @@ es-AR:
   new: Nuevo
   cancel: Cancelar
   s_number: Legajo
+  marks: Notas
 
   select_year: "Debe seleccionar un año"
   no_results: "No se encontraron resultados"
