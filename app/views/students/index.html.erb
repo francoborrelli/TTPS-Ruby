@@ -24,10 +24,10 @@
             <%= t :s_number %>
           </th>
           <th>
-            Email
+            <%= t :document %> 
           </th>
           <th>
-            <%= t :marks %>
+            Email
           </th>
           <th>
             <%= t :edit %>
@@ -55,13 +55,11 @@
                   <%= student.s_number %>
                </td>
                 <td>
-                  <%= student.email %>
+                  <%= student.dni %>
                </td>
                 <td>
-                  <%= link_to edit_course_path(@course), class: "btn btn-primary btn-sm", :title => (t(:examinations)) do %>
-                    <%= fa_icon "book" %>
-                  <% end %>
-                </td>
+                  <%= student.email %>
+               </td>
                 <td>
                   <%= link_to edit_course_student_path(@course, student), class: "btn btn-warning btn-sm", :title => (t(:edit)) do %>
                     <%= fa_icon "pencil" %>
