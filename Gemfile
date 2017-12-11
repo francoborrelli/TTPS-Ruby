@@ -41,6 +41,13 @@ gem "i18n"
 #Use kaminari for pagination
 gem 'kaminari'
 
+#Use faker for seeds
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+
+#Use simple for to create forms
+gem 'simple_form'
+  
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -57,11 +64,6 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
-  #Use simple for to create forms
-  gem 'simple_form'
-
-  #Use RailsLayout to set up layout files
-  gem 'rails_layout'
 end
 
 # Use Capistrano for deployment
