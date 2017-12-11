@@ -5,7 +5,7 @@
       <hr>
       <%= simple_form_for(@course) do |f| %>
           <div class="form-group">
-            <%= f.input :year, required: true,  input_html: { class: 'custom-select' }, collection: (Time.current.year - 35 )..(Time.current.year + 1 ), :include_blank => t(:select_year)%>
+            <%= f.input :year,  input_html: { class: 'custom-select' }, collection: @course.time_range.reverse, :include_blank => t(:select_year)%>
           </div>
           <br>
           <div class="form-actions text-right">
