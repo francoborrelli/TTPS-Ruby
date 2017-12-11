@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 
   resources :courses, except: [:show] do 
-    resources :students
+    resources :students, except: [:show]
   end
 
 

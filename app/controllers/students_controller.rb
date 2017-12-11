@@ -1,14 +1,11 @@
 class StudentsController < ApplicationController
 
-  before_action :set_student, only: [:show, :edit, :update, :destroy]
+  before_action :set_student, only: [:edit, :update, :destroy]
   before_action :set_course
   before_action :authenticate_user!
 
   def index
     @students = @course.students.order("surname DESC, name DESC").page params[:page]
-  end
-
-  def show
   end
 
   def new
@@ -24,7 +21,7 @@ class StudentsController < ApplicationController
     @student = Student.new(student_params)
     @student.course = @course
     if @student.save
-      redirect_to course_students_path(@course, @student), notice: 'Student was successfully created.'
+      redirect_to course_students_path(@course), notice: 'Student was successfully created.'
     else
       render :form, locals: {title: (t(:edit) +' ' + t(:student))}
     end
@@ -32,7 +29,7 @@ class StudentsController < ApplicationController
 
   def update
     if @student.update(student_params)
-      redirect_to course_student_path(@course, @student), notice: 'Student was successfully updated.'
+      redirect_to course_students_path(@course), notice: 'Student was successfully updated.'
     else
       render :form, locals: {title: (t(:new) +' ' + t(:student))}
     end
