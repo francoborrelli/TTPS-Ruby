@@ -12,10 +12,10 @@
       <thead>
         <tr>
           <th>
-            <%= t :name %>
+            <%= t :surname %>
           </th>
           <th>
-            <%= t :surname %>
+            <%= t :name %>
           </th>
           <th>
             <%= t :s_number %>
@@ -37,6 +37,7 @@
         <tbody>
           <% if @students.empty? %>
             <td colspan="5">
+            <td colspan="7">
               <%= t :no_results %>
             </td>
           <% else %>
