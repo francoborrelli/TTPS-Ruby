@@ -11,11 +11,11 @@ class CoursesController < ApplicationController
 
   def new
     @course = Course.new
-    render :form, locals: {title: (t(:new) +' ' + t(:course))}
+    render :form, locals: {title: :new_course}
   end
 
   def edit
-    render :form, locals: {title: (t(:edit) +' ' + t(:course))}
+    render :form, locals: {title: :edit_course}
   end
 
   def create
@@ -24,7 +24,7 @@ class CoursesController < ApplicationController
     if @course.save
       redirect_to courses_url, notice: t(:created_course)
     else
-      render :form, locals: {title: (t(:new) +' ' + t(:course))}
+      render :form, locals: {title: :new_course}
     end
   end
 
@@ -32,7 +32,7 @@ class CoursesController < ApplicationController
     if @course.update(course_params)
       redirect_to courses_url, notice: t(:updated_course)
     else
-      render :form, locals: {title: (t(:edit) +' ' + t(:course))}
+      render :form, locals: {title: :edit_course}
     end
   end
 

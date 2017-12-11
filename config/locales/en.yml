@@ -45,13 +45,24 @@ en:
   s_number: Student number
   marks: Marks
   back: Go Back
-
+  new_student: "New Student"
+  edit_student: "Edit Student" 
+  new_course: "New Course"
+  edit_course: "Edit Course"
   select_year: "You must select a year"
   delete_course_msg: "You are about to delete the course. All student and examination associated to this course will be deleted as well. Are you sure you want to continue?"
   created_course: "Course was successfully created."
   updated_course: "Course was successfully updated."
   destroyed_course: "Course was successfully destroyed."
+  created_student: "Student was successfully created."
+  updated_student: "Student was successfully updated."
+  destroyed_student: "Student was successfully destroyed."  
   activerecord:
     attributes:
       student:
         s_number: "Student number"
+    errors:
+      messages:
+        only_letters: only letters allowed
+        invalid_s_number: invalid student numbers
+        invalid_email: invalid email

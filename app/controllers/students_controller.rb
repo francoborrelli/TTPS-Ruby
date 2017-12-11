@@ -10,34 +10,34 @@ class StudentsController < ApplicationController
 
   def new
     @student = Student.new
-    render :form, locals: {title: (t(:new) +' ' + t(:student))}
+    render :form, locals: {title: :new_student}
   end
 
   def edit
-    render :form, locals: {title: (t(:edit) +' ' + t(:student))}
+    render :form, locals: {title: :edit_student}
   end
 
   def create
     @student = Student.new(student_params)
     @student.course = @course
     if @student.save
-      redirect_to course_students_path(@course), notice: 'Student was successfully created.'
+      redirect_to course_students_path(@course), notice: t(:created_student)
     else
-      render :form, locals: {title: (t(:edit) +' ' + t(:student))}
+      render :form, locals: {title: :new_student}
     end
   end
 
   def update
     if @student.update(student_params)
-      redirect_to course_students_path(@course), notice: 'Student was successfully updated.'
+      redirect_to course_students_path(@course), notice: t(:updated_student)
     else
-      render :form, locals: {title: (t(:new) +' ' + t(:student))}
+      render :form, locals: {title: :edit_student}
     end
   end
 
   def destroy
     @student.destroy
-    redirect_to course_students_path(@course), notice: 'Student was successfully destroyed.'
+    redirect_to course_students_path(@course), notice: t(:destroyed_student)
   end
 
   private
