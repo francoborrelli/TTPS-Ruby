@@ -56,6 +56,6 @@ class ExaminationsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def examination_params
-      params.require(:examination).permit(:title, :date, :min_mark)
+      params.require(:examination).permit(:title, :date, :min_score)
     end
 end

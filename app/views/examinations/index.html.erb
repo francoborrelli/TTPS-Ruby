@@ -8,17 +8,17 @@
 <table class="table table-striped text-center table-responsive table-courses">
   <thead>
   <tr>
-    <th>Title</th>
-    <th>Date</th>
-    <th>Min mark</th>
-    <th></th>
-    <th></th>
+    <th><%= t :title %></th>
+    <th><%= t :examination_date %></th>
+    <th><%= t :min_score %></th>
+    <th><%= t :edit %></th>
+    <th><%= t :delete %></th>
   </tr>
 
 <% @examinations.each do |examination| %>
   <tr>
     <td><%= examination.title %></td>
-    <td><%= examination.date.to_s.humanize %></td>
+    <td><%= examination.date.strftime("%B %d, %Y") %></td>
     <td><%= examination.min_mark %></td>
     <td><%= link_to 'Edit', edit_course_examination_path(examination.course, examination) %></td>
     <td><%= link_to 'Destroy', [examination.course, examination], :confirm => 'Are you sure?', :method => :delete %></td>
