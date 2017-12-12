@@ -1,11 +1,11 @@
+<%= render partial: 'layouts/modal', locals: { del_msg: :delete_student_msg, title: :destroy_student, route_path: course_student_path(@course, 0) } %>
+
 <div class="card card-table">
   <div class="container card-body">
     <%= link_to courses_path, class: "btn btn-default float-right", :title => (t(:back)) do %>
       <%= fa_icon "reply" %>
     <% end %>
-    <h1>
-      <%= (t :student).pluralize.capitalize %>
-    </h1>
+    <h1><%= (t :student).pluralize.capitalize %></h1>
     <hr>
     <div class="card-btns">
       <%= link_to t(:new) +' ' + t(:student), new_course_student_path, class: "btn btn-primary float-right btn-sm" %>
@@ -14,27 +14,13 @@
     <table class="table table-striped text-center table-responsive table-students">
       <thead>
         <tr>
-          <th>
-            <%= t :surname %>
-          </th>
-          <th>
-            <%= t :name %>
-          </th>
-          <th>
-            <%= t :s_number %>
-          </th>
-          <th>
-            <%= t :document %> 
-          </th>
-          <th>
-            Email
-          </th>
-          <th>
-            <%= t :edit %>
-          </th>
-          <th>
-            <%= t :delete %>
-          </th>
+          <th><%= t :surname %></th>
+          <th><%= t :name %></th>
+          <th><%= t :s_number %></th>
+          <th><%= t :document %></th>
+          <th><%= t :email %></th>
+          <th><%= t :edit %></th>
+          <th><%= t :delete %></th>
         </tr>
       </thead>
         <tbody>
@@ -45,28 +31,18 @@
           <% else %>
             <% @students.each do |student| %>
               <tr>
-                <td>
-                  <%= student.surname %>
-                </td>
-                <td>
-                  <%= student.name %>
-                </td>
-                <td>
-                  <%= student.s_number %>
-               </td>
-                <td>
-                  <%= student.dni %>
-               </td>
-                <td>
-                  <%= student.email %>
-               </td>
+                <td><%= student.surname %></td>
+                <td><%= student.name %></td>
+                <td><%= student.s_number %></td>
+                <td><%= student.dni %></td>
+                <td><%= student.email %></td>
                 <td>
                   <%= link_to edit_course_student_path(@course, student), class: "btn btn-warning btn-sm", :title => (t(:edit)) do %>
                     <%= fa_icon "pencil" %>
                   <% end %>
                 </td>
                 <td>
-                  <button data-id="<%= @course.id %>" data-toggle="modal" data-target="#delete-confirm" title="<%= t(:delete) %>" class="btn-delete btn btn-sm btn-danger">
+                  <button data-id="<%= student.id %>" data-toggle="modal" data-target="#delete-confirm" title="<%= t(:delete) %>" class="btn-delete-s btn btn-sm btn-danger">
                     <%= fa_icon "trash" %>
                   </button>
                 </td>
@@ -74,7 +50,7 @@
             <% end %>
           <% end %>
         </tbody>
-      </table>
+    </table>
       <div class="float-right">
         <%= paginate @students %>
       </div>
