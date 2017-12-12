@@ -1,6 +1,12 @@
-<h1>Listing examinations</h1>
-
-<table>
+<div class="card card-table">
+  <div class="container card-body">
+    <h1><%= (t :examinations).capitalize %></h1>
+    <hr>
+    <div class="card-btns">
+      <%= link_to 'New Examination', new_course_examination_path(params[:course_id]), class: "btn btn-primary float-right btn-sm" %>
+    </div>
+<table class="table table-striped text-center table-responsive table-courses">
+  <thead>
   <tr>
     <th>Title</th>
     <th>Date</th>
@@ -13,7 +19,7 @@
 <% @examinations.each do |examination| %>
   <tr>
     <td><%= examination.title %></td>
-    <td><%= examination.date %></td>
+    <td><%= examination.date.to_s.humanize %></td>
     <td><%= examination.min_mark %></td>
     <td><%= link_to 'Show', [examination.course, examination] %></td>
     <td><%= link_to 'Edit', edit_course_examination_path(examination.course, examination) %></td>
@@ -21,7 +27,10 @@
   </tr>
 <% end %>
 </table>
+      <div class="float-right">
+      </div>
+      <br>
+    </div>
+  </div>  
 
-<br />
 
-<%= link_to 'New Examination', new_course_examination_path(params[:course_id]) %>
