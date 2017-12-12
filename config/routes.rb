@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
-  resources :courses, except: [:show]
+
+  resources :courses, except: [:show] do 
+    resources :students, except: [:show]
+  end
+
+
   #User routes
   devise_for :users, skip: :all
 

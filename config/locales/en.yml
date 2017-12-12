@@ -1,49 +1,41 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  home: "Home"
-  signIn: "Sign In"
-  signOut: "Sing Out"
-  student: "Student"
-  examinations: "Examinations"
-  edit: "Edit"
-  delete: "Delete"
-  year: "Year"
-  course: "course"
-  no_results: "No Results"
-  cancel: "Cancel"
-  new: "New"
-  select_year: "You must select a year"
-  delete_course_msg: "You are about to delete the course, are you sure you want to continue?"
-  created_course: "Course was successfully created."
-  updated_course: "Course was successfully updated."
-  destroyed_course: "Course was successfully destroyed."
+  home: Home
+  signIn: Sign In
+  signOut: Sing Out
+  student: student
+  examinations: Examinations
+  edit: Edit
+  delete: Delete
+  year: Year
+  course: course
+  no_results: No Results
+  cancel: Cancel
+  new: New
+  s_number: Student number
+  marks: Marks
+  back: Go Back
+  new_student: New Student
+  edit_student: Edit Student
+  destroy_student: Delete Student
+  new_course: New Course
+  edit_course: Edit Course
+  destroy_course: Delete Course
+  select_year: You must select a year
+  delete_course_msg: 
+  delete_student_msg: You are about to delete the course. All examination mark associated to this it will be deleted as well. Are you sure you want to continue?
+  created_course: Course was successfully created.
+  updated_course: Course was successfully updated.
+  destroyed_course: Course was successfully destroyed.
+  created_student: Student was successfully created.
+  updated_student: Student was successfully updated.
+  destroyed_student: Student was successfully destroyed.
+  activerecord:
+    attributes:
+      student:
+        s_number: Student number
+        dni: Document
+    errors:
+      messages:
+        only_letters: only letters allowed
+        invalid_s_number: invalid student numbers
+        invalid_email: invalid email

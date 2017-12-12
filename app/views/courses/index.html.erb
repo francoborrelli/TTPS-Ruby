@@ -1,4 +1,4 @@
-<%= render 'modal', course: "d" %>
+<%= render partial: 'layouts/modal', locals: { del_msg: :delete_course_msg, title: :destroy_course, route_path: courses_path } %>
 
 <div class="card card-table">
   <div class="container card-body">
@@ -7,27 +7,17 @@
     </h1>
     <hr>
     <div class="card-btns">
-      <%= link_to t(:new) +' ' + t(:course), new_course_path, class: "btn btn-primary float-right btn-sm" %>
+      <%= link_to t(:new_course), new_course_path, class: "btn btn-primary float-right btn-sm" %>
     </div>
 
-    <table class="table table-striped text-center table-responsive">
+    <table class="table table-striped text-center table-responsive table-courses">
       <thead>
         <tr>
-          <th>
-            <%= t :year %>
-          </th>
-          <th>
-            <%= (t :examinations) %>
-          </th>
-          <th>
-            <%= (t :student).pluralize %>
-          </th>
-          <th>
-            <%= t :edit %>
-          </th>
-          <th>
-            <%= t :delete %>
-          </th>
+          <th><%= t :year %></th>
+          <th><%= t :examinations %></th>
+          <th><%= (t :student).pluralize.capitalize %></th>
+          <th><%= t :edit %></th>
+          <th><%= t :delete %></th>
         </tr>
       </thead>
         <tbody>
@@ -38,16 +28,14 @@
           <% else %>
             <% @courses.each do |course| %>
               <tr>
-                <td>
-                  <%= course.year %>
-                </td>
+                <td><%= course.year %></td>
                 <td>
                   <%= link_to edit_course_path(course), class: "btn btn-primary btn-sm", :title => (t(:examinations)) do %>
                     <% fa_icon "book" %>
                   <% end %>
                 </td>
                 <td>
-                  <%= link_to edit_course_path(course), class: "btn btn-primary btn-sm", :title => (t(:student).pluralize) do %>
+                  <%= link_to course_students_path(course), class: "btn btn-primary btn-sm", :title => (t(:student).pluralize) do %>
                     <% fa_icon "users" %>
                   <% end %>
                </td>

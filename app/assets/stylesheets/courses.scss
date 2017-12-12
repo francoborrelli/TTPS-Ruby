@@ -4,9 +4,14 @@
 
 
 .card-form{
+    &.xl{
+        max-width: 550px;
+    }
     max-width: 500px;
     margin: 0 auto;
 }
+
+
 
 .card-table{
     .card-body{
@@ -15,7 +20,7 @@
         .card-btns{
             padding-bottom: 50px;
         }
-        .table-responsive{
+        .table-courses{
             @media(min-width: 540px){
                 display: inline-table;
             }
