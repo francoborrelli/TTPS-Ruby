@@ -3,6 +3,5 @@ class Examination < ApplicationRecord
 
   validates :title, presence: true
   validates :date, presence: true
-  validates :s_number, presence: true, uniqueness: {scope: :course}
-
+  validates :min_score, presence: true, :format => { :with => /\A\d+(?:\.\d{0,2})?\z/ }, :numericality => {:greater_than_or_equal_to => 0, :less_than_or_equal_to => 100}
 end
