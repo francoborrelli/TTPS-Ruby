@@ -25,4 +25,5 @@
 <script>
   fSDate =  new Date(<%= @examination.course.year %>, 1, 1);
   fEDate = new Date(<%= @examination.course.year + 1 %>, 4, 1);
+  lang = "<%= I18n.locale %>";
 </script>
