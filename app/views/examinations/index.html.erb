@@ -1,0 +1,27 @@
+<h1>Listing examinations</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Date</th>
+    <th>Min mark</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @examinations.each do |examination| %>
+  <tr>
+    <td><%= examination.title %></td>
+    <td><%= examination.date %></td>
+    <td><%= examination.min_mark %></td>
+    <td><%= link_to 'Show', [examination.course, examination] %></td>
+    <td><%= link_to 'Edit', edit_course_examination_path(examination.course, examination) %></td>
+    <td><%= link_to 'Destroy', [examination.course, examination], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Examination', new_course_examination_path(params[:course_id]) %>
