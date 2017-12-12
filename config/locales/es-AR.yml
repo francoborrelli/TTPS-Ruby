@@ -12,6 +12,7 @@ es-AR:
   delete: Borrar
   year: Año
   new: Nuevo
+  show: Ver
   cancel: Cancelar
   s_number: Legajo
   marks: Notas
@@ -22,12 +23,14 @@ es-AR:
   examination_date: Fecha de Evaluación
   document: Documento
   email: Email
+  show_examinations: Mostras Evaluaciones
   new_course: Nuevo Curso
   edit_course: Editar Curso
   destroy_course: Borrar Curso
   new_student: Nuevo Estudiante
   edit_student: Editar Estudiante
   destroy_student: Borrar Estudiante
+  show_students: Mostrar Estudiantes
   new_examination: Nueva evaluación
   edit_examination: Editar evaluación
   destroy_examination: Borrar evaluación

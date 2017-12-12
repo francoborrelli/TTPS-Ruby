@@ -8,6 +8,9 @@ class CoursesController < ApplicationController
     end
   end
 
+  def show 
+  end
+
   def new
     @course = Course.new
     render :form, locals: {title: :new_course}

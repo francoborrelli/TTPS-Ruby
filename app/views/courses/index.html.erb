@@ -14,8 +14,7 @@
       <thead>
         <tr>
           <th><%= t :year %></th>
-          <th><%= t :examinations %></th>
-          <th><%= (t :student).pluralize.capitalize %></th>
+          <th><%= t :show %></th>
           <th><%= t :edit %></th>
           <th><%= t :delete %></th>
         </tr>
@@ -30,15 +29,10 @@
               <tr>
                 <td><%= course.year %></td>
                 <td>
-                  <%= link_to course_examinations_path(course), class: "btn btn-primary btn-sm", :title => (t(:examinations)) do %>
+                  <%= link_to course_path(course), class: "btn btn-primary btn-sm", :title => (t(:show)) do %>
                     <% fa_icon "book" %>
                   <% end %>
                 </td>
-                <td>
-                  <%= link_to course_students_path(course), class: "btn btn-primary btn-sm", :title => (t(:student).pluralize) do %>
-                    <% fa_icon "users" %>
-                  <% end %>
-               </td>
                 <td>
                   <%= link_to edit_course_path(course), class: "btn btn-warning btn-sm", :title => (t(:edit)) do %>
                     <% fa_icon "pencil" %>

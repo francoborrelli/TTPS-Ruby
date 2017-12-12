@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :courses, except: [:show] do 
+  resources :courses do 
     resources :students, except: [:show]
     resources :examinations, except: [:show]
   end
