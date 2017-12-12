@@ -36,10 +36,8 @@ ActiveRecord::Schema.define(version: 20171212203604) do
     t.float "score", null: false
     t.bigint "examination_id"
     t.bigint "student_id"
-    t.bigint "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["course_id"], name: "index_scores_on_course_id"
     t.index ["examination_id"], name: "index_scores_on_examination_id"
     t.index ["student_id"], name: "index_scores_on_student_id"
   end
@@ -73,7 +71,6 @@ ActiveRecord::Schema.define(version: 20171212203604) do
   end
 
   add_foreign_key "examinations", "courses"
-  add_foreign_key "scores", "courses"
   add_foreign_key "scores", "examinations"
   add_foreign_key "scores", "students"
   add_foreign_key "students", "courses"

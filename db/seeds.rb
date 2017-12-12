@@ -24,8 +24,8 @@ end
 Examination.all.each do
     |exam|
     for i in 0..4
-        offset = rand(exam.students.count)
-        student = exam.students.offset(offset).first
+        offset = rand(exam.course.students.count)
+        student = exam.course.students.offset(offset).first
         score = rand (0..100)
         Score.create({ :student => student, :examination => exam, :course => student.course,  :score => score })
     end
