@@ -2,6 +2,9 @@
 
 <div class="card card-table">
   <div class="container card-body">
+    <%= link_to courses_path, class: "btn btn-default float-right", :title => (t(:back)) do %>
+      <%= fa_icon "reply" %>
+    <% end %>
     <h1><%= (t :examinations).capitalize %></h1>
     <hr>
     <div class="card-btns">
