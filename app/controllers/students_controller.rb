@@ -2,7 +2,7 @@ class StudentsController < ApplicationController
 
   before_action :set_student, only: [:edit, :update, :destroy]
   before_action :set_course
-  before_action :authenticate_user!
+
 
   def index
     @students = @course.students.order("surname, name").page params[:page]
