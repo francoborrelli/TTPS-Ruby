@@ -22,6 +22,8 @@ es-AR:
   destroy_course: Borrar Curso
   new_student: Nuevo Estudiante
   edit_student: Editar Estudiante
+  destroy_student: Eliminar Estudiante
+  delete_student_msg: Estas a punto de elinar al estudiante. Todas sus notas asociadas tambien se borrarán. ¿Estás seguro que decias continuar?
   select_year: Debe seleccionar un año
   no_results: No se encontraron resultados
   delete_course_msg: Estas a punto de eliminar el curso. Todo alumno y evaluacion asociado al mismo se eliminará. ¿Estás seguro que deseas continuar?
