@@ -16,6 +16,9 @@ es-AR:
   s_number: Legajo
   marks: Notas
   back: Volver
+  title: Título
+  min_score: Nota mínima
+  examination_date: Fecha de Evaluación
   document: Documento
   new_course: Nuevo Curso
   edit_course: Editar Curso
@@ -23,6 +26,7 @@ es-AR:
   new_student: Nuevo Estudiante
   edit_student: Editar Estudiante
   destroy_student: Eliminar Estudiante
+  new_examination: Nueva evaluación
   delete_student_msg: Estas a punto de elinar al estudiante. Todas sus notas asociadas tambien se borrarán. ¿Estás seguro que decias continuar?
   select_year: Debe seleccionar un año
   no_results: No se encontraron resultados
