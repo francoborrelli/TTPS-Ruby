@@ -17,6 +17,7 @@ es-AR:
   marks: Notas
   back: Volver
   title: Título
+  in_percentage: en porcentaje
   min_score: Nota mínima
   examination_date: Fecha de Evaluación
   document: Documento
@@ -43,7 +44,7 @@ es-AR:
   created_examination: Evaluación eliminada correctamente.
   updated_examination: Evaluación actualizada correctamente.
   destroyed_examination: Evaluación eliminada correctamente.
-  
+
   activerecord:
     models:
       student: estudiante
@@ -65,6 +66,7 @@ es-AR:
         restrict_dependent_destroy:
           has_one: No se puede eliminar el registro porque existe un %{record} dependiente
           has_many: No se puede eliminar el registro porque existen %{record} dependientes
+        decimal_msg: No puede tener más de dos decimales
   date:
     abbr_day_names:
     - dom

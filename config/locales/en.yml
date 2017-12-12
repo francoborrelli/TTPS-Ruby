@@ -1,5 +1,6 @@
 en:
   home: Home
+  title: Title
   signIn: Sign In
   signOut: Sing Out
   student: student
@@ -11,6 +12,7 @@ en:
   no_results: No Results
   cancel: Cancel
   new: New
+  in_percentage: in percentage
   s_number: Student number
   marks: Marks
   back: Go Back
@@ -51,3 +53,4 @@ en:
         only_letters: only letters allowed
         invalid_s_number: invalid student numbers
         invalid_email: invalid email
+        decimal_msg: cannot have more than 2 decimals
