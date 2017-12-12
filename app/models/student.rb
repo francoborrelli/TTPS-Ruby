@@ -1,4 +1,5 @@
 class Student < ApplicationRecord
+  has_many :scores
   belongs_to :course
 
   validates :name, presence: true, length: { in: 0..50 }, format: { with: /\A[a-zA-Z]+\z/, message: :only_letters }

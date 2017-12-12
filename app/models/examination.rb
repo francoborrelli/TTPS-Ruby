@@ -1,4 +1,5 @@
 class Examination < ApplicationRecord
+  has_many :scores
   belongs_to :course
 
   validates :title, presence: true
