@@ -8,17 +8,4 @@ $(document).ready(function(){
         placement: "right"
     }); 
         
-    $error = function($element){
-        $div = $($element).closest(".field_with_errors")
-        $div.find("small").remove();
-        $div.removeClass("field_with_errors");
-    };
-    $("input").change(function(){
-        $error(this);
-    })
-
-    $("select").change(function(){
-        $error(this);
-    })
-  });
-
+}); 
