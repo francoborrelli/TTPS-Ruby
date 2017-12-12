@@ -12,6 +12,10 @@ en:
   no_results: No Results
   cancel: Cancel
   new: New
+  name: Name
+  surname: Surname
+  email: Email
+  document: Document number
   in_percentage: in percentage
   s_number: Student number
   marks: Marks
@@ -44,7 +48,7 @@ en:
     attributes:
       student:
         s_number: Student number
-        dni: Document
+        dni: Document number
       examination:
         min_score: Minimum Score
         date: Examination Date

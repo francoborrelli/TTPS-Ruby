@@ -21,6 +21,7 @@ es-AR:
   min_score: Nota mínima
   examination_date: Fecha de Evaluación
   document: Documento
+  email: Email
   new_course: Nuevo Curso
   edit_course: Editar Curso
   destroy_course: Borrar Curso
