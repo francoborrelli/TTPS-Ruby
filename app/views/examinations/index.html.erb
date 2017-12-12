@@ -18,7 +18,7 @@
 <% @examinations.each do |examination| %>
   <tr>
     <td><%= examination.title %></td>
-    <td><%= examination.date.strftime("%d-%m-%y") %></td>
+    <td><%= examination.date.strftime("%d/%m/%y") %></td>
     <td><%= examination.min_score %>%</td>
     <td><%= link_to t(:edit), edit_course_examination_path(examination.course, examination) %></td>
     <td><%= link_to t(:destroy), [examination.course, examination], :confirm => 'Are you sure?', :method => :delete %></td>
