@@ -18,6 +18,7 @@ en:
   edit_student: Edit Student
   new_course: New Course
   edit_course: Edit Course
+  destroy_course: Delete Course
   select_year: You must select a year
   delete_course_msg: You are about to delete the course. All student and examination associated to this course will be deleted as well. Are you sure you want to continue?
   created_course: Course was successfully created.

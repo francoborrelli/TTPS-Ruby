@@ -19,6 +19,7 @@ es-AR:
   document: Documento
   new_course: Nuevo Curso
   edit_course: Editar Curso
+  destroy_course: Borrar Curso
   new_student: Nuevo Estudiante
   edit_student: Editar Estudiante
   select_year: Debe seleccionar un año
