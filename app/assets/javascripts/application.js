@@ -12,6 +12,17 @@
 //
 //= require jquery3 
 //= require rails-ujs
-//= require_tree .
 //= require popper 
 //= require bootstrap-sprockets
+
+$(document).ready(function(){
+    $('.btn-delete').click(function(e) {
+        e.preventDefault();
+        $btn = $('#delete-confirm').find('.btn-danger')
+        $href = $btn.attr('href');
+        $slice = $(this).data('slice');
+        $new = $href.replace($href.slice($slice), $(this).data('id'));
+        $btn.attr('href', $new);
+        $('#delete-confirm').modal('show');
+    });
+});
