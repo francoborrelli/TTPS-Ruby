@@ -1,6 +1,5 @@
-<h1>Editing examination</h1>
+<%= render 'form', locals: { title: "edit"} %>
 
-<%= render 'form' %>
 
 <%= link_to 'Show', [@examination.course, @examination] %> |
 <%= link_to 'Back', course_examinations_path(@examination.course) %>

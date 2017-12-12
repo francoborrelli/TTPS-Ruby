@@ -1,29 +1,23 @@
-<%= form_for([@examination.course, @examination]) do |f| %>
-  <% if @examination.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@examination.errors.count, "error") %> prohibited this examination from being saved:</h2>
-
-      <ul>
-      <% @examination.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+<div class="card-form xl">
+  <div class="card">
+    <div class="card-body">
+      <h5><%= t(@title) %></h5> 
+      <hr>
+      <%= simple_form_for [@examination.course, @examination] do |f| %>
+          <div class="form-group">
+            <%= f.input :title, required: true %>
+          </div>
+          <div class="form-group">
+            <%= f.input :date, as: :string, input_html: { class: "datepicker", readonly: true, value: time_format(f.object.date) } %>
+          </div>
+          <div class="form-group">
+            <%= f.input :min_score, required: true %>
+          </div>
+          <div class="form-actions text-right">
+            <%= link_to t(:cancel), course_students_path, class: "btn btn-default" %>
+            <%= f.button :submit, class: "btn btn-primary" %>
+          </div>
       <% end %>
-      </ul>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
   </div>
-  <div class="field">
-    <%= f.label :date %><br />
-    <%= f.text_field :date %>
   </div>
-  <div class="field">
-    <%= f.label :min_score %><br />
-    <%= f.text_field :min_score %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
