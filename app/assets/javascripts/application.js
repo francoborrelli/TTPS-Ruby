@@ -15,5 +15,4 @@
 //= require_tree .
 //= require popper 
 //= require bootstrap-sprockets
-//= require turbolinks
 //= require js/datepicker.min
