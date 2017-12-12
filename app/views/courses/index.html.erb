@@ -30,7 +30,7 @@
               <tr>
                 <td><%= course.year %></td>
                 <td>
-                  <%= link_to edit_course_path(course), class: "btn btn-primary btn-sm", :title => (t(:examinations)) do %>
+                  <%= link_to course_examinations_path(course), class: "btn btn-primary btn-sm", :title => (t(:examinations)) do %>
                     <% fa_icon "book" %>
                   <% end %>
                 </td>
@@ -45,7 +45,7 @@
                   <% end %>
                 </td>
                 <td>
-                  <button data-id="<%= course.id %>" data-toggle="modal" data-target="#delete-confirm" title="<%= t(:delete) %>" class="btn-delete btn btn-sm btn-danger">
+                  <button data-id="<%= course.id %>" data-slice="9" data-toggle="modal" data-target="#delete-confirm" title="<%= t(:delete) %>" class="btn-delete btn btn-sm btn-danger">
                     <%= fa_icon "trash" %>
                   </button>
                 </td>

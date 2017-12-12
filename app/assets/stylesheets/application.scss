@@ -20,10 +20,13 @@
 
 @import "bootstrap";
 @import "font-awesome";
+@import "css/datepicker.min";
 @import "navbar";
 @import "footer";
 @import "courses";
 @import "students";
+@import "examinations";
+
 
 body {
     cursor: default;
