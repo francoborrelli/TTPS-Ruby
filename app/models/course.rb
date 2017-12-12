@@ -1,7 +1,7 @@
 class Course < ApplicationRecord
     has_many :students, dependent: :delete_all
 
-    validates :year, presence: true, uniqueness: true, numericality: { only_integer: true, greater_than_or_equal_to: :min_year,  less_than_or_equal_to: :max_year }
+    validates :year, presence: true, uniqueness: true, length: { is: 4 }, numericality: { only_integer: true, greater_than_or_equal_to: :min_year,  less_than_or_equal_to: :max_year }
 
     def min_year
         Date.today.year - 35
