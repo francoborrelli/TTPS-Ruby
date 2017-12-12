@@ -1,3 +1,5 @@
+<%= render partial: 'layouts/modal', locals: { del_msg: :delete_examination_msg, title: :destroy_examination, route_path: course_examination_path(@course , 0) } %>
+
 <div class="card card-table">
   <div class="container card-body">
     <h1><%= (t :examinations).capitalize %></h1>
@@ -20,8 +22,16 @@
     <td><%= examination.title %></td>
     <td><%= examination.date.strftime("%d/%m/%y") %></td>
     <td><%= examination.min_score %>%</td>
-    <td><%= link_to t(:edit), edit_course_examination_path(examination.course, examination) %></td>
-    <td><%= link_to t(:destroy), [examination.course, examination], :confirm => 'Are you sure?', :method => :delete %></td>
+    <td>
+      <%= link_to edit_course_examination_path(examination.course, examination), class: "btn btn-warning btn-sm", :title => (t(:edit)) do %>
+        <%= fa_icon "pencil" %>
+      <% end %>
+    </td>
+    <td>
+      <button data-id="<%= examination.id %>" data-slice="24" data-toggle="modal" data-target="#delete-confirm" title="<%= t(:delete) %>" class="btn-delete btn btn-sm btn-danger">
+        <%= fa_icon "trash" %>
+      </button>
+    </td>
   </tr>
 <% end %>
 </table>
