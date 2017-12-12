@@ -7,9 +7,6 @@ class ExaminationsController < ApplicationController
     @examinations = @course.examinations
   end
 
-  # GET courses/1/examinations/1
-  def show
-  end
 
   # GET courses/1/examinations/new
   def new
