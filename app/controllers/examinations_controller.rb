@@ -11,10 +11,12 @@ class ExaminationsController < ApplicationController
   # GET courses/1/examinations/new
   def new
     @examination = @course.examinations.build
+    render :form, locals: {title: :new_examination}
   end
 
   # GET courses/1/examinations/1/edit
   def edit
+    render :form, locals: {title: :edit_examination}
   end
 
   # POST courses/1/examinations
@@ -24,7 +26,7 @@ class ExaminationsController < ApplicationController
     if @examination.save
       redirect_to(course_examinations_path(@examination.course), notice: 'Examination was successfully created.')
     else
-      render action: 'new'
+      render :form, locals: {title: :new_examination}
     end
   end
 
@@ -33,7 +35,7 @@ class ExaminationsController < ApplicationController
     if @examination.update_attributes(examination_params)
       redirect_to(course_examinations_path(@examination.course), notice: 'Examination was successfully updated.')
     else
-      render action: 'edit'
+      render :form, locals: {title: :edit_examination}
     end
   end
 

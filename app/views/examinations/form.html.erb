@@ -1,7 +1,7 @@
 <div class="card-form xl">
   <div class="card">
     <div class="card-body">
-      <h5><%= t(@title) %></h5> 
+      <h5><%= t(title) %></h5> 
       <hr>
       <%= simple_form_for [@examination.course, @examination] do |f| %>
           <div class="form-group">
@@ -14,7 +14,7 @@
             <%= f.input :min_score, required: true %>
           </div>
           <div class="form-actions text-right">
-            <%= link_to t(:cancel), course_students_path, class: "btn btn-default" %>
+            <%= link_to t(:cancel), course_examinations_path(@examination.course), class: "btn btn-default" %>
             <%= f.button :submit, class: "btn btn-primary" %>
           </div>
       <% end %>
