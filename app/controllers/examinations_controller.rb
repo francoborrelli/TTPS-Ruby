@@ -22,7 +22,7 @@ class ExaminationsController < ApplicationController
     @examination = @course.examinations.build(examination_params)
 
     if @examination.save
-      redirect_to([@examination.course, @examination], notice: 'Examination was successfully created.')
+      redirect_to(course_examinations_path(@examination.course), notice: 'Examination was successfully created.')
     else
       render action: 'new'
     end
@@ -31,7 +31,7 @@ class ExaminationsController < ApplicationController
   # PUT courses/1/examinations/1
   def update
     if @examination.update_attributes(examination_params)
-      redirect_to([@examination.course, @examination], notice: 'Examination was successfully updated.')
+      redirect_to(course_examinations_path(@examination.course), notice: 'Examination was successfully updated.')
     else
       render action: 'edit'
     end
