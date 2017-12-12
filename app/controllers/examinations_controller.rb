@@ -24,7 +24,7 @@ class ExaminationsController < ApplicationController
     @examination = @course.examinations.build(examination_params)
 
     if @examination.save
-      redirect_to(course_examinations_path(@examination.course), notice: 'Examination was successfully created.')
+      redirect_to course_examinations_path(@examination.course), notice: t(:created_examination)
     else
       render :form, locals: {title: :new_examination}
     end
@@ -33,7 +33,7 @@ class ExaminationsController < ApplicationController
   # PUT courses/1/examinations/1
   def update
     if @examination.update_attributes(examination_params)
-      redirect_to(course_examinations_path(@examination.course), notice: 'Examination was successfully updated.')
+      redirect_to course_examinations_path(@examination.course), notice: t(:updated_examination)
     else
       render :form, locals: {title: :edit_examination}
     end
@@ -42,8 +42,7 @@ class ExaminationsController < ApplicationController
   # DELETE courses/1/examinations/1
   def destroy
     @examination.destroy
-
-    redirect_to course_examinations_url(@course)
+    redirect_to course_examinations_path(@course), notice: t(:destroyed_examination)
   end
 
   private
