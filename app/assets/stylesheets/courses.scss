@@ -1,29 +1,27 @@
 // Place all the styles related to the courses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-
-.card-form{
-    &.xl{
+.card-form {
+    &.xl {
         max-width: 550px;
     }
     max-width: 500px;
     margin: 0 auto;
 }
 
-a.first{
+a.first {
     margin-left: 10px;
 }
 
-.card-table{
-    .card-body{
+.card-table {
+    .card-body {
         padding: 40px;
         padding-bottom: 10px;
-        .card-btns{
+        .card-btns {
             padding-bottom: 50px;
         }
-        .table-courses{
-            @media(min-width: 540px){
+        .table-courses {
+            @media(min-width: 540px) {
                 display: inline-table;
             }
         }

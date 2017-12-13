@@ -1,0 +1,42 @@
+<table class="table table-striped text-center table-responsive">
+    <thead>
+        <tr>
+            <th colspan="2"><%= t :student %></th>
+            <% @examinations.each do |exam| %>
+                <th colspan = 2> <%= exam.title %> <br><small><%= exam.date.strftime("%d/%m/%y") %> </small></th>
+            <% end %>
+        </tr>
+        <tr>
+            <th><%= t :name %></th>
+            <th><%= t :s_number %></th>
+            <% @examinations.each do %>
+                <th>Nota</th>
+                <th>Estado</th>
+            <% end %>
+        </tr>
+    </thead>
+    <tbody>
+        <% @students.each do |student| %>
+            <tr>
+            <td><%= student.name %> <%= student.surname %></td>
+            <td><%= student.s_number %></td>
+            <% @examinations.each do |exam| %>
+                <% score = student.score_for_exam(exam) %>
+                <% if score.present? %>
+                    <td><%= score.score %>%</td>
+                    <td>
+                        <% if score.passed? %>
+                                <span class="text-success">Aprobó</span>
+                        <% else %>
+                                <span class="text-danger">Desaprobó</span>
+                        <% end %>
+                    </td>
+                <% else %>
+                    <td>-</td>
+                    <td><span class="text-warning"> Ausente </span></td>
+                <% end %> 
+            <% end %>
+            </tr>
+        <% end %>
+    </tbody>
+</table>

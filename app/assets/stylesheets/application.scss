@@ -12,12 +12,7 @@
  *
  */
 
- $theme-colors: (
-    warning: #FF7043,
-    primary: #5092B9,
-  ) !default;
-
-
+$theme-colors: ( warning: #FF7043, primary: #5092B9, ) !default;
 @import "bootstrap";
 @import "font-awesome";
 @import "css/datepicker.min";
@@ -26,8 +21,6 @@
 @import "courses";
 @import "students";
 @import "examinations";
-
-
 body {
     cursor: default;
     color: #444;
@@ -83,9 +76,9 @@ form {
     }
 }
 
-
 button,
-a, input[type="submit"] {
+a,
+input[type="submit"] {
     cursor: pointer;
 }
 
@@ -102,24 +95,23 @@ a:hover {
     text-decoration: none;
     color: rgba(0, 0, 0, .5);
     outline: 0;
-
     &.btn {
         color: white!important;
     }
-
-    &.btn-default, &.btn-default:active, &.btn-default:focus, &.btn-default:hover{
+    &.btn-default,
+    &.btn-default:active,
+    &.btn-default:focus,
+    &.btn-default:hover {
         background-color: #ddddde;
         color: #444;
         border: 1px solid #dddddd;
     }
-    &.btn-outline-primary{
+    &.btn-outline-primary {
         color: #007bff!important;
     }
-    
     &.btn-outline-primary:active,
     &.btn-outline-primary:focus,
     &.btn-outline-primary:hover {
         color: white!important;
     }
 }
-
