@@ -1,4 +1,4 @@
-<table class="table text-center table-responsive table-bordered table-hover">
+<table class="table text-center table-responsive table-bordered">
     <thead>
         <tr>
             <th colspan="2"><%= t :student %></th>
@@ -21,7 +21,7 @@
             <% end %>
         </tr>
     </thead>
-    <tbody>
+    <tbody class="table-hover">
         <% @students.each do |student| %>
             <tr>
             <td><%= student.name %> <%= student.surname %></td>
@@ -45,7 +45,7 @@
             </tr>
         <% end %>
     </tbody>
-    <tfoot>
+    <tfoot class="table-secondary">
         <tr>
           <td colspan="2">Cantidad Aprobados</td>
           <% @examinations.each do |exam| %>
@@ -65,7 +65,7 @@
           <% end %>
         </tr>
         <tr>
-          <td colspan="2">Porcentaje Probación</td>
+          <td colspan="2">Porcentaje Aprobación</td>
           <% @examinations.each do |exam| %>
             <td colspan="2"><%= exam.passing_percentage.round(2) %>%</td>
           <% end %>

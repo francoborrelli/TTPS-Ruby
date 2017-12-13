@@ -13,6 +13,8 @@
  */
 
 $theme-colors: ( warning: #FF7043, primary: #5092B9, ) !default;
+
+
 @import "bootstrap";
 @import "font-awesome";
 @import "css/datepicker.min";
@@ -114,4 +116,8 @@ a:hover {
     &.btn-outline-primary:hover {
         color: white!important;
     }
+}
+
+.table-secondary, .table-secondary > th, .table-secondary > td {
+    background-color: #fafafa;
 }
