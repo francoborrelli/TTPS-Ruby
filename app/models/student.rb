@@ -28,4 +28,8 @@ class Student < ApplicationRecord
   def score_for_exam(exam)
     Score.find_by_pair(self, exam).first
   end
+
+  def to_label
+    "#{s_number} - #{name} #{surname}"
+  end
 end

@@ -17,6 +17,7 @@ es-AR:
   s_number: Legajo
   marks: Notas
   back: Volver
+  score: Nota
   title: Título
   in_percentage: en porcentaje
   min_score: Nota mínima
@@ -36,6 +37,8 @@ es-AR:
   destroy_examination: Borrar evaluación
   delete_student_msg: Estas a punto de elinar al estudiante. Todas sus notas asociadas tambien se borrarán. ¿Estás seguro que decias continuar?
   select_year: Debe seleccionar un año
+  select_examination: Debe seleccionar una evaluación
+  select_student: Debe seleccionar un estudiante
   no_results: No se encontraron resultados
   delete_course_msg: Estas a punto de eliminar el curso. Todo alumno y evaluacion asociado al mismo se eliminará. ¿Estás seguro que deseas continuar?
   delete_examination_msg: Estas a punto de eliminar la evaluación. Todo nota de los alumnos asociados al mismo se eliminará. ¿Estás seguro que deseas continuar?
@@ -53,7 +56,7 @@ es-AR:
     models:
       student: estudiante
       examination: Evaluación
-
+      score: Nota
     attributes:
       student:
         s_number: Legajo
@@ -64,6 +67,9 @@ es-AR:
         min_score: Nota mínima
         date: Fecha de evaluación
         title: Título
+      score:
+        examination: Evaluación
+        student: Estudiante
     errors:
       messages:
         record_invalid: "La validación falló: %{errors}"

@@ -1,0 +1,28 @@
+<div class="card-form xl">
+  <div class="card">
+    <div class="card-body">
+      <h5><%= t(@title) %></h5> 
+      <hr>
+      <%= simple_form_for [@score] do |f| %>
+          <div class="form-group">
+             <%= f.association :examination, 
+                  collection: @course.examinations,
+                  :include_blank => t(:select_examination)  %>
+          </div>
+          <div class="form-group">
+            <%= f.association :student,
+                collection: @course.students,
+                :include_blank => t(:select_student)  %>
+          </div>
+          <div class="form-group">
+            <%= f.input :score, placeholder: "#{t(:score)} #{t(:in_percentage)}" %>
+          </div>
+          <div class="form-actions text-right">
+            <%= link_to t(:cancel), scores_path, class: "btn btn-default" %>
+            <%= f.button :submit, class: "btn btn-primary" %>
+          </div>
+      <% end %>
+    </div>
+  </div>
+  </div>
+

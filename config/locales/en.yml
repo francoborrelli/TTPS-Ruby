@@ -5,6 +5,7 @@ en:
   signOut: Sing Out
   student: student
   examinations: Examinations
+  score: Score
   edit: Edit
   delete: Delete
   year: Year
@@ -33,6 +34,8 @@ en:
   edit_examination: Edit Examination
   destroy_examination: Delete Examination
   select_year: You must select a year
+  select_examination: You must select a examination
+  select_student: You must select a student
   delete_course_msg: You are about to delete the course. All student and examination associated to it will be deleted as well. Are you sure you want to continue?
   delete_student_msg: You are about to delete the student. All score associated to it will be deleted as well. Are you sure you want to continue?
   delete_examination_msg: You are about to delete the examination. All student score associated to it will be deleted as well. Are you sure you want to continue?
@@ -47,6 +50,7 @@ en:
   destroyed_examination: Examination was successfully destroyed.
   activerecord:
     attributes:
+      score:
       student:
         s_number: Student number
         dni: Document number
