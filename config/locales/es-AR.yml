@@ -24,6 +24,8 @@ es-AR:
   examination_date: Fecha de Evaluación
   document: Documento
   email: Email
+  new_score: Nueva Nota
+  edit_score: Editar Nota
   show_examinations: Mostras Evaluaciones
   new_course: Nuevo Curso
   edit_course: Editar Curso
