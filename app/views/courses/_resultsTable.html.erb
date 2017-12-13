@@ -1,9 +1,15 @@
-<table class="table table-striped text-center table-responsive">
+<table class="table text-center table-responsive table-bordered table-hover">
     <thead>
         <tr>
             <th colspan="2"><%= t :student %></th>
             <% @examinations.each do |exam| %>
-                <th colspan = 2> <%= exam.title %> <br><small><%= exam.date.strftime("%d/%m/%y") %> </small></th>
+                <th colspan = 2> 
+                    <%= exam.title %> 
+                    <br>
+                    <small>
+                        <%= exam.date.strftime("%d/%m/%y") %> 
+                    </small>
+                </th>
             <% end %>
         </tr>
         <tr>
@@ -39,4 +45,30 @@
             </tr>
         <% end %>
     </tbody>
+    <tfoot>
+        <tr>
+          <td colspan="2">Cantidad Aprobados</td>
+          <% @examinations.each do |exam| %>
+            <td colspan="2"><%= exam.passing_students %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <td colspan="2">Cantidad Desaprobados</td>
+          <% @examinations.each do |exam| %>
+            <td colspan="2"><%= exam.failed_students %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <td colspan="2">Cantidad Ausentes</td>
+          <% @examinations.each do |exam| %>
+            <td colspan="2"><%= exam.absent_students %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <td colspan="2">Porcentaje Probación</td>
+          <% @examinations.each do |exam| %>
+            <td colspan="2"><%= exam.passing_percentage.round(2) %>%</td>
+          <% end %>
+        </tr>
+    </tfoot>
 </table>
