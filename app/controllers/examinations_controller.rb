@@ -1,6 +1,6 @@
 class ExaminationsController < ApplicationController
-  before_action :set_examinations
-  before_action :set_examination, only: %i[show edit update destroy]
+  before_action :set_course
+  before_action :set_examination, only: %i[show edit update destroy ]
 
   # GET courses/1/examinations
   def index
@@ -50,7 +50,7 @@ class ExaminationsController < ApplicationController
   private
 
   # Use callbacks to share common setup or constraints between actions.
-  def set_examinations
+  def set_course
     @course = Course.find(params[:course_id])
   end
 

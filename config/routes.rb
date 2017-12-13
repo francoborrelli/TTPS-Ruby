@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  resources :scores
   resources :courses do
     resources :students, except: [:show]
     resources :examinations, except: [:show]
+    match 'get_students', to: 'request#get_students', via: [:post]
   end
 
   # User routes

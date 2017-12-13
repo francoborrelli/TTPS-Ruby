@@ -3,16 +3,16 @@
     <div class="card-body">
       <h5><%= t(@title) %></h5> 
       <hr>
-      <%= simple_form_for [@score] do |f| %>
+      <%= simple_form_for [@score], html: {data: { course: @course.id }} do |f| %>
           <div class="form-group">
              <%= f.association :examination, 
                   collection: @course.examinations,
-                  :include_blank => t(:select_examination)  %>
+                  :include_blank => t(:select_examination) %>
           </div>
           <div class="form-group">
             <%= f.association :student,
-                collection: @course.students,
-                :include_blank => t(:select_student)  %>
+                collection: [], group_method: :student, 
+                include_blank: t(:select_student) %>
           </div>
           <div class="form-group">
             <%= f.input :score, placeholder: "#{t(:score)} #{t(:in_percentage)}" %>
@@ -25,4 +25,3 @@
     </div>
   </div>
   </div>
-
