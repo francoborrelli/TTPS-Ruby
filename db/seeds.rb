@@ -1,9 +1,9 @@
 User.create(username: 'admin', password: '123456', email: 'admin@admin.com')
 
-Course.create year: Date.today.year 
-Course.create year: (Date.today.year - 1)
+Course.create year: Time.zone.today.year
+Course.create year: (Time.zone.today.year - 1)
 
-(0..7).each do |i|
+(0..10).each do |i|
   offset = rand(Course.count)
   course = Course.offset(offset).first
   name = Faker::HarryPotter.character.split(/\W+/)
@@ -12,19 +12,19 @@ Course.create year: (Date.today.year - 1)
 end
 
 Course.all.each do |course|
-  for i in 0..4
-    title = Faker::GameOfThrones.quote.truncate(33)
-    date = Date.today.change(year: course.year) + i.days
-    score = rand (0..100)
+  (0..4).each do |i|
+    title = 'Test ' + i.to_s
+    date = Time.zone.today.change(year: course.year) + i.days
+    score = rand(0..100)
     Examination.create(course: course, title: title, min_score: score, date: date)
   end
 end
 
 Examination.all.each do |exam|
-  for i in 0..4
-    offset = rand(exam.course.students.count)
-    student = exam.course.students.offset(offset).first
-    score = rand (0..100)
+  10.times do
+    offset = rand(exam.students.count)
+    student = exam.students.offset(offset).first
+    score = rand(0..100.0).round(2)
     Score.create(student: student, examination: exam, score: score)
   end
 end
