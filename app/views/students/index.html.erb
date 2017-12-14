@@ -10,47 +10,48 @@
     <div class="card-btns">
       <%= link_to t(:new_student), new_course_student_path, class: "btn btn-primary float-right btn-sm" %>
     </div>
-
-    <table class="table table-striped text-center table-responsive table-students">
-      <thead>
-        <tr>
-          <th><%= t :surname %></th>
-          <th><%= t :name %></th>
-          <th><%= t :s_number %></th>
-          <th><%= t :document %></th>
-          <th><%= t :email %></th>
-          <th><%= t :edit %></th>
-          <th><%= t :delete %></th>
-        </tr>
-      </thead>
-        <tbody>
-          <% if @students.empty? %>
-            <td colspan="7">
-              <%= t :no_results %>
-            </td>
-          <% else %>
-            <% @students.each do |student| %>
-              <tr>
-                <td><%= student.surname %></td>
-                <td><%= student.name %></td>
-                <td><%= student.s_number %></td>
-                <td><%= student.dni %></td>
-                <td><%= student.email %></td>
-                <td>
-                  <%= link_to edit_course_student_path(@course, student), class: "btn btn-warning btn-sm", :title => (t(:edit)) do %>
-                    <%= fa_icon "pencil" %>
-                  <% end %>
-                </td>
-                <td>
-                  <button data-id="<%= student.id %>" data-slice="20" data-toggle="modal" data-target="#delete-confirm" title="<%= t(:delete) %>" class="btn-delete btn btn-sm btn-danger">
-                    <%= fa_icon "trash" %>
-                  </button>
-                </td>
-              </tr>
+    <div class="table-responsive">
+      <table class="table table-striped text-center">
+        <thead>
+          <tr>
+            <th><%= t :surname %></th>
+            <th><%= t :name %></th>
+            <th><%= t :s_number %></th>
+            <th><%= t :document %></th>
+            <th><%= t :email %></th>
+            <th><%= t :edit %></th>
+            <th><%= t :delete %></th>
+          </tr>
+        </thead>
+          <tbody>
+            <% if @students.empty? %>
+              <td colspan="7">
+                <%= t :no_results %>
+              </td>
+            <% else %>
+              <% @students.each do |student| %>
+                <tr>
+                  <td><%= student.surname %></td>
+                  <td><%= student.name %></td>
+                  <td><%= student.s_number %></td>
+                  <td><%= student.dni %></td>
+                  <td><%= student.email %></td>
+                  <td>
+                    <%= link_to edit_course_student_path(@course, student), class: "btn btn-warning btn-sm", :title => (t(:edit)) do %>
+                      <%= fa_icon "pencil" %>
+                    <% end %>
+                  </td>
+                  <td>
+                    <button data-id="<%= student.id %>" data-slice="20" data-toggle="modal" data-target="#delete-confirm" title="<%= t(:delete) %>" class="btn-delete btn btn-sm btn-danger">
+                      <%= fa_icon "trash" %>
+                    </button>
+                  </td>
+                </tr>
+              <% end %>
             <% end %>
-          <% end %>
-        </tbody>
-    </table>
+          </tbody>
+      </table>
+    </div>
       <div class="float-right">
         <%= paginate @students %>
       </div>
