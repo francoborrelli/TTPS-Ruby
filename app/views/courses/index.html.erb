@@ -9,45 +9,46 @@
     <div class="card-btns">
       <%= link_to t(:new_course), new_course_path, class: "btn btn-primary float-right btn-sm" %>
     </div>
-
-    <table class="table table-striped text-center table-responsive table-courses">
-      <thead>
-        <tr>
-          <th><%= t :year %></th>
-          <th><%= t :show %></th>
-          <th><%= t :edit %></th>
-          <th><%= t :delete %></th>
-        </tr>
-      </thead>
-        <tbody>
-          <% if @courses.empty? %>
-            <td colspan="5">
-              <%= t :no_results %>
-            </td>
-          <% else %>
-            <% @courses.each do |course| %>
-              <tr>
-                <td><%= course.year %></td>
-                <td>
-                  <%= link_to course_path(course), class: "btn btn-primary btn-sm", :title => (t(:show)) do %>
-                    <% fa_icon "book" %>
-                  <% end %>
-                </td>
-                <td>
-                  <%= link_to edit_course_path(course), class: "btn btn-warning btn-sm", :title => (t(:edit)) do %>
-                    <% fa_icon "pencil" %>
-                  <% end %>
-                </td>
-                <td>
-                  <button data-id="<%= course.id %>" data-slice="9" data-toggle="modal" data-target="#delete-confirm" title="<%= t(:delete) %>" class="btn-delete btn btn-sm btn-danger">
-                    <%= fa_icon "trash" %>
-                  </button>
-                </td>
-              </tr>
+    <div class="table-responsive">
+      <table class="table table-striped text-center">
+        <thead>
+          <tr>
+            <th><%= t :year %></th>
+            <th><%= t :show %></th>
+            <th><%= t :edit %></th>
+            <th><%= t :delete %></th>
+          </tr>
+        </thead>
+          <tbody>
+            <% if @courses.empty? %>
+              <td colspan="5">
+                <%= t :no_results %>
+              </td>
+            <% else %>
+              <% @courses.each do |course| %>
+                <tr>
+                  <td><%= course.year %></td>
+                  <td>
+                    <%= link_to course_path(course), class: "btn btn-primary btn-sm", :title => (t(:show)) do %>
+                      <% fa_icon "book" %>
+                    <% end %>
+                  </td>
+                  <td>
+                    <%= link_to edit_course_path(course), class: "btn btn-warning btn-sm", :title => (t(:edit)) do %>
+                      <% fa_icon "pencil" %>
+                    <% end %>
+                  </td>
+                  <td>
+                    <button data-id="<%= course.id %>" data-slice="9" data-toggle="modal" data-target="#delete-confirm" title="<%= t(:delete) %>" class="btn-delete btn btn-sm btn-danger">
+                      <%= fa_icon "trash" %>
+                    </button>
+                  </td>
+                </tr>
+              <% end %>
             <% end %>
-          <% end %>
-        </tbody>
-      </table>
+          </tbody>
+        </table>
+      </div>
       <div class="float-right">
         <%= paginate @courses %>
       </div>

@@ -8,7 +8,7 @@
     <div class="card-btns">
         <%= link_to t(:show_examinations), course_examinations_path(@course), class: "btn btn-primary float-right btn-sm first", :title => (t(:examinations)) %> 
         <%= link_to t(:show_students), course_students_path(@course), class: "btn btn-primary float-right btn-sm first", :title => (t(:student).pluralize) %> 
-        <%= link_to t(:new_score), new_course_score_path(@course), class: "btn btn-secondary float-right btn-sm", :title => (t(:student).pluralize) %>
+        <%= link_to t(:new_score), new_course_score_path(@course), class: "btn btn-secondary float-right btn-sm  #{( @examinations.present? && @students.present? ? "" : "disabled") }", :title => (t(:student).pluralize) %>
     </div>
 
     <%= render 'resultsTable' %>
