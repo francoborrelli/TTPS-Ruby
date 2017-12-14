@@ -25,6 +25,7 @@ class ScoresController < ApplicationController
 
     if @score.save
       redirect_to @score, notice: 'Score was successfully created.'
+      redirect_to @course, notice: 'Score was successfully created.'
     else
       render :new
     end
@@ -34,6 +35,7 @@ class ScoresController < ApplicationController
   def update
     if @score.update(score_params)
       redirect_to @score, notice: 'Score was successfully updated.'
+      redirect_to @course, notice: 'Score was successfully updated.'
     else
       render :edit
     end
@@ -53,6 +55,7 @@ class ScoresController < ApplicationController
 
     def set_course
       @course = Course.first
+      @course = Course.find(params[:course_id])
     end
 
     # Only allow a trusted parameter "white list" through.
