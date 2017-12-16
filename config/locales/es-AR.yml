@@ -12,27 +12,41 @@ es-AR:
   delete: Borrar
   year: Año
   new: Nuevo
+  show: Ver
   cancel: Cancelar
   s_number: Legajo
   marks: Notas
   back: Volver
+  scores: Notas
   title: Título
+  passed: Aprobado
+  failed: Desaprobado
+  status: Estado
   in_percentage: en porcentaje
   min_score: Nota mínima
   examination_date: Fecha de Evaluación
   document: Documento
   email: Email
+  edit_scores: Editar Notas
+  score: Nota
+  upload_scores: Cargar Notas
+  new_score: Nueva Nota
+  edit_score: Editar Nota
+  show_examinations: Mostras Evaluaciones
   new_course: Nuevo Curso
   edit_course: Editar Curso
   destroy_course: Borrar Curso
   new_student: Nuevo Estudiante
   edit_student: Editar Estudiante
   destroy_student: Borrar Estudiante
+  show_students: Mostrar Estudiantes
   new_examination: Nueva evaluación
   edit_examination: Editar evaluación
   destroy_examination: Borrar evaluación
   delete_student_msg: Estas a punto de elinar al estudiante. Todas sus notas asociadas tambien se borrarán. ¿Estás seguro que decias continuar?
   select_year: Debe seleccionar un año
+  select_examination: Debe seleccionar una evaluación
+  select_student: Debe seleccionar un estudiante
   no_results: No se encontraron resultados
   delete_course_msg: Estas a punto de eliminar el curso. Todo alumno y evaluacion asociado al mismo se eliminará. ¿Estás seguro que deseas continuar?
   delete_examination_msg: Estas a punto de eliminar la evaluación. Todo nota de los alumnos asociados al mismo se eliminará. ¿Estás seguro que deseas continuar?
@@ -45,12 +59,12 @@ es-AR:
   created_examination: Evaluación eliminada correctamente.
   updated_examination: Evaluación actualizada correctamente.
   destroyed_examination: Evaluación eliminada correctamente.
-
+  updated_scores: Notas actualizadas correctamente.
   activerecord:
     models:
       student: estudiante
       examination: Evaluación
-
+      score: Nota
     attributes:
       student:
         s_number: Legajo
@@ -61,6 +75,9 @@ es-AR:
         min_score: Nota mínima
         date: Fecha de evaluación
         title: Título
+      score:
+        examination: Evaluación
+        student: Estudiante
     errors:
       messages:
         record_invalid: "La validación falló: %{errors}"

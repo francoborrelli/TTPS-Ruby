@@ -5,6 +5,7 @@ en:
   signOut: Sing Out
   student: student
   examinations: Examinations
+  scores: Scores
   edit: Edit
   delete: Delete
   year: Year
@@ -12,14 +13,19 @@ en:
   no_results: No Results
   cancel: Cancel
   new: New
+  show: Show
   name: Name
   surname: Surname
   email: Email
+  passed: Passed
+  failed: Failed
   document: Document number
   in_percentage: in percentage
   s_number: Student number
   marks: Marks
   back: Go Back
+  edit_scores: Edit Scores
+  upload_scores: Update Scores
   examination_date: Examination Date
   min_score: Minimum score
   new_student: New Student
@@ -32,6 +38,8 @@ en:
   edit_examination: Edit Examination
   destroy_examination: Delete Examination
   select_year: You must select a year
+  select_examination: You must select a examination
+  select_student: You must select a student
   delete_course_msg: You are about to delete the course. All student and examination associated to it will be deleted as well. Are you sure you want to continue?
   delete_student_msg: You are about to delete the student. All score associated to it will be deleted as well. Are you sure you want to continue?
   delete_examination_msg: You are about to delete the examination. All student score associated to it will be deleted as well. Are you sure you want to continue?
@@ -44,8 +52,10 @@ en:
   created_examination: Examination was successfully created.
   updated_examination: Examination was successfully updated.
   destroyed_examination: Examination was successfully destroyed.
+  updated_scores: Scores were successfully updated.
   activerecord:
     attributes:
+      score:
       student:
         s_number: Student number
         dni: Document number

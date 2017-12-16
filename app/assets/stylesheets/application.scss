@@ -1,22 +1,4 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- */
-
- $theme-colors: (
-    warning: #FF7043,
-    primary: #5092B9,
-  ) !default;
-
+$theme-colors: ( warning: #FF7043, primary: #5092B9, ) !default;
 
 @import "bootstrap";
 @import "font-awesome";
@@ -26,6 +8,8 @@
 @import "courses";
 @import "students";
 @import "examinations";
+@import "scores";
+
 
 
 body {
@@ -83,9 +67,9 @@ form {
     }
 }
 
-
 button,
-a, input[type="submit"] {
+a,
+input[type="submit"] {
     cursor: pointer;
 }
 
@@ -102,24 +86,40 @@ a:hover {
     text-decoration: none;
     color: rgba(0, 0, 0, .5);
     outline: 0;
-
     &.btn {
         color: white!important;
     }
-
-    &.btn-default, &.btn-default:active, &.btn-default:focus, &.btn-default:hover{
+    &.btn-default,
+    &.btn-default:active,
+    &.btn-default:focus,
+    &.btn-default:hover {
         background-color: #ddddde;
         color: #444;
         border: 1px solid #dddddd;
     }
-    &.btn-outline-primary{
+    &.btn-outline-primary {
         color: #007bff!important;
     }
-    
     &.btn-outline-primary:active,
     &.btn-outline-primary:focus,
     &.btn-outline-primary:hover {
         color: white!important;
+    }
+}
+
+.table-secondary, .table-secondary > th, .table-secondary > td {
+    background-color: #fafafa;
+}
+
+.table {
+    th{
+        vertical-align: middle!important;
+    }
+}
+
+a, button{
+    &.disabled{
+        cursor: not-allowed!important;
     }
 }
 
