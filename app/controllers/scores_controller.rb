@@ -1,12 +1,10 @@
 class ScoresController < ApplicationController
   before_action :set_course, :set_examination, only: %i[index update]
 
-  # GET /scores
   def index
     @scores = get_scores_ordered.page(params[:page])
   end
 
-  # PATCH/PUT /scores/1
   def update
     if @examination.update(score_params)
       redirect_to course_examination_scores_path(@course, @examination), notice: (t :updated_scores)
