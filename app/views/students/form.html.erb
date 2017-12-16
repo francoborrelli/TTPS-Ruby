@@ -1,7 +1,7 @@
 <div class="card-form xl">
   <div class="card">
     <div class="card-body">
-      <h5><%= t(title) %></h5> 
+      <h5 class="bold"><%= t(title) %></h5> 
       <hr>
       <%= simple_form_for [@course, @student] do |f| %>
           <div class="form-group">
@@ -21,7 +21,7 @@
           </div>
           <br>
           <div class="form-actions text-right">
-            <%= link_to t(:cancel), course_students_path, class: "btn btn-default" %>
+            <%= link_to t(:cancel), course_students_path, class: "btn btn-secondary" %>
             <%= f.button :submit, class: "btn btn-primary" %>
           </div>
       <% end %>
