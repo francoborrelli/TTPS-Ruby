@@ -24,6 +24,7 @@ en:
   s_number: Student number
   marks: Marks
   back: Go Back
+  upload_scores: Update Scores
   examination_date: Examination Date
   min_score: Minimum score
   new_student: New Student
