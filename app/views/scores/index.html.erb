@@ -6,7 +6,7 @@
     <h1><%= t(:scores) %> - <%= @examination.title %></h1> 
     <hr>
     <div class="card-btns">
-      <button class="btn btn btn-primary btn-sm float-right" id="edit-btn">Editar Notas</button>
+      <button class="btn btn btn-primary btn-sm float-right" id="edit-btn"><%= t :edit_scores %></button>
     </div>
     <%= simple_form_for @examination, 
         url: course_examination_scores_edit_path(@course, @examination), 
@@ -15,7 +15,7 @@
         <thead>
           <th><%= t :name %></th>
           <th><%= t :s_number %></th>
-          <th><%= t :score %></th>
+          <th><%= t :score %>   </th>
         </thead>
         <tbody>
           <%= f.fields_for :scores do |score| %>

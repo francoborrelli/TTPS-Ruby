@@ -24,6 +24,7 @@ en:
   s_number: Student number
   marks: Marks
   back: Go Back
+  edit_scores: Edit Scores
   upload_scores: Update Scores
   examination_date: Examination Date
   min_score: Minimum score
@@ -51,6 +52,7 @@ en:
   created_examination: Examination was successfully created.
   updated_examination: Examination was successfully updated.
   destroyed_examination: Examination was successfully destroyed.
+  updated_scores: Scores were successfully updated.
   activerecord:
     attributes:
       score:

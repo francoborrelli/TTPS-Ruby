@@ -27,6 +27,8 @@ es-AR:
   examination_date: Fecha de Evaluación
   document: Documento
   email: Email
+  edit_scores: Editar Notas
+  score: Nota
   upload_scores: Cargar Notas
   new_score: Nueva Nota
   edit_score: Editar Nota
@@ -57,7 +59,7 @@ es-AR:
   created_examination: Evaluación eliminada correctamente.
   updated_examination: Evaluación actualizada correctamente.
   destroyed_examination: Evaluación eliminada correctamente.
-
+  updated_scores: Notas actualizadas correctamente.
   activerecord:
     models:
       student: estudiante
