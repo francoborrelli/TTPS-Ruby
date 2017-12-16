@@ -24,10 +24,6 @@ module App
     config.i18n.default_locale = :'es-AR'
     config.time_zone = 'America/Argentina/Buenos_Aires'
 
-    #if cookies[:language].blank?
-    #  cookies.permanent[:language]  = :I18n.default_locale
-    #end
-
     config.assets.paths << Rails.root.join('vendor', 'assets')
 
     # Settings in config/environments/* take precedence over those specified here.
