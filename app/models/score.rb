@@ -18,17 +18,11 @@ class Score < ApplicationRecord
   scope :find_by_pair, ->(student, examination) { where(student: student, examination: examination) }
 
   def passed?
-    if score
+    if score.present?
       score >= examination.min_score
+    else
+      false
     end
-    false
   end
 
-  def status
-    if passed?
-      :passed
-    else
-      :failed
-    end
-  end
 end

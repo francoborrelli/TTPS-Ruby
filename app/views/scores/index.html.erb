@@ -1,16 +1,17 @@
 <div class="card card-table">
   <div class="card-body container">
-    <h1><%= t(:new_score) %></h1> 
+      <%= link_to course_examinations_path(@course), class: "btn btn-default float-right", :title => (t(:back)) do %>
+      <%= fa_icon "reply" %>
+    <% end %>
+    <h1><%= t(:scores) %> - <%= @examination.title %></h1> 
     <hr>
+    <div class="card-btns">
+      <button class="btn btn btn-primary btn-sm float-right" id="edit-btn">Editar Notas</button>
+    </div>
     <%= simple_form_for @examination, 
         url: course_examination_scores_edit_path(@course, @examination), 
         method: :post,  html: { id: :edit_scores } do |f| %>
-      <div class="card-btns">
-      <%= link_to_add_association 'add address', f, :scores, class: "btn btn-primary float-right btn-sm",       
-        'data-association-insertion-method' => 'append',
-        'data-association-insertion-node' => 'tbody'  %>
-      </div>
-      <table class="table">
+      <table class="table table-striped text-center">
         <thead>
           <th><%= t :name %></th>
           <th><%= t :s_number %></th>
@@ -20,27 +21,21 @@
           <%= f.fields_for :scores do |score| %>
             <tr class="nested-fields">
             <td>
-            <div class="form-group"> 
               <%= score.association :student, as: :display, association_label: 'full_name', label: false %>
-            </div> 
             </td>
             <td>
-            <div class="form-group"> 
               <%= score.association :student, as: :display, association_label: 's_number', label: false %>
-            </div> 
             </td>
-            <td>
-            <div class="form-group">    
-                <%= score.input :score, placeholder: t(:min_score) + ' ' + t(:in_percentage), label: false  %>
-            </div>
+            <td>  
+                <%= score.input :score, placeholder: "Sin nota cargada", label: false, input_html: {step: "0.01", disabled: "true", class: "table-input"}  %>
             </td>
             </tr>
           <% end %>
         </tbody>
         </table>
           <div class="form-actions text-right">
-            <%= link_to t(:cancel), course_examination_scores_path(@course, @examination), class: "btn btn-default" %>
-            <%= f.button :submit, class: "btn btn-primary" %>
+            <%= link_to (t :cancel), course_examination_scores_path(@examination.course, @examination),  class: "btn btn-secondary hide", id:"cancel-btn" %>
+            <%= f.button :submit, (t :upload_scores) , class: "btn btn-primary hide", id: "submit-btn" %>
           </div>
     <% end %>
  </div>
