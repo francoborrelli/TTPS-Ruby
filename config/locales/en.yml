@@ -17,6 +17,8 @@ en:
   name: Name
   surname: Surname
   email: Email
+  passed: Passed
+  failed: Failed
   document: Document number
   in_percentage: in percentage
   s_number: Student number

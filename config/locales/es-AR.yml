@@ -19,6 +19,8 @@ es-AR:
   back: Volver
   score: Nota
   title: Título
+  passed: Aprobado
+  failed: Desaprobado
   in_percentage: en porcentaje
   min_score: Nota mínima
   examination_date: Fecha de Evaluación

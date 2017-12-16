@@ -1,0 +1,49 @@
+<%= render partial: 'layouts/modal', locals: { del_msg: :delete_examination_msg, title: :destroy_examination, route_path: course_examination_path(@course , 0) } %>
+
+<div class="card card-table">
+  <div class="container card-body">
+    <%= link_to course_examination_path(@course, @examination), class: "btn btn-default float-right", :title => (t(:back)) do %>
+      <%= fa_icon "reply" %>
+    <% end %>
+    <h1><%= (t :examinations).capitalize %></h1>
+    <hr>
+    <div class="card-btns">
+      <%= link_to t(:new_examination), new_course_examination_path(), class: "btn btn-primary float-right btn-sm" %>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-striped text-center">
+        <thead>
+          <tr>
+            <th><%= t :student %></th>
+            <th><%= t :score %></th>
+            <th><%= t :state %></th>
+            <th><%= t :edit %></th>
+            <th><%= t :delete %></th>
+          </tr>
+        </thead>
+        </tbody>
+          <% @scores.each do |score| %>
+            <tr>
+              <td><%= score.student.full_name %></td>
+              <td><%= score.score %>%</td>
+              <td><%= t score.status %></td>
+              <td>
+              </td>
+              <td>
+                <button data-id="<%= score.id %>" data-slice="24" data-toggle="modal" data-target="#delete-confirm" title="<%= t(:delete) %>" class="btn-delete btn btn-sm btn-danger">
+                  <%= fa_icon "trash" %>
+                </button>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="float-right">
+      <%= paginate @scores %>
+    </div>
+    <br>
+  </div>
+</div>  
+
+

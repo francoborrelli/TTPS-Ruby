@@ -32,7 +32,12 @@ class Student < ApplicationRecord
   def took_exam?(exam)
     Score.find_by_pair(self, exam).present?
   end
+
+  def full_name
+    "#{name} #{surname}"
+  end
+
   def to_label
-    "#{s_number} - #{name} #{surname}"
+    "#{s_number} #{full_name}"
   end
 end

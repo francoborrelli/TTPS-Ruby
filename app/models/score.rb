@@ -17,4 +17,12 @@ class Score < ApplicationRecord
   def passed?
     score >= examination.min_score
   end
+
+  def status
+    if passed?
+      :passed
+    else
+      :failed
+    end
+  end
 end

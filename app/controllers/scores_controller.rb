@@ -1,9 +1,10 @@
 class ScoresController < ApplicationController
   before_action :set_score, only: [:show, :edit, :update, :destroy]
-  before_action :set_course, only: [:new, :create, :update, :edit]
+  before_action :set_course, :set_examination, only: [:index]
+
   # GET /scores
   def index
-    @scores = Score.all
+    @scores = get_scores_ordered.page(params[:page])
   end
 
   # GET /scores/1
@@ -17,6 +18,7 @@ class ScoresController < ApplicationController
 
   # GET /scores/1/edit
   def edit
+    render(:form, locals: { title: :edit_score })
   end
 
   # POST /scores
@@ -24,7 +26,6 @@ class ScoresController < ApplicationController
     @score = Score.new(score_params)
 
     if @score.save
-      redirect_to @score, notice: 'Score was successfully created.'
       redirect_to @course, notice: 'Score was successfully created.'
     else
       render :new
@@ -34,7 +35,6 @@ class ScoresController < ApplicationController
   # PATCH/PUT /scores/1
   def update
     if @score.update(score_params)
-      redirect_to @score, notice: 'Score was successfully updated.'
       redirect_to @course, notice: 'Score was successfully updated.'
     else
       render :edit
@@ -54,11 +54,17 @@ class ScoresController < ApplicationController
     end
 
     def set_course
-      @course = Course.first
       @course = Course.find(params[:course_id])
     end
 
-    # Only allow a trusted parameter "white list" through.
+    def set_examination
+      @examination = Examination.find(params[:examination_id])
+    end
+
+    def get_scores_ordered
+      @examination.scores.joins(:student).order("name, surname")
+    end
+
     def score_params
       params.require(:score).permit(:score, :examination_id, :student_id)
     end
