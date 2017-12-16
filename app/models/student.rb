@@ -1,6 +1,9 @@
 class Student < ApplicationRecord
+  before_create :build_scores
+
   has_many :scores, dependent: :delete_all
   belongs_to :course
+
 
   validates :name, presence: true,
                    length: { in: 0..50 },
@@ -40,4 +43,12 @@ class Student < ApplicationRecord
   def to_label
     "#{s_number} #{full_name}"
   end
+
+  private
+  
+    def build_scores
+      course.examinations.each do |examination|
+         self.scores.build(examination: examination)
+      end
+   end
 end

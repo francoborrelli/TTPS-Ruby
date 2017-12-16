@@ -1,5 +1,8 @@
 class Examination < ApplicationRecord
+  before_create :build_scores
   has_many :scores, dependent: :delete_all
+  accepts_nested_attributes_for :scores, allow_destroy: true
+
   belongs_to :course
 
   validates :title, presence: true
@@ -25,4 +28,11 @@ class Examination < ApplicationRecord
   def students
     course.students
   end
+
+  private
+    def build_scores
+      course.students.each do |student|
+         self.scores.build(student: student)
+      end
+   end
 end

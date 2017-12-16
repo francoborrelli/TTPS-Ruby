@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :courses do
     resources :examinations do
-      resources :scores, except: [:show]
+      resources :scores, only: [:index] 
+      get 'scores/edit', to: 'scores#edit', as: 'scores_edit' 
+      post 'scores/edit', to: 'scores#update' 
     end
     resources :students, except: [:show]
   end

@@ -1,0 +1,47 @@
+<div class="card card-table">
+  <div class="card-body container">
+    <h1><%= t(:new_score) %></h1> 
+    <hr>
+    <%= simple_form_for @examination, 
+        url: course_examination_scores_edit_path(@course, @examination), 
+        method: :post,  html: { id: :edit_scores } do |f| %>
+      <div class="card-btns">
+      <%= link_to_add_association 'add address', f, :scores, class: "btn btn-primary float-right btn-sm",       
+        'data-association-insertion-method' => 'append',
+        'data-association-insertion-node' => 'tbody'  %>
+      </div>
+      <table class="table">
+        <thead>
+          <th><%= t :name %></th>
+          <th><%= t :s_number %></th>
+          <th><%= t :score %></th>
+        </thead>
+        <tbody>
+          <%= f.fields_for :scores do |score| %>
+            <tr class="nested-fields">
+            <td>
+            <div class="form-group"> 
+              <%= score.association :student, as: :display, association_label: 'full_name', label: false %>
+            </div> 
+            </td>
+            <td>
+            <div class="form-group"> 
+              <%= score.association :student, as: :display, association_label: 's_number', label: false %>
+            </div> 
+            </td>
+            <td>
+            <div class="form-group">    
+                <%= score.input :score, placeholder: t(:min_score) + ' ' + t(:in_percentage), label: false  %>
+            </div>
+            </td>
+            </tr>
+          <% end %>
+        </tbody>
+        </table>
+          <div class="form-actions text-right">
+            <%= link_to t(:cancel), course_examination_scores_path(@course, @examination), class: "btn btn-default" %>
+            <%= f.button :submit, class: "btn btn-primary" %>
+          </div>
+    <% end %>
+ </div>
+</div>
