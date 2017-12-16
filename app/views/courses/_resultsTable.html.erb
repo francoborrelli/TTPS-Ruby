@@ -8,7 +8,7 @@
                         <%= exam.title %> 
                         <br>
                         <small>
-                            <%= exam.date.strftime("%d/%m/%y") %> 
+                            <%= time_format(exam.date) %> 
                         </small>
                     </th>
                 <% end %>

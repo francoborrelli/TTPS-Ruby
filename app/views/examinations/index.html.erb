@@ -25,7 +25,7 @@
         </tbody>
           <% @examinations.each do |examination| %>
             <tr>
-              <td><%= examination.date.strftime("%d/%m/%y") %></td>
+              <td><%= time_format(examination.date) %></td>
               <td><%= examination.title %></td>
               <td><%= examination.min_score %>%</td>
               <td>
