@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20171212203604) do
   end
 
   create_table "scores", force: :cascade do |t|
-    t.float "score", null: false
+    t.float "score"
     t.bigint "examination_id"
     t.bigint "student_id"
     t.datetime "created_at", null: false
