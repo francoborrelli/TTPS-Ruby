@@ -2,7 +2,7 @@
     <table align="center" class="table text-center table-bordered">
         <thead>
             <tr>
-                <th colspan="2"><%= t :student %></th>
+                <th colspan="2"><%= (t :student).capitalize %></th>
                 <% @examinations.each do |exam| %>
                     <th colspan = 2> 
                         <%= exam.title %> 
@@ -17,8 +17,8 @@
                 <th><%= t :name %></th>
                 <th><%= t :s_number %></th>
                 <% @examinations.each do %>
-                    <th>Nota</th>
-                    <th>Estado</th>
+                    <th><%= t :score %></th>
+                    <th><%= t :status %></th>
                 <% end %>
             </tr>
         </thead>
@@ -33,14 +33,14 @@
                         <td><%= score.score %>%</td>
                         <td>
                             <% if score.passed? %>
-                                    <span class="text-success">Aprobó</span>
+                                    <span class="text-success"><%= t :passed %></span>
                             <% else %>
-                                    <span class="text-danger">Desaprobó</span>
+                                    <span class="text-danger"><%= t :failed %></span>
                             <% end %>
                         </td>
                     <% else %>
                         <td>-</td>
-                        <td><span class="text-warning"> Ausente </span></td>
+                        <td><span class="text-warning"><%= t :absent %></span></td>
                     <% end %> 
                 <% end %>
                 </tr>
@@ -48,25 +48,25 @@
         </tbody>
         <tfoot class="table-secondary">
             <tr>
-            <td colspan="2">Cantidad Aprobados</td>
+            <td colspan="2"><%= t :count_passed %></td>
             <% @examinations.each do |exam| %>
                 <td colspan="2"><%= exam.passing_students %></td>
             <% end %>
             </tr>
             <tr>
-            <td colspan="2">Cantidad Desaprobados</td>
+            <td colspan="2"><%= t :count_failed %></td>
             <% @examinations.each do |exam| %>
                 <td colspan="2"><%= exam.failed_students %></td>
             <% end %>
             </tr>
             <tr>
-            <td colspan="2">Cantidad Ausentes</td>
+            <td colspan="2"><%= t :count_absent %></td>
             <% @examinations.each do |exam| %>
                 <td colspan="2"><%= exam.absent_students %></td>
             <% end %>
             </tr>
             <tr>
-            <td colspan="2">Porcentaje Aprobación</td>
+            <td colspan="2"><%= t :passed_average %></td>
             <% @examinations.each do |exam| %>
                 <td colspan="2"><%= exam.passing_percentage.round(2) %>%</td>
             <% end %>

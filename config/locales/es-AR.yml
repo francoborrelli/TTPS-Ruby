@@ -21,6 +21,7 @@ es-AR:
   title: Título
   passed: Aprobado
   failed: Desaprobado
+  absent: Ausente
   status: Estado
   in_percentage: en porcentaje
   min_score: Nota mínima
@@ -45,6 +46,10 @@ es-AR:
   destroy_examination: Borrar evaluación
   delete_student_msg: Estas a punto de elinar al estudiante. Todas sus notas asociadas tambien se borrarán. ¿Estás seguro que decias continuar?
   select_year: Debe seleccionar un año
+  count_passed: Cantidad de Aprobados
+  count_failed: Cantidad de Desaprobados
+  count_absent: Cantidad de Ausentes
+  passed_average: Porcentaje de Aprobados
   select_examination: Debe seleccionar una evaluación
   select_student: Debe seleccionar un estudiante
   no_results: No se encontraron resultados

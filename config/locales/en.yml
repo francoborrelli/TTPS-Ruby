@@ -17,8 +17,9 @@ en:
   name: Name
   surname: Surname
   email: Email
-  passed: Passed
+  passed: Approved
   failed: Failed
+  absent: Absent
   document: Document number
   in_percentage: in percentage
   s_number: Student number
@@ -37,6 +38,10 @@ en:
   new_examination: New Examination
   edit_examination: Edit Examination
   destroy_examination: Delete Examination
+  count_passed: Number of approved students
+  count_failed: Number of students who failed
+  count_absent: Number of absent students
+  passed_average: Average of approved students
   select_year: You must select a year
   select_examination: You must select a examination
   select_student: You must select a student
