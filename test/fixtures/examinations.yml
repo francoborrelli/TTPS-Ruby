@@ -2,12 +2,12 @@
 
 one:
   course: one
-  title: MyString
-  date: 
-  min_mark: 1.5
+  title: Test 1
+  date: 2017-01-01
+  min_score: 50
 
 two:
   course: two
-  title: MyString
-  date: 
-  min_mark: 1.5
+  title: Test 2
+  date: 2017-03-03
+  min_score: 20

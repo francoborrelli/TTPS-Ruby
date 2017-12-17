@@ -1,7 +1,13 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  year: 1
+  year: 2017
 
 two:
-  year: 1
+  year: 2016
+
+three:
+  year: 2015
+
+
+
+
