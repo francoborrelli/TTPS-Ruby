@@ -20,6 +20,7 @@ en:
   passed: Approved
   failed: Failed
   absent: Absent
+  not_loaded: Not Loaded
   document: Document number
   in_percentage: in percentage
   s_number: Student number

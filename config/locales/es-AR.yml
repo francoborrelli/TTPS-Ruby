@@ -23,6 +23,7 @@ es-AR:
   failed: Desaprobado
   absent: Ausente
   status: Estado
+  not_loaded: Sin Cargar
   in_percentage: en porcentaje
   min_score: Nota mínima
   examination_date: Fecha de Evaluación
