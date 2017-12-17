@@ -8,6 +8,12 @@ one:
 
 two:
   course: two
-  title: Test 2
+  title: Test 1
   date: 2017-03-03
   min_score: 20
+
+three:
+  course: one
+  title: Test 2
+  date: 2017-04-01
+  min_score: 60
