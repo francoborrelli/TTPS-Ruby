@@ -25,5 +25,9 @@ class Score < ApplicationRecord
       false
     end
   end
+
+  def present?
+    score.present?
+  end
   
 end
