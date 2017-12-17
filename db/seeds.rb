@@ -1,4 +1,4 @@
-User.create(username: 'admin', password: '123456', email: 'admin@admin.com')
+User.create(username: 'admin', password: '123456')
 
 Course.create year: Time.zone.today.year
 Course.create year: (Time.zone.today.year - 1)
