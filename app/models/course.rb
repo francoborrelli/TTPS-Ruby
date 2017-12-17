@@ -5,9 +5,7 @@ class Course < ApplicationRecord
 
   validates :year, presence: true, uniqueness: true,
                    length: { is: 4 },
-                   numericality: { only_integer: true,
-                                   greater_than_or_equal_to: :min_year,
-                                   less_than_or_equal_to: :max_year }
+                   numericality: { only_integer: true }
 
   def min_year
     Time.zone.today.year - 35
