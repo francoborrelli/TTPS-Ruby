@@ -16,17 +16,17 @@ end
 Course.all.each do |course|
   4.times do |i|
     title = "Test #{i}"
-    date = Time.zone.today.change(year: course.year) + i.days
     score = rand(0..100)
-    Examination.create(course: course, title: title, min_score: score, date: date)
+    date = Time.zone.today.change(year: course.year) + i.days
+    Examination.create(course: course, title: title,
+                       min_score: score, date: date)
   end
 end
 
 Examination.all.each do |exam|
   6.times do
     offset = rand(exam.students.count)
-    student = exam.students.offset(offset).first
     score = rand(0..100.0).round(2)
-    Score.create(student: student, examination: exam, score: score)
+    exam.scores.offset(offset).first.update(score: score)
   end
 end
