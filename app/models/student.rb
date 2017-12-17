@@ -16,7 +16,7 @@ class Student < ApplicationRecord
   validates :s_number, presence: true,
                        uniqueness: { scope: :course },
                        length: { in: 0..10 },
-                       format: { with: /\A[1-9]\d{0,6}(|.[\/][1-9]\d{0,2})\z/,
+                       format: { with: /\A\d{1,6}.[\/]\d\z/,
                                  message: :invalid_s_number }
   validates :email,
             presence: true, uniqueness: { scope: :course },
@@ -38,10 +38,6 @@ class Student < ApplicationRecord
 
   def full_name
     "#{name} #{surname}"
-  end
-
-  def to_label
-    "#{s_number} #{full_name}"
   end
 
   private
