@@ -3,7 +3,7 @@ class ExaminationsController < ApplicationController
   before_action :set_examination, only: %i[show edit update destroy ]
 
   def index
-    @examinations = @course.examinations.order('date').page(params[:page])
+    @examinations = examinations_ordered.page(params[:page])
   end
 
   def new
@@ -42,6 +42,9 @@ class ExaminationsController < ApplicationController
   end
 
   private
+  def examinations_ordered
+    @course.examinations.order('date')
+  end
 
   def set_course
     @course = Course.find(params[:course_id])
