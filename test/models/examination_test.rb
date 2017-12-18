@@ -79,15 +79,15 @@ class ExaminationTest < ActiveSupport::TestCase
   end
 
   test 'should assert number of absent students' do
-    assert_equal(2, @examination.absent_students)
+    assert_equal(0, @examination.absent_students)
 
     student = students(:two)
-    @examination.scores.build(score: 100, student: student)
+    @examination.scores.build(score: nil, student: student)
     assert_equal(1, @examination.absent_students)
 
     student = students(:three)
-    @examination.scores.build(score: 1, student: student)
-    assert_equal(0, @examination.absent_students)
+    @examination.scores.build(score: nil, student: student)
+    assert_equal(2, @examination.absent_students)
   end
 
   test 'should assert average of passing students' do

@@ -25,17 +25,16 @@ class Examination < ApplicationRecord
   end
 
   def failed_students
-    scores.size - passing_students
+    scores.select(&:present?).size - passing_students
   end
 
   def absent_students
-    students.size - scores.size
+    scores.reject(&:present?).size
   end
 
   delegate :students, to: :course
 
   private
-
   def standarize
     self.min_score = self.min_score.round(2)
     self.title = self.title.downcase.capitalize
