@@ -1,5 +1,3 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
   score: 40.55
   examination: one
@@ -7,5 +5,5 @@ one:
 
 two:
   score: 70
-  examination: two
-  student: one
+  examination: three
+  student: two

@@ -74,3 +74,4 @@ en:
         invalid_s_number: invalid student numbers
         invalid_email: invalid email
         decimal_msg: cannot have more than 2 decimals
+        invalid_year: invalid year

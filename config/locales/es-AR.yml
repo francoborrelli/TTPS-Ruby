@@ -91,6 +91,7 @@ es-AR:
           has_one: No se puede eliminar el registro porque existe un %{record} dependiente
           has_many: No se puede eliminar el registro porque existen %{record} dependientes
         decimal_msg: No puede tener más de dos decimales
+        invalid_year: Año no coincide con el rango del curso
   date:
     abbr_day_names:
     - dom

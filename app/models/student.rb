@@ -1,5 +1,6 @@
 class Student < ApplicationRecord
   before_create :build_scores
+  before_save :standarize_name
 
   has_many :scores, dependent: :delete_all
   belongs_to :course
@@ -33,7 +34,7 @@ class Student < ApplicationRecord
   end
 
   def took_exam?(exam)
-    Score.find_by_pair(self, exam).present?
+    score_for_exam(exam).present?
   end
 
   def full_name
@@ -41,7 +42,11 @@ class Student < ApplicationRecord
   end
 
   private
-  
+    def standarize_name
+      self.name = self.name.downcase.capitalize
+      self.surname = self.surname.downcase.capitalize
+    end
+
     def build_scores
       course.examinations.each do |examination|
          self.scores.build(examination: examination)

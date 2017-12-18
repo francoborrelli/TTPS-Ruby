@@ -1,15 +1,20 @@
 class Examination < ApplicationRecord
   before_create :build_scores
-  has_many :scores, dependent: :delete_all
-  accepts_nested_attributes_for :scores, allow_destroy: true
+  before_save :standarize
 
   belongs_to :course
 
-  validates :title, presence: true
+  has_many :scores, dependent: :delete_all
+  accepts_nested_attributes_for :scores, allow_destroy: true
+
+  validates :title, presence: true, uniqueness: { scope: :course }
+
   validates :date, presence: true
-  validates :min_score, presence: true, 
-      format: { with: /\A\d+(?:\.\d{0,2})?\z/, message: :decimal_msg },
-      numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 100 }
+  validate :proper_year
+
+  validates :min_score, presence: true,
+                        numericality: { greater_than_or_equal_to: 0,
+                                        less_than_or_equal_to: 100 }
 
   def passing_percentage
     (passing_students * 100.00) / students.size
@@ -27,14 +32,27 @@ class Examination < ApplicationRecord
     students.size - scores.size
   end
 
-  def students
-    course.students
-  end
+  delegate :students, to: :course
 
   private
-    def build_scores
-      course.students.each do |student|
-         self.scores.build(student: student)
-      end
-   end
+
+  def standarize
+    self.min_score = self.min_score.round(2)
+    self.title = self.title.downcase.capitalize
+  end
+
+  def proper_year
+    range = years_range
+    errors.add(:date, :invalid_year) unless date.present? && range === date.year
+  end
+
+  def years_range
+    course.year..(course.year + 1)
+  end
+
+  def build_scores
+    course.students.each do |student|
+      scores.build(student: student)
+    end
+ end
 end

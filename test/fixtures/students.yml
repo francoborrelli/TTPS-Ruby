@@ -1,5 +1,3 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
   surname: Borrelli
   name: Franco
@@ -15,3 +13,12 @@ two:
   dni: 31831152
   email: two@gmail.com
   course: one
+
+three:
+  surname: Testing
+  name: Subject
+  s_number: 13723/4
+  dni: 31831153
+  email: three@gmail.com
+  course: one
+

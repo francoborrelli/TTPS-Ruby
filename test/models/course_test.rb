@@ -51,15 +51,19 @@ class CourseTest < ActiveSupport::TestCase
     course = courses(:one)
     student_one = students(:one)
     student_two = students(:two)
-    assert_equal(2, course.students.size)
+    student_three = students(:three)
+    assert_equal(3, course.students.size)
     assert_includes(course.students, student_one)
     assert_includes(course.students, student_two)
+    assert_includes(course.students, student_three)
   end
 
-  test 'should have one examination' do
+  test 'should have two examination' do
     course = courses(:one)
     exam_one = examinations(:one)
-    assert_equal(1, course.examinations.size)
+    exam_two = examinations(:three)
+    assert_equal(2, course.examinations.size)
     assert_includes(course.examinations, exam_one)
+    assert_includes(course.examinations, exam_two)
   end
 end
