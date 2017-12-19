@@ -3,7 +3,8 @@ class StudentsController < ApplicationController
   before_action :set_course
 
   def index
-    @students = @course.students.order('surname, name').page(params[:page])
+    @students = students_ordered.page(params[:page])
+    check_pagination(@students)
   end
 
   def new
@@ -46,6 +47,10 @@ class StudentsController < ApplicationController
 
   def set_course
     @course = Course.find(params[:course_id])
+  end
+
+  def students_ordered
+    @course.students.order('surname, name')
   end
 
   def student_params

@@ -4,6 +4,7 @@ class ExaminationsController < ApplicationController
 
   def index
     @examinations = examinations_ordered.page(params[:page])
+    check_pagination(@examinations)
   end
 
   def new

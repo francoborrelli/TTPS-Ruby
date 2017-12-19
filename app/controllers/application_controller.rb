@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
     I18n.locale = cookies[:language]
   end
 
+  def check_pagination(objects)
+    not_found if objects.empty? && params[:page]
+  end
+
   def not_found
     raise(ActionController::RoutingError, 'Not Found')
   end

@@ -3,7 +3,7 @@ class CoursesController < ApplicationController
 
   def index
     @courses = Course.order('year DESC').page(params[:page])
-    not_found if @courses.empty? && params[:page]
+    check_pagination(@courses)
   end
 
   def show
