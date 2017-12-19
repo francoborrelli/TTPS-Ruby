@@ -1,13 +1,14 @@
 class ScoresController < ApplicationController
-  before_action :set_course, :set_examination, only: %i[index update]
+  before_action :set_examination, only: %i[index update]
 
   def index
-    @scores = get_scores_ordered.page(params[:page])
+    @scores = @examination.scores
   end
 
   def update
     if @examination.update(score_params)
-      redirect_to course_examination_scores_path(@course, @examination), notice: (t :updated_scores)
+      redirect_to course_examination_scores_path(@examination.course, @examination),
+                  notice: (t :updated_scores)
     else
       render :index
     end
@@ -15,16 +16,8 @@ class ScoresController < ApplicationController
 
   private
 
-  def set_course
-    @course = Course.find(params[:course_id])
-  end
-
   def set_examination
     @examination = Examination.find(params[:examination_id])
-  end
-
-  def get_scores_ordered
-    @examination.scores.where.not('score' => nil).joins(:student).order('name, surname')
   end
 
   def score_params
