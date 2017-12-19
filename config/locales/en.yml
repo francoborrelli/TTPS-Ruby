@@ -33,6 +33,8 @@ en:
   new_student: New Student
   edit_student: Edit Student
   destroy_student: Delete Student
+  show_students: Show Students
+  show_examinations: Show Examinations
   new_course: New Course
   edit_course: Edit Course
   destroy_course: Delete Course
