@@ -1,0 +1,17 @@
+one:
+  course: one
+  title: "Test 1"
+  date: 2017-03-04
+  min_score: 50.28
+
+two:
+  course: two
+  title: "Test 1"
+  date: 2017-05-01
+  min_score: 20.55
+
+three:
+  course: one
+  title: "Test 2"
+  date: 2017-12-03
+  min_score: 60.50

@@ -1,0 +1,35 @@
+    .card-form {
+    &.xl {
+        max-width: 550px;
+    }
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+a.first {
+    margin-left: 10px;
+}
+
+.card-table {
+    .card-body {
+        padding: 40px;
+        padding-bottom: 10px;
+        .card-btns {
+            padding-bottom: 50px;
+            .btn {
+                @media (max-width: 768px) {
+                    display: block;
+                    width: 100%;
+                    margin-bottom: 10px;
+                    padding: 8px;
+                }
+            }
+        }
+    }
+}
+
+.table {
+    tr>td {
+        vertical-align: middle;
+    }
+}

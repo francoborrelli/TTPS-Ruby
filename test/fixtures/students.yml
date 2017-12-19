@@ -1,0 +1,24 @@
+one:
+  surname: Borrelli
+  name: Franco
+  s_number: 13720/5
+  dni: 31836578
+  email: one@gmail.com
+  course: one
+
+two:
+  surname: Fulanito
+  name: Juan
+  s_number: 13723/3
+  dni: 31831152
+  email: two@gmail.com
+  course: one
+
+three:
+  surname: Testing
+  name: Subject
+  s_number: 13723/4
+  dni: 31831153
+  email: three@gmail.com
+  course: one
+

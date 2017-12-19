@@ -1,0 +1,9 @@
+one:
+  score: 40.55
+  examination: one
+  student: one
+
+two:
+  score: 70
+  examination: three
+  student: two

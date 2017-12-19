@@ -1,0 +1,15 @@
+<div class="card card-table">
+  <div class="container card-body">
+    <%= link_to courses_path, class: "btn btn-default float-right", :title => (t(:back)) do %>
+        <%= fa_icon "reply" %>
+    <% end %>
+    <h1><%= (t :course).capitalize + " " + @course.year.to_s %></h1>
+    <hr>
+    <div class="card-btns">
+        <%= link_to t(:show_examinations), course_examinations_path(@course), class: "btn btn-primary float-right btn-sm first" %> 
+        <%= link_to t(:show_students), course_students_path(@course), class: "btn btn-primary float-right btn-sm first" %> 
+    </div>
+    <% if !@examinations.empty? && !@students.empty? %>
+        <%= render 'resultsTable' %>
+    <% end %>
+</div>  
