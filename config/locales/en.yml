@@ -76,7 +76,7 @@ en:
     errors:
       messages:
         only_letters: only letters allowed
-        invalid_s_number: invalid student numbers
+        invalid_s_number: invalid student number
         invalid_email: invalid email
         decimal_msg: cannot have more than 2 decimals
         invalid_year: invalid year

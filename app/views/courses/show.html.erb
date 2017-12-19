@@ -9,7 +9,7 @@
         <%= link_to t(:show_examinations), course_examinations_path(@course), class: "btn btn-primary float-right btn-sm first" %> 
         <%= link_to t(:show_students), course_students_path(@course), class: "btn btn-primary float-right btn-sm first" %> 
     </div>
-
-    <%= render 'resultsTable' %>
-    
+    <% if !@examinations.empty? && !@students.empty? %>
+        <%= render 'resultsTable' %>
+    <% end %>
 </div>  
