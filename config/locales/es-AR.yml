@@ -69,6 +69,7 @@ es-AR:
   updated_examination: Evaluación actualizada correctamente.
   destroyed_examination: Evaluación eliminada correctamente.
   updated_scores: Notas actualizadas correctamente.
+  score_in_percentage: Nota en porcentaje
   activerecord:
     models:
       student: estudiante

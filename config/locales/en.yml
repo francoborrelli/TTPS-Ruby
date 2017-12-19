@@ -64,6 +64,7 @@ en:
   updated_examination: Examination was successfully updated.
   destroyed_examination: Examination was successfully destroyed.
   updated_scores: Scores were successfully updated.
+  score_in_percentage: Score in percentage
   activerecord:
     attributes:
       score:
