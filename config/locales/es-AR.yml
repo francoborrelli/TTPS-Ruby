@@ -39,6 +39,8 @@ es-AR:
   edit_course: Editar Curso
   destroy_course: Borrar Curso
   new_student: Nuevo Estudiante
+  no_students: Este curso todavia no tiene estudiantes
+  no_examinations: Este curso todavia no tiene evaluaciones
   edit_student: Editar Estudiante
   destroy_student: Borrar Estudiante
   show_students: Mostrar Estudiantes

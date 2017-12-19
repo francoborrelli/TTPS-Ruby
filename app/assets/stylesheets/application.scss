@@ -8,7 +8,7 @@ $theme-colors: ( warning: #FF7043, primary: #5092B9, ) !default;
 @import "courses";
 @import "examinations";
 @import "scores";
-
+@import "noResults";
 
 
 body {

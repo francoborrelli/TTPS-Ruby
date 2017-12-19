@@ -7,28 +7,29 @@
     <% end %>
     <h1><%= (t :student).pluralize.capitalize %></h1>
     <hr>
-    <div class="card-btns">
-      <%= link_to t(:new_student), new_course_student_path, class: "btn btn-primary float-right btn-sm" %>
-    </div>
-    <div class="table-responsive">
-      <table class="table table-striped text-center">
-        <thead>
-          <tr>
-            <th><%= t :surname %></th>
-            <th><%= t :name %></th>
-            <th><%= t :s_number %></th>
-            <th><%= t :document %></th>
-            <th><%= t :email %></th>
-            <th><%= t :edit %></th>
-            <th><%= t :delete %></th>
-          </tr>
-        </thead>
-          <tbody>
-            <% if @students.empty? %>
-              <td colspan="7">
-                <%= t :no_results %>
-              </td>
-            <% else %>
+
+    <% if @students.empty? %>
+      <%= render 'layouts/no_results', title: :no_students, icon: "users", 
+                  path: new_course_student_path, text: :new_student   %>
+
+    <% else %>
+      <div class="card-btns">
+        <%= link_to t(:new_student), new_course_student_path, class: "btn btn-primary float-right btn-sm" %>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-striped text-center">
+          <thead>
+            <tr>
+              <th><%= t :surname %></th>
+              <th><%= t :name %></th>
+              <th><%= t :s_number %></th>
+              <th><%= t :document %></th>
+              <th><%= t :email %></th>
+              <th><%= t :edit %></th>
+              <th><%= t :delete %></th>
+            </tr>
+          </thead>
+            <tbody>
               <% @students.each do |student| %>
                 <tr>
                   <td><%= student.surname %></td>
@@ -48,14 +49,13 @@
                   </td>
                 </tr>
               <% end %>
-            <% end %>
-          </tbody>
-      </table>
-    </div>
-      <div class="float-right">
-        <%= paginate @students %>
+            </tbody>
+        </table>
       </div>
-      <br>
+        <div class="float-right">
+          <%= paginate @students %>
+        </div>
+      <% end %> 
     </div>
   </div>  
 
