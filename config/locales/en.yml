@@ -48,12 +48,13 @@ en:
   select_year: You must select a year
   select_examination: You must select a examination
   select_student: You must select a student
-  delete_course_msg: You are about to delete the course. All student and examination associated to it will be deleted as well. Are you sure you want to continue?
+  delete_course_msg: You are about to delete the course. Are you sure you want to continue?
   delete_student_msg: You are about to delete the student. All score associated to it will be deleted as well. Are you sure you want to continue?
   delete_examination_msg: You are about to delete the examination. All student score associated to it will be deleted as well. Are you sure you want to continue?
   created_course: Course was successfully created.
   updated_course: Course was successfully updated.
   destroyed_course: Course was successfully destroyed.
+  not_destroyed_course: Course not destroyed. It has students or/and examinations associated to it.  
   created_student: Student was successfully created.
   updated_student: Student was successfully updated.
   destroyed_student: Student was successfully destroyed.

@@ -40,7 +40,11 @@ class CoursesController < ApplicationController
 
   def destroy
     @course.destroy
-    redirect_to(courses_url, notice: t(:destroyed_course))
+    if @course.errors.empty?
+      redirect_to(courses_url, notice: t(:destroyed_course))
+    else
+      redirect_to(courses_url, alert: t(:not_destroyed_course))
+    end
   end
 
   private

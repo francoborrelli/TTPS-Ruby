@@ -1,6 +1,6 @@
 class Course < ApplicationRecord
-  has_many :examinations, dependent: :delete_all
-  has_many :students, dependent: :delete_all
+  has_many :examinations, dependent: :restrict_with_error
+  has_many :students, dependent: :restrict_with_error
   has_many :scores, through: :examinations
 
   validates :year, presence: true, uniqueness: true,
