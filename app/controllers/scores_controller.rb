@@ -3,8 +3,7 @@ class ScoresController < ApplicationController
 
   before_action :build_scores, only: [:index]
 
-  def index
-  end
+  def index; end
 
   def update
     @examination.assign_attributes(score_params)
@@ -35,10 +34,8 @@ class ScoresController < ApplicationController
   end
 
   def delete_scores
-    score_params.fetch(:scores_attributes).each do |key, score|
-      if score["id"] && score["score"].empty?
-        Score.find(score["id"]).destroy
-      end
+    score_params.fetch(:scores_attributes).each do |_key, score|
+      Score.find(score['id']).destroy if score['id'] && score['score'].empty?
     end
   end
 end

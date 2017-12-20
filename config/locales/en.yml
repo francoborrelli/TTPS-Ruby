@@ -25,6 +25,8 @@ en:
   in_percentage: in percentage
   s_number: Student number
   marks: Marks
+  status: status
+  score: score
   back: Go Back
   edit_scores: Edit Scores
   upload_scores: Update Scores

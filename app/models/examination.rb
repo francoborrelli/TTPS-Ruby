@@ -24,11 +24,11 @@ class Examination < ApplicationRecord
   end
 
   def failed_students
-    scores.select(&:present?).size - passing_students
+    scores.size - passing_students
   end
 
   def absent_students
-    scores.reject(&:present?).size
+    students.size - scores.size
   end
 
   delegate :students, to: :course
