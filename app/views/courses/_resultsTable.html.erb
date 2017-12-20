@@ -4,12 +4,14 @@
             <tr>
                 <th colspan="2"><%= (t :student).capitalize %></th>
                 <% @examinations.each do |exam| %>
-                    <th colspan = 2> 
-                        <%= exam.title %> 
+                    <th colspan = 2>
+                        <%= link_to course_examination_scores_path(exam.course, exam) do %>
+                        <%= exam.title %>
                         <br>
                         <small>
                             <%= time_format(exam.date) %> 
                         </small>
+                        <% end %>
                     </th>
                 <% end %>
             </tr>
