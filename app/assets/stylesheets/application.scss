@@ -22,7 +22,7 @@ body {
     }
     .content {
         background: #fafafa;
-        padding: 86px 0 40px;
+        padding: 95px 0 40px;
     }
 }
 
@@ -38,13 +38,14 @@ body {
         position: relative;
         margin-left: 15px;
         margin-right: 15px;
-        margin-bottom: 70px;
     }
     .alert {
         position: absolute;
         width: 600px;
         @media(max-width: 550px) {
-            width: 100%
+            width: 100%;
+            position: relative;
+            margin-bottom: 0px;
         }
     }
 }
