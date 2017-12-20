@@ -28,8 +28,8 @@
                 <td><%= student.name %> <%= student.surname %></td>
                 <td><%= student.s_number %></td>
                 <% @examinations.each do |exam| %>
-                    <% score = student.score_for_exam(exam) %>
-                    <% if score.score.present? %>
+                    <% if student.took_exam?(exam) %>
+                        <% score = student.score_for_exam(exam) %>
                         <td><%= score.score %>%</td>
                         <td>
                             <% if score.passed? %>

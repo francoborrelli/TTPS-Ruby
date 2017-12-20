@@ -38,8 +38,13 @@ class ExaminationsController < ApplicationController
 
   def destroy
     @examination.destroy
-    redirect_to(course_examinations_path(@course),
-                notice: t(:destroyed_examination))
+    if @examination.errors.empty?
+      redirect_to(course_examinations_path(@course),
+                  notice: t(:destroyed_examination))
+    else
+      redirect_to(course_examinations_path(@course),
+      alert: t(:not_destroyed_examination))
+    end
   end
 
   private

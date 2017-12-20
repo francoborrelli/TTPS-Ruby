@@ -36,7 +36,11 @@ class StudentsController < ApplicationController
 
   def destroy
     @student.destroy
-    redirect_to(course_students_path(@course), notice: t(:destroyed_student))
+    if @student.errors.empty?
+      redirect_to(course_students_path(@course), notice: t(:destroyed_student))
+    else
+      redirect_to(course_students_path(@course), alert: t(:not_destroyed_student))
+    end
   end
 
   private

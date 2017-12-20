@@ -35,9 +35,9 @@
                 <%= score.object.student.s_number %>
               </td>
               <td>
-                <% if score.object.present? && score.object.passed? %>
+                <% if score.object.score.present? && score.object.passed? %>
                     <span class="text-success"><%= t :passed %></span>
-                <% elsif score.object.present? %>
+                <% elsif score.object.score.present? %>
                     <span class="text-danger"><%= t :failed %></span>
                 <% else %>
                   <span class="text-warning"><%= t :absent %></span>
@@ -46,10 +46,12 @@
               <td>  
                   <%= score.input :score, label: false, 
                       placeholder: (t :not_loaded),
+                      required: false,
                       input_html: {step: "0.01", 
                                   disabled: "true", 
                                   class: "table-input"}  
                     %>
+                    <%= score.hidden_field :student_id %>
               </td>
               </tr>
             <% end %>

@@ -1,8 +1,7 @@
 class Student < ApplicationRecord
-  before_create :build_scores
   before_save :standarize_name
 
-  has_many :scores, dependent: :delete_all
+  has_many :scores, dependent: :restrict_with_error
   belongs_to :course
 
 
@@ -46,10 +45,4 @@ class Student < ApplicationRecord
       self.name = self.name.downcase.capitalize
       self.surname = self.surname.downcase.capitalize
     end
-
-    def build_scores
-      course.examinations.each do |examination|
-         self.scores.build(examination: examination)
-      end
-   end
 end

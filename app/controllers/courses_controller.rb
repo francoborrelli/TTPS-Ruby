@@ -17,7 +17,11 @@ class CoursesController < ApplicationController
   end
 
   def edit
-    render(:form, locals: { title: :edit_course })
+    if @course.examinations.empty?
+      render(:form, locals: { title: :edit_course })
+    else
+      redirect_to(courses_url, alert: t(:has_examinations))
+    end
   end
 
   def create
