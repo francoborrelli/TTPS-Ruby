@@ -11,8 +11,14 @@
                 <%= current_user.username %>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <% if @home.nil? %>
+                  <%= link_to courses_path, class: "dropdown-item" do %>
+                    <i class="fa fa-graduation-cap" aria-hidden="true"></i> <%= (t :course).pluralize.capitalize %>
+                  <% end %>
+                  <div class="dropdown-divider"></div>
+                <% end %>
                 <%= link_to destroy_user_session_path,  method: :delete, class: "dropdown-item" do %>
-                  <i class="fa fa-sign-out" aria-hidden="true"></i> <%= t :signOut %>
+                  <i class="fa fa-sign-out" aria-hidden="true"></i>  <%= t :signOut %>
                 <% end %>
               </div>
           <% else %>
