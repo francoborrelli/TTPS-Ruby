@@ -11,12 +11,4 @@ class ApplicationController < ActionController::Base
   def check_pagination(objects)
     not_found if objects.empty? && params[:page]
   end
-
-  def not_found
-    redirect_to(not_found_path)
-  end
-  
-  def internal_server_error
-    redirect_to(internal_error_path)
-  end
 end
