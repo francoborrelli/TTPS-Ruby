@@ -34,9 +34,10 @@ class Examination < ApplicationRecord
   delegate :students, to: :course
 
   private
+
   def standarize
-    self.min_score = self.min_score.round(2)
-    self.title = self.title.downcase.capitalize
+    self.min_score = min_score.round(2)
+    self.title = title.downcase.capitalize
   end
 
   def proper_year
