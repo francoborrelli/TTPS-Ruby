@@ -3,7 +3,7 @@ User.create(username: 'admin', password: '123456')
 Course.create year: Time.zone.today.year
 Course.create year: (Time.zone.today.year - 1)
 
-15.times do |i|
+18.times do |i|
   offset = rand(Course.count)
   course = Course.offset(offset).first
   name = Faker::HarryPotter.character.split(/\W+/)
@@ -26,7 +26,9 @@ end
 Examination.all.each do |exam|
   6.times do
     offset = rand(exam.students.count)
+    student = exam.students.offset(offset).first
     score = rand(0..100.0).round(2)
-    exam.scores.offset(offset).first.update(score: score)
+    exam.scores.build(score: score, student: student)
+    exam.save
   end
 end

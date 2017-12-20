@@ -1,11 +1,10 @@
 class Examination < ApplicationRecord
-  before_create :build_scores
   before_save :standarize
 
   belongs_to :course
 
   has_many :scores, dependent: :delete_all
-  accepts_nested_attributes_for :scores, allow_destroy: true
+  accepts_nested_attributes_for :scores, reject_if: proc { |a| a['score'].blank? }
 
   validates :title, presence: true, uniqueness: { scope: :course }
 
@@ -48,10 +47,4 @@ class Examination < ApplicationRecord
   def years_range
     course.year..(course.year + 1)
   end
-
-  def build_scores
-    course.students.each do |student|
-      scores.build(student: student)
-    end
- end
 end
