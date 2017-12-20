@@ -64,6 +64,9 @@ en:
   updated_examination: Examination was successfully updated.
   destroyed_examination: Examination was successfully destroyed.
   updated_scores: Scores were successfully updated.
+  score_in_percentage: Score in percentage
+  not_found: Page not found
+  server_error: Internal Server Error
   activerecord:
     attributes:
       score:

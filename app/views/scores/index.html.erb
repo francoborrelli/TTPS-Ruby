@@ -13,47 +13,49 @@
     <%= simple_form_for @examination, 
         url: course_examination_scores_edit_path(@examination.course, @examination), 
         method: :post,  html: { id: :edit_scores } do |f| %>
-      <table class="table table-striped text-center">
-        <thead>
-          <th><%= t :surname %></th>
-          <th><%= t :name %></th>
-          <th><%= t :s_number %></th>
-          <th><%= t :status %></th>
-          <th><%= t :score_in_percentage %></th>
-        </thead>
-        <tbody>
-          <%= f.fields_for :scores do |score| %>
-            <tr class="nested-fields">
-            <td>
-              <%= score.object.student.surname %>
-            </td>
-            <td>
-              <%= score.object.student.name %>
-            </td>
-            <td>
-              <%= score.object.student.s_number %>
-            </td>
-            <td>
-              <% if score.object.present? && score.object.passed? %>
-                  <span class="text-success"><%= t :passed %></span>
-              <% elsif score.object.present? %>
-                  <span class="text-danger"><%= t :failed %></span>
-              <% else %>
-                <span class="text-warning"><%= t :absent %></span>
-              <% end %>
-            </td>
-            <td>  
-                <%= score.input :score, label: false, 
-                    placeholder: (t :not_loaded),
-                    input_html: {step: "0.01", 
-                                disabled: "true", 
-                                class: "table-input"}  
-                  %>
-            </td>
-            </tr>
-          <% end %>
-        </tbody>
-        </table>
+      <div class="table-responsive">
+        <table class="table table-striped text-center">
+          <thead>
+            <th><%= t :surname %></th>
+            <th><%= t :name %></th>
+            <th><%= t :s_number %></th>
+            <th><%= t :status %></th>
+            <th><%= t :score_in_percentage %></th>
+          </thead>
+          <tbody>
+            <%= f.fields_for :scores do |score| %>
+              <tr class="nested-fields">
+              <td>
+                <%= score.object.student.surname %>
+              </td>
+              <td>
+                <%= score.object.student.name %>
+              </td>
+              <td>
+                <%= score.object.student.s_number %>
+              </td>
+              <td>
+                <% if score.object.present? && score.object.passed? %>
+                    <span class="text-success"><%= t :passed %></span>
+                <% elsif score.object.present? %>
+                    <span class="text-danger"><%= t :failed %></span>
+                <% else %>
+                  <span class="text-warning"><%= t :absent %></span>
+                <% end %>
+              </td>
+              <td>  
+                  <%= score.input :score, label: false, 
+                      placeholder: (t :not_loaded),
+                      input_html: {step: "0.01", 
+                                  disabled: "true", 
+                                  class: "table-input"}  
+                    %>
+              </td>
+              </tr>
+            <% end %>
+          </tbody>
+          </table>
+        </div>
           <div class="form-actions text-right">
             <%= link_to (t :cancel), 
               course_examination_scores_path(@examination.course, @examination),

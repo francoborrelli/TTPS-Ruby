@@ -9,7 +9,7 @@ $theme-colors: ( warning: #FF7043, primary: #5092B9, ) !default;
 @import "examinations";
 @import "scores";
 @import "noResults";
-
+@import "errors";
 
 body {
     cursor: default;
@@ -22,7 +22,7 @@ body {
     }
     .content {
         background: #fafafa;
-        padding: 92px 0 70px;
+        padding: 86px 0 40px;
     }
 }
 
@@ -35,9 +35,10 @@ body {
     right: 0;
     @media (max-width: 600px) {
         width: auto;
+        position: relative;
         margin-left: 15px;
         margin-right: 15px;
-        margin-bottom: -65px;
+        margin-bottom: 70px;
     }
     .alert {
         position: absolute;
@@ -51,6 +52,10 @@ body {
 .container.body {
     padding-top: 65px;
     padding-bottom: 20px;
+    @media (max-width: 600px) {
+        padding-top: 20px;
+        padding-bottom: 0px;
+    }
 }
 
 form {

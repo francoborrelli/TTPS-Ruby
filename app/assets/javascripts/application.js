@@ -17,6 +17,8 @@
 //= require_tree .
 
 $(document).ready(() => {
+  $('[data-toggle="tooltip"]').tooltip()
+  
   $(".btn-delete").click(function(e) {
     e.preventDefault()
     $btn = $("#delete-confirm").find(".btn-danger")
