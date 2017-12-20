@@ -1,3 +1,26 @@
-// Place all the styles related to the errors controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.errors {
+  padding: 70px 0;
+  text-align: center;
+  h1 {
+    font-size: 250px !important;
+    line-height: 250px !important;
+    font-family: "Roboto", "Open Sans", sans-serif;
+    font-weight: 700;
+    margin: 0;
+    @media(max-width: 700px){
+      font-size: 170px!important;
+      line-height: 170px !important;
+      font-weight: 500;
+    }
+  }
+  p {
+    text-transform: uppercase;
+    font-size: 70px;
+    font-family: "Roboto", "Open Sans", sans-serif;
+    font-weight: 200;
+  }
+  @media(max-width: 700px){
+    font-size: 40px;
+    font-weight: 100;
+  }
+}
