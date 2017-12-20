@@ -24,7 +24,7 @@
             <th><%= t :score_in_percentage %></th>
           </thead>
           <tbody>
-            <%= f.fields_for :scores do |score| %>
+            <%= f.fields_for :scores, @examination.scores.sort_by{|e| e.student.surname } do |score| %>
               <tr class="nested-fields">
               <td>
                 <%= score.object.student.surname %>
