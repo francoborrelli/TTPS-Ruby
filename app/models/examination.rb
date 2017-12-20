@@ -3,7 +3,7 @@ class Examination < ApplicationRecord
 
   belongs_to :course
 
-  has_many :scores, dependent: :delete_all
+  has_many :scores, dependent: :restrict_with_error
   accepts_nested_attributes_for :scores, reject_if: proc { |a| a['score'].blank? }
 
   validates :title, presence: true, uniqueness: { scope: :course }

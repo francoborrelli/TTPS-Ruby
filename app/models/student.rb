@@ -1,7 +1,7 @@
 class Student < ApplicationRecord
   before_save :standarize_name
 
-  has_many :scores, dependent: :delete_all
+  has_many :scores, dependent: :restrict_with_error
   belongs_to :course
 
 
