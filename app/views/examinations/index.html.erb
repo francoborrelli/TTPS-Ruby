@@ -6,6 +6,7 @@
       <%= fa_icon "reply" %>
     <% end %>
     <h1><%= (t :examinations).capitalize %></h1>
+    <h5><%= (t :course).capitalize %> <%= @course.year %></h5>
     <hr>
     <% if @examinations.empty? %>
       <%= render 'layouts/no_results', title: :no_examinations, icon: "book", 

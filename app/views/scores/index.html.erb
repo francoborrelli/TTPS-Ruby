@@ -3,7 +3,8 @@
       <%= link_to course_examinations_path(@examination.course), class: "btn btn-default float-right", :title => (t(:back)) do %>
       <%= fa_icon "reply" %>
     <% end %>
-    <h1><%= t(:scores) %> - <%= @examination.title %></h1> 
+    <h1><%= t(:scores) %></h1> 
+    <h5><%= @examination.title %></h5>
     <hr>
     <div class="card-btns">
       <button class="btn btn btn-primary btn-sm float-right" id="edit-btn">
