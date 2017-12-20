@@ -7,22 +7,22 @@ class CourseTest < ActiveSupport::TestCase
   end
 
   test 'should not save course with a year number with less than 4 digits' do
-    course = Course.new(year: 20);
+    course = Course.new(year: 20)
     assert_not course.save
   end
 
   test 'should not save course with a year number with more than 4 digits' do
-    course = Course.new(year: 20170);
+    course = Course.new(year: 20_170)
     assert_not course.save
   end
 
   test 'should no save course if year is not integer' do
-    course = Course.new(year: 20.17);
+    course = Course.new(year: 20.17)
     assert_not course.save
   end
 
   test 'should not save course with no numerical year' do
-    course = Course.new(year: "test");
+    course = Course.new(year: 'test')
     assert_not course.save
   end
 

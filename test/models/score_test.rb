@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class ScoreTest < ActiveSupport::TestCase
-  def setup 
+  def setup
     @score = scores(:one)
   end
 
@@ -36,7 +36,7 @@ class ScoreTest < ActiveSupport::TestCase
   end
 
   test 'score should be a number' do
-    @score.score = "test"
+    @score.score = 'test'
     assert_not @score.save
   end
 
