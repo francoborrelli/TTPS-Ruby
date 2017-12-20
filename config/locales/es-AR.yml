@@ -34,6 +34,9 @@ es-AR:
   upload_scores: Cargar Notas
   new_score: Nueva Nota
   edit_score: Editar Nota
+  remember_me: Recordarme
+  password: Contraseña
+  username: Nombre de usuario
   show_examinations: Mostras Evaluaciones
   new_course: Nueva Cursada
   edit_course: Editar Cursada
@@ -47,24 +50,24 @@ es-AR:
   new_examination: Nueva evaluación
   edit_examination: Editar evaluación
   destroy_examination: Borrar evaluación
-  delete_student_msg: Estas a punto de elinar al estudiante. ¿Estás seguro que decias continuar?
-  select_year: Debe seleccionar un año
+  delete_student_msg: Estas a punto de eliminar al estudiante. ¿Estás seguro que deseas continuar?
+  select_year: Debes seleccionar un año
   count_passed: Cantidad de Aprobados
   count_failed: Cantidad de Desaprobados
   count_absent: Cantidad de Ausentes
   passed_average: Porcentaje de Aprobados
-  select_examination: Debe seleccionar una evaluación
-  select_student: Debe seleccionar un estudiante
+  select_examination: Debes seleccionar una evaluación
+  select_student: Debes seleccionar un estudiante
   no_results: No se encontraron resultados
   delete_course_msg: Estas a punto de eliminar la cursada. ¿Estás seguro que deseas continuar?
   delete_examination_msg: Estas a punto de eliminar la evaluación. ¿Estás seguro que deseas continuar?
-  created_course: Cursada creado correctamente.
+  created_course: Cursada creada correctamente.
   updated_course: Cursada actualizada correctamente.
   destroyed_course: Cursada eliminada correctamente.
-  not_destroyed_course: Cursada no eliminada. Tiene examenes y/o estudiantes asociados a él. 
+  not_destroyed_course: Cursada no eliminada. Tiene examenes y/o estudiantes asociados. 
   not_destroyed_student: Estudiante no eliminado. Tiene notas asociadas.  
   not_destroyed_examination: Evaluación no eliminada. Tiene notas asociadas. 
-  has_examinations: El curso no puede ser editado. Posee evaluaciones asociadas a él.
+  has_examinations: La cursada no puede ser editada. Posee evaluaciones asociadas.
   created_student: Estudiante creado correctamente.
   updated_student: Estudiante actualizado correctamente.
   destroyed_student: Estudiante eliminado correctamente.
