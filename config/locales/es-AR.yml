@@ -70,6 +70,8 @@ es-AR:
   destroyed_examination: Evaluación eliminada correctamente.
   updated_scores: Notas actualizadas correctamente.
   score_in_percentage: Nota en porcentaje
+  not_found: Página no encontrada
+  server_error: Error interno del servidor
   activerecord:
     models:
       student: estudiante

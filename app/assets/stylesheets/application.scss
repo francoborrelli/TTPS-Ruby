@@ -9,7 +9,7 @@ $theme-colors: ( warning: #FF7043, primary: #5092B9, ) !default;
 @import "examinations";
 @import "scores";
 @import "noResults";
-
+@import "errors";
 
 body {
     cursor: default;
