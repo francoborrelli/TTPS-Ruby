@@ -7,7 +7,9 @@ class ScoresController < ApplicationController
   end
 
   def update
-    if @examination.update(score_params)
+    @examination.assign_attributes(score_params)
+    if @examination.save
+      delete_scores
       redirect_to course_examination_scores_path(@examination.course, @examination),
                   notice: (t :updated_scores)
     else
@@ -29,6 +31,14 @@ class ScoresController < ApplicationController
   end
 
   def score_params
-    params.require(:examination).permit(scores_attributes: %i[score id student_id _destroy])
+    params.require(:examination).permit(scores_attributes: %i[score id student_id])
+  end
+
+  def delete_scores
+    score_params.fetch(:scores_attributes).each do |key, score|
+      if score["id"] && score["score"].empty?
+        Score.find(score["id"]).destroy
+      end
+    end
   end
 end
