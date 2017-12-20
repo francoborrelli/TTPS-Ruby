@@ -34,6 +34,9 @@ es-AR:
   upload_scores: Cargar Notas
   new_score: Nueva Nota
   edit_score: Editar Nota
+  remember_me: Recordarme
+  password: Contraseña
+  username: Nombre de usuario
   show_examinations: Mostras Evaluaciones
   new_course: Nueva Cursada
   edit_course: Editar Cursada

@@ -1,12 +1,12 @@
 <% content_for :form do -%>
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-group">
-        <%= f.input :username, required: true, autofocus: true %>
+        <%= f.input :username, required: true, label: t(:username), autofocus: true %>
       </div>
       <div class="form-group">
-        <%= f.input :password, required: true %>
+        <%= f.input :password, required: true, label: t(:password) %>
       </div>
-      <%= f.input :remember_me,  as: :boolean if devise_mapping.rememberable? %>
+      <%= f.input :remember_me, as: :boolean, label: false, inline_label: t(:remember_me)  if devise_mapping.rememberable? %>
       <%= f.button :submit, t(:signIn) , class: "btn-primary float-right" %>
     <% end %>
 <% end %>

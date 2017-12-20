@@ -1,10 +1,7 @@
 en:
-  activerecord:
-    attributes:
-      user:
-        password: Password
-        remember_me: Remember me
-        username: Username
+  password: Password
+  remember_me: Remember me
+  username: Username
   devise:
     confirmations:
       confirmed: "Your email address has been successfully confirmed."
