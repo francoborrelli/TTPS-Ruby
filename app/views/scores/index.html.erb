@@ -1,6 +1,6 @@
 <div class="card card-table">
   <div class="card-body container">
-      <%= link_to course_examinations_path(@examination.course), class: "btn btn-default float-right", :title => (t(:back)) do %>
+      <%= link_to request.referer.present? ? request.referer : course_examinations_path(@examination.course), class: "btn btn-default float-right", :title => (t(:back)) do %>
       <%= fa_icon "reply" %>
     <% end %>
     <h1><%= t(:scores) %></h1> 
