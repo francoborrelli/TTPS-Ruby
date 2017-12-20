@@ -64,7 +64,7 @@ es-AR:
   not_destroyed_course: Cursada no eliminada. Tiene examenes y/o estudiantes asociados a él. 
   not_destroyed_student: Estudiante no eliminado. Tiene notas asociadas.  
   not_destroyed_examination: Evaluación no eliminada. Tiene notas asociadas. 
-  has_examinations: El curso no puede ser editado. Posee evaluaciones asociadas a él.
+  has_examinations: La cursada no puede ser editado. Posee evaluaciones asociadas a él.
   created_student: Estudiante creado correctamente.
   updated_student: Estudiante actualizado correctamente.
   destroyed_student: Estudiante eliminado correctamente.

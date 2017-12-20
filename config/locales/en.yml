@@ -71,14 +71,27 @@ en:
   not_found: Page not found
   server_error: Internal Server Error
   activerecord:
+    models:
+      student: student
+      examination: examination
+      score: score
+      course: course
     attributes:
-      score:
+      user:
+        username: Username
+        password: Password
+        remember_me: Remember me
       student:
         s_number: Student number
         dni: Document number
+        name: Name
+        surname: Surname
+      course:
+        year: year
       examination:
         min_score: Minimum Score
         date: Examination Date
+        title: Title
     errors:
       messages:
         only_letters: only letters allowed
