@@ -2,7 +2,7 @@ es-AR:
   name: Nombre
   surname: Apellido
   home: Inicio
-  course: curso
+  course: cursada
   student: estudiante
   signIn: Iniciar Sesión
   signOut: Cerrar Sesión
@@ -35,12 +35,12 @@ es-AR:
   new_score: Nueva Nota
   edit_score: Editar Nota
   show_examinations: Mostras Evaluaciones
-  new_course: Nuevo Curso
-  edit_course: Editar Curso
-  destroy_course: Borrar Curso
+  new_course: Nueva Cursada
+  edit_course: Editar Cursada
+  destroy_course: Borrar Cursada
   new_student: Nuevo Estudiante
-  no_students: Este curso todavia no tiene estudiantes
-  no_examinations: Este curso todavia no tiene evaluaciones
+  no_students: Esta cursada todavia no tiene estudiantes
+  no_examinations: Esta cursada todavia no tiene evaluaciones
   edit_student: Editar Estudiante
   destroy_student: Borrar Estudiante
   show_students: Mostrar Estudiantes
@@ -56,12 +56,12 @@ es-AR:
   select_examination: Debe seleccionar una evaluación
   select_student: Debe seleccionar un estudiante
   no_results: No se encontraron resultados
-  delete_course_msg: Estas a punto de eliminar el curso. ¿Estás seguro que deseas continuar?
+  delete_course_msg: Estas a punto de eliminar la cursada. ¿Estás seguro que deseas continuar?
   delete_examination_msg: Estas a punto de eliminar la evaluación. Todo nota de los alumnos asociados al mismo se eliminará. ¿Estás seguro que deseas continuar?
-  created_course: Curso creado correctamente.
-  updated_course: Curso actualizado correctamente.
-  destroyed_course: Curso eliminado correctamente.
-  not_destroyed_course: Curso no eliminado. Tiene examenes y/o estudiantes asociados a él. 
+  created_course: Cursada creado correctamente.
+  updated_course: Cursada actualizada correctamente.
+  destroyed_course: Cursada eliminada correctamente.
+  not_destroyed_course: Cursada no eliminada. Tiene examenes y/o estudiantes asociados a él. 
   created_student: Estudiante creado correctamente.
   updated_student: Estudiante actualizado correctamente.
   destroyed_student: Estudiante eliminado correctamente.
@@ -97,7 +97,7 @@ es-AR:
           has_one: No se puede eliminar el registro porque existe un %{record} dependiente
           has_many: No se puede eliminar el registro porque existen %{record} dependientes
         decimal_msg: No puede tener más de dos decimales
-        invalid_year: Año no coincide con el rango del curso
+        invalid_year: Año no coincide con el rango de la cursada
   date:
     abbr_day_names:
     - dom
