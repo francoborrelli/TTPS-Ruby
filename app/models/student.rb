@@ -1,9 +1,10 @@
 class Student < ApplicationRecord
+  default_scope { order('surname, name') }
+
   before_save :standarize_name
 
-  has_many :scores, dependent: :restrict_with_error
   belongs_to :course
-
+  has_many :scores, dependent: :restrict_with_error
 
   validates :name, presence: true,
                    length: { in: 0..50 },
@@ -41,8 +42,9 @@ class Student < ApplicationRecord
   end
 
   private
-    def standarize_name
-      self.name = self.name.downcase.capitalize
-      self.surname = self.surname.downcase.capitalize
-    end
+
+  def standarize_name
+    self.name = name.downcase.capitalize
+    self.surname = surname.downcase.capitalize
+  end
 end

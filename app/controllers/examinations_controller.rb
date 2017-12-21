@@ -1,9 +1,9 @@
 class ExaminationsController < ApplicationController
   before_action :set_course
-  before_action :set_examination, only: %i[show edit update destroy ]
+  before_action :set_examination, only: %i[show edit update destroy]
 
   def index
-    @examinations = examinations_ordered.page(params[:page])
+    @examinations = @course.examinations.page(params[:page])
     check_pagination(@examinations)
   end
 
@@ -18,7 +18,6 @@ class ExaminationsController < ApplicationController
 
   def create
     @examination = @course.examinations.build(examination_params)
-
     if @examination.save
       redirect_to(course_examinations_path(@examination.course),
                   notice: t(:created_examination))
@@ -43,15 +42,11 @@ class ExaminationsController < ApplicationController
                   notice: t(:destroyed_examination))
     else
       redirect_to(course_examinations_path(@course),
-      alert: t(:not_destroyed_examination))
+                  alert: t(:not_destroyed_examination))
     end
   end
 
   private
-  def examinations_ordered
-    @course.examinations.order('date')
-  end
-
   def set_course
     @course = Course.find(params[:course_id])
   end

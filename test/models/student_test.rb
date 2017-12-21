@@ -1,12 +1,11 @@
 require 'test_helper'
 
 class StudentTest < ActiveSupport::TestCase
-  
   setup do
     @student = students(:one)
   end
 
-  #Testing Model
+  # Testing Model
 
   test 'student dni should be unique in a course' do
     student_two = students(:two)
@@ -27,73 +26,73 @@ class StudentTest < ActiveSupport::TestCase
   end
 
   test 'student name should be present' do
-    @student.name = ""
+    @student.name = ''
     assert_not @student.save
-    @student.name = "franco"
+    @student.name = 'franco'
     assert @student.save
   end
 
   test 'student surname should be present' do
-    @student.surname = ""
+    @student.surname = ''
     assert_not @student.save
-    @student.surname = "Borrelli"
+    @student.surname = 'Borrelli'
     assert @student.save
   end
 
   test 'student name should be standarize' do
-    @student.name = "FRANCO"
+    @student.name = 'FRANCO'
     @student.save
-    assert_equal("Franco", @student.name)
-    @student.name = "franco"
+    assert_equal('Franco', @student.name)
+    @student.name = 'franco'
     @student.save
-    assert_equal("Franco", @student.name)
-    @student.name = "Franco"
+    assert_equal('Franco', @student.name)
+    @student.name = 'Franco'
     @student.save
-    assert_equal("Franco", @student.name)
+    assert_equal('Franco', @student.name)
   end
 
   test 'student number should be valid' do
     assert @student.valid?
-    @student.s_number = "123123123"
+    @student.s_number = '123123123'
     assert_not @student.valid?
-    @student.s_number = "1231/"
+    @student.s_number = '1231/'
     assert_not @student.valid?
-    @student.s_number = "13732/5"
+    @student.s_number = '13732/5'
     assert @student.valid?
-    @student.s_number = "12313/45"
+    @student.s_number = '12313/45'
     assert_not @student.valid?
   end
 
   test 'dni should be valid' do
-    @student.dni = ""
+    @student.dni = ''
     assert_not @student.valid?
-    @student.dni = "1231/"
+    @student.dni = '1231/'
     assert_not @student.valid?
-    @student.dni = "39831178"
+    @student.dni = '39831178'
     assert @student.valid?
-    @student.dni = 243434.3
+    @student.dni = 243_434.3
     assert_not @student.valid?
-    @student.dni = 39831178
+    @student.dni = 39_831_178
     assert @student.valid?
   end
 
   test 'student email should be valid' do
-    @student.email = ""
+    @student.email = ''
     assert_not @student.valid?
-    @student.email = "34r3"
+    @student.email = '34r3'
     assert_not @student.valid?
-    @student.email = "34r3@"
+    @student.email = '34r3@'
     assert_not @student.valid?
-    @student.email = "test@"
+    @student.email = 'test@'
     assert_not @student.valid?
-    @student.email = "test.com"
+    @student.email = 'test.com'
     assert_not @student.valid?
-    @student.email = "test@c.com"
+    @student.email = 'test@c.com'
     assert @student.valid?
   end
 
   # testing interactions with other models
-  
+
   test 'should have taken the exam' do
     exam = examinations(:one)
     assert @student.took_exam?(exam)
@@ -111,7 +110,7 @@ class StudentTest < ActiveSupport::TestCase
   end
 
   test 'should have one score' do
-    assert_equal(1,@student.scores.size)
+    assert_equal(1, @student.scores.size)
   end
 
   test 'should be in course one' do
@@ -125,5 +124,4 @@ class StudentTest < ActiveSupport::TestCase
     @student.course = nil
     assert_not @student.save
   end
-
 end

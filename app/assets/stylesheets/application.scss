@@ -1,5 +1,4 @@
-$theme-colors: ( warning: #FF7043, primary: #5092B9, ) !default;
-
+$theme-colors: (warning: #ff7043, primary: #5092b9) !default;
 @import "bootstrap";
 @import "font-awesome";
 @import "css/datepicker.min";
@@ -10,7 +9,6 @@ $theme-colors: ( warning: #FF7043, primary: #5092B9, ) !default;
 @import "scores";
 @import "noResults";
 @import "errors";
-
 body {
     cursor: default;
     color: #444;
@@ -42,7 +40,7 @@ body {
     .alert {
         position: absolute;
         width: 600px;
-        @media(max-width: 550px) {
+        @media (max-width: 550px) {
             width: 100%;
             position: relative;
             margin-bottom: 0px;
@@ -89,10 +87,10 @@ a:active,
 a:focus,
 a:hover {
     text-decoration: none;
-    color: rgba(0, 0, 0, .5);
+    color: rgba(0, 0, 0, 0.5);
     outline: 0;
     &.btn {
-        color: white!important;
+        color: white !important;
     }
     &.btn-default,
     &.btn-default:active,
@@ -103,27 +101,30 @@ a:hover {
         border: 1px solid #dddddd;
     }
     &.btn-outline-primary {
-        color: #007bff!important;
+        color: #007bff !important;
     }
     &.btn-outline-primary:active,
     &.btn-outline-primary:focus,
     &.btn-outline-primary:hover {
-        color: white!important;
+        color: white !important;
     }
 }
 
-.table-secondary, .table-secondary > th, .table-secondary > td {
+.table-secondary,
+.table-secondary>th,
+.table-secondary>td {
     background-color: #fafafa;
 }
 
 .table {
-    th{
-        vertical-align: middle!important;
+    th {
+        vertical-align: middle !important;
     }
 }
 
-a, button{
-    &.disabled{
-        cursor: not-allowed!important;
+a,
+button {
+    &.disabled {
+        cursor: not-allowed !important;
     }
 }
