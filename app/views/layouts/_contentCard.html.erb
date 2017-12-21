@@ -1,0 +1,22 @@
+<div class="card card-table">
+  <div class="container card-body">
+    <%= yield :head %>
+    <hr>
+    <% if collection.empty? %>
+      <%= yield :no_results %>
+    <% else %>
+        <div class="card-btns">
+            <%= yield :btns %>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-striped text-center">
+                <%= yield :table%>
+            </table>
+        </div>
+        <div class="float-right">
+          <%= paginate collection %>
+        </div>
+      <% end %> 
+    </div>
+  </div>  
+
