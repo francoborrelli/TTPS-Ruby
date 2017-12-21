@@ -12,6 +12,6 @@ module CourseHelper
   end
 
   def course_title(course)
-    "#{(t :course).capitalize} #{@course.year.to_s}"
+    "#{(t :course).capitalize} #{course.year.to_s}"
   end
 end
