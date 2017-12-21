@@ -8,7 +8,8 @@ $(document).ready(function() {
     fSDate = Date.now()
     fEDate = Date.now()
   }
-
+  
+  //Initialize datepicker in examination form
   $(function() {
     $("input.datepicker")
       .data({ behaviour: "datepicker" })

@@ -14,17 +14,17 @@ Rails.application.routes.draw do
     root 'courses#index', as: :authenticated_root
   end
 
+  #Change default devise routes
   devise_scope :user do
     get 'sign_in', to: 'devise/sessions#new', as: :new_user_session
     post 'sign_in', to: 'devise/sessions#create', as: :user_session
     delete 'sign_out', to: 'devise/sessions#destroy', as: :destroy_user_session
-
     root to: redirect('/sign_in')
   end
 
   patch 'set_locale', to: 'locale#set_locale'
   match "/404", :to => "errors#not_found", :via => :all, :as => :not_found
   match "/500", :to => "errors#internal_server_error", :via => :all
-  
+
 end
 
