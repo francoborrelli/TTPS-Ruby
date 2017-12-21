@@ -10,4 +10,8 @@ module CourseHelper
   def max_year
     Time.zone.today.year + 5
   end
+
+  def course_title(course)
+    "#{(t :course).capitalize} #{@course.year.to_s}"
+  end
 end
