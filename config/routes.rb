@@ -20,9 +20,11 @@ Rails.application.routes.draw do
     delete 'sign_out', to: 'devise/sessions#destroy', as: :destroy_user_session
 
     root to: redirect('/sign_in')
-
-    patch 'set_locale', to: 'locale#set_locale'
-    match "/404", :to => "errors#not_found", :via => :all, :as => :not_found
-    match "/500", :to => "errors#internal_server_error", :via => :all
   end
+
+  patch 'set_locale', to: 'locale#set_locale'
+  match "/404", :to => "errors#not_found", :via => :all, :as => :not_found
+  match "/500", :to => "errors#internal_server_error", :via => :all
+  
 end
+
