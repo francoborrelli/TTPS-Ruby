@@ -1,75 +1,78 @@
-<div class="card card-table">
-  <div class="card-body container">
-    <%= link_to course_examinations_path(@examination.course), class: "btn btn-default float-right", :title => (t(:back)) do %>
-      <%= fa_icon "reply" %>
-    <% end %>
-    <h1><%= t(:scores) %></h1> 
-    <h5><%= @examination.title %></h5>
-    <hr>
-    <div class="card-btns">
-      <button class="btn btn btn-primary btn-sm float-right" id="edit-btn">
-        <%= t :edit_scores %>
-      </button>
-    </div>
-    <%= simple_form_for @examination, 
-        url: course_examination_scores_edit_path(@examination.course, @examination), 
-        method: :patch,  html: { id: :edit_scores } do |f| %>
-      <div class="table-responsive">
-        <table class="table table-striped text-center">
-          <thead>
-            <th><%= t :surname %></th>
-            <th><%= t :name %></th>
-            <th><%= t :s_number %></th>
-            <th><%= t :status %></th>
-            <th><%= t :score_in_percentage %></th>
-          </thead>
-          <tbody>
-            <%= f.fields_for :scores, @examination.scores.sort_by{|e| e.student.surname } do |score| %>
-              <tr class="nested-fields">
-              <td>
-                <%= score.object.student.surname %>
-              </td>
-              <td>
-                <%= score.object.student.name %>
-              </td>
-              <td>
-                <%= score.object.student.s_number %>
-              </td>
-              <td>
-                <% if score.object.score.present? && score.object.passed? %>
-                    <span class="text-success"><%= t :passed %></span>
-                <% elsif score.object.score.present? %>
-                    <span class="text-danger"><%= t :failed %></span>
-                <% else %>
-                  <span class="text-warning"><%= t :absent %></span>
-                <% end %>
-              </td>
-              <td>  
-                  <%= score.input :score, label: false, 
-                      placeholder: (t :not_loaded),
-                      required: false,
-                      input_html: {step: "0.01", 
-                                  disabled: "true", 
-                                  class: "table-input"}  
-                    %>
-                    <%= score.hidden_field :student_id %>
-              </td>
-              </tr>
-            <% end %>
-          </tbody>
-          </table>
-        </div>
-          <div class="form-actions text-right">
-            <%= link_to (t :cancel), 
-              course_examination_scores_path(@examination.course, @examination),
-              class: "btn btn-secondary hide", 
-              id:"cancel-btn" 
-            %>
-            <%= f.button :submit, (t :upload_scores), 
-                class: "btn btn-primary hide",
-                id: "submit-btn" 
+<% content_for :back do %>
+  <%= link_to course_examinations_path(@examination.course), class: "btn btn-default float-right", :title => (t(:back)) do %>
+    <%= fa_icon "reply" %>
+  <% end %>
+<% end %>
+
+<% content_for :subtitle do %>
+  <%= @examination.title %>
+<% end %>
+
+<% content_for :btns do %>
+  <button class="btn btn btn-primary btn-sm float-right" id="edit-btn">
+    <%= t :edit_scores %>
+  </button>
+<% end %>
+
+<% content_for :table do %>
+  <%= simple_form_for @examination, 
+  url: course_examination_scores_edit_path(@examination.course, @examination), 
+  method: :patch,  html: { id: :edit_scores } do |f| %>
+    <table class="table table-striped text-center">
+      <thead>
+        <th><%= t :surname %></th>
+        <th><%= t :name %></th>
+        <th><%= t :s_number %></th>
+        <th><%= t :status %></th>
+        <th><%= t :score_in_percentage %></th>
+      </thead>
+      <tbody>
+        <%= f.fields_for :scores, @examination.scores.sort_by{|e| e.student.surname } do |score| %>
+          <tr class="nested-fields">
+            <td>
+              <%= score.object.student.surname %>
+            </td>
+            <td>
+              <%= score.object.student.name %>
+            </td>
+            <td>
+              <%= score.object.student.s_number %>
+            </td>
+            <td>
+              <% if score.object.score.present? && score.object.passed? %>
+                <span class="text-success"><%= t :passed %></span>
+              <% elsif score.object.score.present? %>
+                <span class="text-danger"><%= t :failed %></span>
+              <% else %>
+                <span class="text-warning"><%= t :absent %></span>
+              <% end %>
+            </td>
+            <td>  
+              <%= score.input :score, label: false, 
+                placeholder: (t :not_loaded),
+                required: false,
+                input_html: {step: "0.01", 
+                            disabled: "true", 
+                            class: "table-input"}  
               %>
-          </div>
-    <% end %>
- </div>
-</div>
+              <%= score.hidden_field :student_id %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="form-actions text-right">
+      <%= link_to (t :cancel), 
+        course_examination_scores_path(@examination.course, @examination),
+        class: "btn btn-secondary hide", 
+        id:"cancel-btn" 
+      %>
+      <%= f.button :submit, (t :upload_scores), 
+          class: "btn btn-primary hide",
+          id: "submit-btn" 
+      %>
+    </div>
+  <% end %>
+<% end %>
+
+<%= render 'layouts/contentCard', card_title: t(:scores), collection: nil %>
