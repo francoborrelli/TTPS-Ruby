@@ -1,62 +1,64 @@
-<%= render partial: 'layouts/modal', locals: { del_msg: :delete_examination_msg, title: :destroy_examination, route_path: course_examination_path(@course , 0) } %>
+<% content_for :modal do %>
+  <%= render partial: 'layouts/modal', locals: { del_msg: :delete_examination_msg, title: :destroy_examination, route_path: course_examination_path(@course , 0) } %> 
+<% end %>
 
-<div class="card card-table">
-  <div class="container card-body">
-    <%= link_to course_path(@course), class: "btn btn-default float-right", :title => (t(:back)) do %>
-      <%= fa_icon "reply" %>
-    <% end %>
-    <h1><%= (t :examinations).capitalize %></h1>
-    <h5><%= (t :course).capitalize %> <%= @course.year %></h5>
-    <hr>
-    <% if @examinations.empty? %>
-      <%= render 'layouts/no_results', title: :no_examinations, icon: "book", 
-                  path: new_course_examination_path(@course), text: :new_examination   %>
-    <% else %>
-      <div class="card-btns">
-        <%= link_to t(:new_examination), new_course_examination_path(@course), class: "btn btn-primary float-right btn-sm" %>
-      </div>
-      <div class="table-responsive">
-        <table class="table table-striped text-center">
-          <thead>
-            <tr>
-              <th><%= t :examination_date %></th>
-              <th><%= t :title %></th>
-              <th><%= t :min_score %></th>
-              <th><%= t :scores %></th>
-              <th><%= t :edit %></th>
-              <th><%= t :delete %></th>
-            </tr>
-          </thead>
-          </tbody>
-            <% @examinations.each do |examination| %>
-              <tr>
-                <td><%= time_format(examination.date) %></td>
-                <td><%= examination.title %></td>
-                <td><%= examination.min_score %>%</td>
-                <td>
-                  <%= link_to course_examination_scores_path(examination.course, examination), class: "btn btn-primary btn-sm", :title => (t(:scores)) do %>
-                    <%= fa_icon "book" %>
-                  <% end %></td>
-                <td>
-                  <%= link_to edit_course_examination_path(examination.course, examination), class: "btn btn-warning btn-sm", :title => (t(:edit)) do %>
-                    <%= fa_icon "pencil" %>
-                  <% end %>
-                </td>
-                <td>
-                  <button data-id="<%= examination.id %>" data-slice="24" data-toggle="modal" data-target="#delete-confirm" title="<%= t(:delete) %>" class="btn-delete btn btn-sm btn-danger">
-                    <%= fa_icon "trash" %>
-                  </button>
-                </td>
-              </tr>
+<% content_for :back do %>
+  <%= link_to course_path(@course), class: "btn btn-default float-right", :title => (t(:back)) do %>
+    <%= fa_icon "reply" %>
+  <% end %>
+<% end %>
+
+<% content_for :subtitle do %>
+  <%= (t :course).capitalize %> <%= @course.year %>
+<% end %>
+
+<% content_for :no_results do %>
+  <%= render 'layouts/no_results', title: :no_examinations, icon: "book", 
+  path: new_course_examination_path(@course), text: :new_examination   %>
+<% end %>
+
+<% content_for :btns do %>
+  <%= link_to t(:new_examination), new_course_examination_path(@course), class: "btn btn-primary float-right btn-sm" %>
+<% end %>
+
+<% content_for :table do %>
+  <table class="table table-striped text-center">
+    <thead>
+      <tr>
+        <th><%= t :examination_date %></th>
+        <th><%= t :title %></th>
+        <th><%= t :min_score %></th>
+        <th><%= t :scores %></th>
+        <th><%= t :edit %></th>
+        <th><%= t :delete %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @examinations.each do |examination| %>
+        <tr>
+          <td><%= time_format(examination.date) %></td>
+          <td><%= examination.title %></td>
+          <td><%= examination.min_score %>%</td>
+          <td>
+            <%= link_to course_examination_scores_path(examination.course, examination), class: "btn btn-primary btn-sm", :title => (t(:scores)) do %>
+              <%= fa_icon "book" %>
             <% end %>
-          </tbody>
-        </table>
-      </div>
-      <div class="float-right">
-        <%= paginate @examinations %>
-      </div>
-    <% end %>
-  </div>
-</div>  
+          </td>
+          <td>
+            <%= link_to edit_course_examination_path(examination.course, examination), class: "btn btn-warning btn-sm", :title => (t(:edit)) do %>
+              <%= fa_icon "pencil" %>
+            <% end %>
+          </td>
+          <td>
+            <button data-id="<%= examination.id %>" data-slice="24" data-toggle="modal" data-target="#delete-confirm" title="<%= t(:delete) %>" class="btn-delete btn btn-sm btn-danger">
+              <%= fa_icon "trash" %>
+            </button>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
 
+<%= render 'layouts/contentCard', collection: @examinations, card_title: :examinations %>
 

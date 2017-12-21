@@ -1,21 +1,23 @@
 <div class="card card-table">
   <div class="container card-body">
-    <%= yield :head %>
+    <%= yield :back %>
+    <h1><%= card_title.capitalize %></h1>
+    <h5><%= yield :subtitle %></h5>
     <hr>
-    <% if collection.empty? %>
+    <% if !collection.nil? && collection.empty? %>
       <%= yield :no_results %>
     <% else %>
         <div class="card-btns">
             <%= yield :btns %>
         </div>
         <div class="table-responsive">
-            <table class="table table-striped text-center">
-                <%= yield :table%>
-            </table>
+            <%= yield :table %>
         </div>
-        <div class="float-right">
-          <%= paginate collection %>
-        </div>
+        <% if !collection.nil? %>
+            <div class="float-right">
+            <%= paginate collection %>
+            </div>
+        <% end %>
       <% end %> 
     </div>
   </div>  
