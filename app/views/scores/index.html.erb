@@ -1,6 +1,6 @@
 <div class="card card-table">
   <div class="card-body container">
-      <%= link_to course_examinations_path(@examination.course), class: "btn btn-default float-right", :title => (t(:back)) do %>
+    <%= link_to course_examinations_path(@examination.course), class: "btn btn-default float-right", :title => (t(:back)) do %>
       <%= fa_icon "reply" %>
     <% end %>
     <h1><%= t(:scores) %></h1> 
@@ -13,7 +13,7 @@
     </div>
     <%= simple_form_for @examination, 
         url: course_examination_scores_edit_path(@examination.course, @examination), 
-        method: :post,  html: { id: :edit_scores } do |f| %>
+        method: :patch,  html: { id: :edit_scores } do |f| %>
       <div class="table-responsive">
         <table class="table table-striped text-center">
           <thead>

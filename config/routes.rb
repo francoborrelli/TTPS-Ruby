@@ -2,12 +2,13 @@ Rails.application.routes.draw do
   resources :courses do
     resources :examinations do
       resources :scores, only: [:index]
-      post 'scores/edit', to: 'scores#update' 
+      patch 'scores/edit', to: 'scores#update' 
     end
     resources :students, except: [:show]
   end
 
   devise_for :users, skip: :all
+
   # if user authenticated then root is courses page
   authenticated :user do
     root 'courses#index', as: :authenticated_root
@@ -18,7 +19,6 @@ Rails.application.routes.draw do
     post 'sign_in', to: 'devise/sessions#create', as: :user_session
     delete 'sign_out', to: 'devise/sessions#destroy', as: :destroy_user_session
 
-    # if user is not authenticated redirect to singIn
     root to: redirect('/sign_in')
 
     patch 'set_locale', to: 'locale#set_locale'
