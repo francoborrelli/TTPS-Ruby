@@ -1,78 +1,92 @@
-<div class="table-responsive">
-    <table align="center" class="table text-center table-bordered">
-        <thead>
-            <tr>
-                <th colspan="2"><%= (t :student).capitalize %></th>
-                <% @examinations.each do |exam| %>
-                    <th colspan = 2>
-                        <%= link_to course_examination_scores_path(exam.course, exam) do %>
+<table align="center" class="table text-center table-bordered">
+    <thead>
+        <tr>
+            <th colspan="2">
+                <%= (t :student).capitalize %>
+            </th>
+            <% @examinations.each do |exam| %>
+                <th colspan=2>
+                    <%= link_to course_examination_scores_path(exam.course, exam) do %>
                         <%= exam.title %>
                         <br>
                         <small>
-                            <%= time_format(exam.date) %> 
+                            <%= time_format(exam.date) %>
                         </small>
-                        <% end %>
-                    </th>
-                <% end %>
-            </tr>
+                    <% end %>
+                </th>
+            <% end %>
+        </tr>
+        <tr>
+            <th><%= t :name %></th>
+            <th><%= t :s_number %></th>
+            <% @examinations.size.times do %>
+                <th><%= t :score %></th>
+                <th><%= t :status %></th>
+            <% end %>
+        </tr>
+    </thead>
+    <tbody class="table-hover">
+        <% @students.each do |student| %>
             <tr>
-                <th><%= t :name %></th>
-                <th><%= t :s_number %></th>
-                <% @examinations.each do %>
-                    <th><%= t :score %></th>
-                    <th><%= t :status %></th>
-                <% end %>
-            </tr>
-        </thead>
-        <tbody class="table-hover">
-            <% @students.each do |student| %>
-                <tr>
-                <td><%= student.name %> <%= student.surname %></td>
-                <td><%= student.s_number %></td>
+                <td>
+                    <%= student.full_name %>
+                </td>
+                <td>
+                    <%= student.s_number %>
+                </td>
                 <% @examinations.each do |exam| %>
                     <% if student.took_exam?(exam) %>
                         <% score = student.score_for_exam(exam) %>
-                        <td><%= score.score %>%</td>
-                        <td>
-                            <% if score.passed? %>
-                                    <span class="text-success"><%= t :passed %></span>
-                            <% else %>
-                                    <span class="text-danger"><%= t :failed %></span>
-                            <% end %>
-                        </td>
+                            <td><%= score.score %>%</td>
+                            <td>
+                                <% if score.passed? %>
+                                    <span class="text-success">
+                                        <%= t :passed %>
+                                    </span>
+                                <% else %>
+                                    <span class="text-danger">
+                                        <%= t :failed %>
+                                    </span>
+                                <% end %>
+                            </td>
                     <% else %>
                         <td>-</td>
-                        <td><span class="text-warning"><%= t :absent %></span></td>
-                    <% end %> 
+                        <td>
+                            <span class="text-warning">
+                                <%= t :absent %>
+                            </span>
+                        </td>
+                    <% end %>
                 <% end %>
-                </tr>
-            <% end %>
-        </tbody>
-        <tfoot class="table-secondary">
-            <tr>
+            </tr>
+        <% end %>
+    </tbody>
+
+    <tfoot class="table-secondary">
+        <tr>
             <td colspan="2"><%= t :count_passed %></td>
             <% @examinations.each do |exam| %>
                 <td colspan="2"><%= exam.passing_students %></td>
             <% end %>
-            </tr>
-            <tr>
+        </tr>
+        <tr>
             <td colspan="2"><%= t :count_failed %></td>
             <% @examinations.each do |exam| %>
                 <td colspan="2"><%= exam.failed_students %></td>
             <% end %>
-            </tr>
-            <tr>
+        </tr>
+        <tr>
             <td colspan="2"><%= t :count_absent %></td>
             <% @examinations.each do |exam| %>
                 <td colspan="2"><%= exam.absent_students %></td>
             <% end %>
-            </tr>
-            <tr>
+        </tr>
+        <tr>
             <td colspan="2"><%= t :passed_average %></td>
             <% @examinations.each do |exam| %>
                 <td colspan="2"><%= exam.passing_percentage.round(2) %>%</td>
             <% end %>
-            </tr>
-        </tfoot>
-    </table>
-</div>
+        </tr>
+    </tfoot>
+    
+</table>

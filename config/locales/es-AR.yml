@@ -44,6 +44,7 @@ es-AR:
   new_student: Nuevo Estudiante
   no_students: Esta cursada todavia no tiene estudiantes
   no_examinations: Esta cursada todavia no tiene evaluaciones
+  no_courses: No hay cursos registrados
   edit_student: Editar Estudiante
   destroy_student: Borrar Estudiante
   show_students: Mostrar Estudiantes

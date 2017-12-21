@@ -48,6 +48,7 @@ en:
   count_absent: Number of absent students
   no_students: This course has no students
   no_examinations: This course has no examinations
+  no_courses: There are no courses yet
   passed_average: Average of approved students
   select_year: You must select a year
   select_examination: You must select a examination
