@@ -5,7 +5,8 @@
 <% end %>
 
 <% content_for :subtitle do %>
-  <%= @examination.title %>
+  <%= @examination.title %> -
+  <%= course_title(@examination.course) %>
 <% end %>
 
 <% content_for :btns do %>
