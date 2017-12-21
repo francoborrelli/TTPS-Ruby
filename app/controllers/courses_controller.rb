@@ -2,13 +2,13 @@ class CoursesController < ApplicationController
   before_action :set_course, only: %i[show edit update destroy]
 
   def index
-    @courses = Course.order('year DESC').page(params[:page])
+    @courses = Course.ordered_by_year.page(params[:page])
     check_pagination(@courses)
   end
 
   def show
-    @examinations = @course.examinations.order(:date)
-    @students = @course.students.order('surname, name')
+    @examinations = @course.examinations
+    @students = @course.students
   end
 
   def new
@@ -26,7 +26,6 @@ class CoursesController < ApplicationController
 
   def create
     @course = Course.new(course_params)
-
     if @course.save
       redirect_to(courses_url, notice: t(:created_course))
     else
@@ -52,7 +51,6 @@ class CoursesController < ApplicationController
   end
 
   private
-
   def set_course
     @course = Course.find(params[:id])
   end

@@ -3,12 +3,12 @@ class StudentsController < ApplicationController
   before_action :set_course
 
   def index
-    @students = students_ordered.page(params[:page])
+    @students = @course.students.page(params[:page])
     check_pagination(@students)
   end
 
   def new
-    @student = Student.new
+    @student = @course.students.build
     render(:form, locals: { title: :new_student })
   end
 
@@ -17,8 +17,7 @@ class StudentsController < ApplicationController
   end
 
   def create
-    @student = Student.new(student_params)
-    @student.course = @course
+    @student = @course.students.build(student_params)
     if @student.save
       redirect_to(course_students_path(@course), notice: t(:created_student))
     else
@@ -51,10 +50,6 @@ class StudentsController < ApplicationController
 
   def set_course
     @course = Course.find(params[:course_id])
-  end
-
-  def students_ordered
-    @course.students.order('surname, name')
   end
 
   def student_params

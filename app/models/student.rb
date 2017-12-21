@@ -1,8 +1,10 @@
 class Student < ApplicationRecord
+  default_scope { order('surname, name') }
+
   before_save :standarize_name
 
-  has_many :scores, dependent: :restrict_with_error
   belongs_to :course
+  has_many :scores, dependent: :restrict_with_error
 
   validates :name, presence: true,
                    length: { in: 0..50 },

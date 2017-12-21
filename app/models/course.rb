@@ -1,4 +1,6 @@
 class Course < ApplicationRecord
+  scope :ordered_by_year, -> { order(year: :desc) }
+
   has_many :examinations, dependent: :restrict_with_error
   has_many :students, dependent: :restrict_with_error
   has_many :scores, through: :examinations
