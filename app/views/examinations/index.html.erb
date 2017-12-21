@@ -9,7 +9,6 @@
 <% end %>
 
 <% content_for :subtitle do %>
-  <%= (t :course).capitalize %> <%= @course.year %>
   <%= course_title(@course)%>
 <% end %>
 
@@ -61,5 +60,5 @@
   </table>
 <% end %>
 
-<%= render 'layouts/contentCard', collection: @examinations, card_title: :examinations %>
+<%= render 'layouts/contentCard', collection: @examinations, card_title: t(:examinations) %>
 
