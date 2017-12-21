@@ -10,9 +10,13 @@
         <div class="card-btns">
             <%= yield :btns %>
         </div>
-        <div class="table-responsive">
-            <%= yield :table %>
-        </div>
+        <% if content_for?(:form) %>
+          <%= yield :form %>
+        <% else %>
+          <div class="table-responsive">
+              <%= yield :table %>
+          </div>
+        <% end %>
         <% if !collection.nil? %>
             <div class="float-right">
             <%= paginate collection %>

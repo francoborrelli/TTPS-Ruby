@@ -14,10 +14,11 @@
   </button>
 <% end %>
 
-<% content_for :table do %>
+<% content_for :form do %>
   <%= simple_form_for @examination, 
   url: course_examination_scores_edit_path(@examination.course, @examination), 
   method: :patch,  html: { id: :edit_scores } do |f| %>
+    <div class="table-responsive">
     <table class="table table-striped text-center">
       <thead>
         <th><%= t :surname %></th>
@@ -61,6 +62,8 @@
         <% end %>
       </tbody>
     </table>
+    </div>
+    <br>
     <div class="form-actions text-right">
       <%= link_to (t :cancel), 
         course_examination_scores_path(@examination.course, @examination),
