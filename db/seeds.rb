@@ -3,11 +3,10 @@ User.create(username: 'admin', password: '123456')
 Course.create year: Time.zone.today.year
 Course.create year: (Time.zone.today.year - 1)
 
-18.times do |i|
-  offset = rand(Course.count)
-  course = Course.offset(offset).first
+14.times do |i|
+  course = Course.all.sample
   name = Faker::HarryPotter.character.split(/\W+/)
-  email = name.first + '@' + name.last + '.com'
+  email = "#{name.first}@#{name.last}.com"
   Student.create(name: name.first, surname: name.last,
                  course: course, dni: (39_831_178 + i).to_s,
                  email: email, s_number: "137#{i}/#{i % 10}")
@@ -24,9 +23,8 @@ Course.all.each do |course|
 end
 
 Examination.all.each do |exam|
-  6.times do
-    offset = rand(exam.students.count)
-    student = exam.students.offset(offset).first
+  students = exam.students.shuffle.first(4) 
+    students.each do |student| 
     score = rand(0..100.0).round(2)
     exam.scores.build(score: score, student: student)
     exam.save
