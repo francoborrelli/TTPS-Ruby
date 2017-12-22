@@ -16,7 +16,7 @@ class Student < ApplicationRecord
                                 message: :only_letters }
   validates :s_number, presence: true,
                        uniqueness: { scope: :course },
-                       length: { in: 0..10 },
+                       length: { in: 1..10 },
                        format: { with: /\A\d{1,6}.[\/]\d\z/,
                                  message: :invalid_s_number }
   validates :email,
