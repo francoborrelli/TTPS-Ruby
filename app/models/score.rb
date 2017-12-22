@@ -2,10 +2,6 @@ class Score < ApplicationRecord
   belongs_to :examination
   belongs_to :student
 
-  scope :find_by_pair, ->(student, examination) {
-    where(student: student, examination: examination)
-  }
-
   validates :score, presence: true,
                     format: { with: /\A\d+(?:\.\d{0,2})?\z/,
                               message: :decimal_msg },

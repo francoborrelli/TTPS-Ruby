@@ -30,7 +30,7 @@ class Student < ApplicationRecord
                   numericality: { only_integer: true }
 
   def score_for_exam(exam)
-    Score.find_by_pair(self, exam).first
+    scores.where(examination: exam).first
   end
 
   def took_exam?(exam)
