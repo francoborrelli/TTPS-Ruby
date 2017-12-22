@@ -38,25 +38,10 @@
                     <% if student.took_exam?(exam) %>
                         <% score = student.score_for_exam(exam) %>
                             <td><%= score.score %>%</td>
-                            <td>
-                                <% if score.passed? %>
-                                    <span class="text-success">
-                                        <%= t :passed %>
-                                    </span>
-                                <% else %>
-                                    <span class="text-danger">
-                                        <%= t :failed %>
-                                    </span>
-                                <% end %>
-                            </td>
                     <% else %>
                         <td>-</td>
-                        <td>
-                            <span class="text-warning">
-                                <%= t :absent %>
-                            </span>
-                        </td>
                     <% end %>
+                    <td><%= score_status(student, exam) %></td>
                 <% end %>
             </tr>
         <% end %>
