@@ -30,7 +30,7 @@ class Student < ApplicationRecord
                   numericality: { only_integer: true }
 
   def score_for_exam(exam)
-    scores.where(examination: exam).first
+    scores.find_by(examination: exam)
   end
 
   def took_exam?(exam)
