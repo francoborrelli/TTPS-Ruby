@@ -7,6 +7,11 @@ class StudentTest < ActiveSupport::TestCase
 
   # Testing Model
 
+  test 'should not save empty student' do
+    student = Student.new
+    assert_not student.save
+  end
+
   test 'student dni should be unique in a course' do
     student_two = students(:two)
     student_two.dni = @student.dni

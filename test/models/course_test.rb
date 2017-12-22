@@ -1,6 +1,12 @@
 require 'test_helper'
 
 class CourseTest < ActiveSupport::TestCase
+
+  test 'should not save empty course' do
+    course = Course.new
+    assert_not course.save
+  end
+
   test 'should not save course without year' do
     course = Course.new
     assert_not course.save
@@ -47,7 +53,7 @@ class CourseTest < ActiveSupport::TestCase
     assert_empty course.examinations
   end
 
-  test 'should have two student' do
+  test 'should have three student' do
     course = courses(:one)
     student_one = students(:one)
     student_two = students(:two)

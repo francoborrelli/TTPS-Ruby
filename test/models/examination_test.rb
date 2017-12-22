@@ -5,6 +5,11 @@ class ExaminationTest < ActiveSupport::TestCase
     @examination = examinations(:one)
   end
 
+  test 'shouldnt save empty examination' do
+    examination = Examination.new
+    assert_not examination.save
+  end
+
   # min_score
   test 'shouldnt save if min_score is a string' do
     @examination.min_score = 'hola'
