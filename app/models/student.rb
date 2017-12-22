@@ -26,7 +26,7 @@ class Student < ApplicationRecord
 
   validates :dni, presence: true,
                   uniqueness: { scope: :course },
-                  length: { in: 6..11 },
+                  length: { in: 5..9 },
                   numericality: { only_integer: true, greater_than: 0 }
 
   def score_for_exam(exam)
