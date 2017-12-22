@@ -17,7 +17,7 @@
               <%= yield :table %>
           </div>
         <% end %>
-        <% if !collection.nil? %>
+        <% if !collection.nil? && !collection.empty? %>
             <div class="float-right">
             <%= paginate collection %>
             </div>
