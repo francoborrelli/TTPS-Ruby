@@ -1,5 +1,4 @@
 class ErrorsController < ApplicationController
-  
   def not_found
     render_error(404, :not_found)
   end
@@ -13,5 +12,4 @@ class ErrorsController < ApplicationController
   def render_error(code, message)
     render(:error, locals: { code: code, message: message }, status: code)
   end
-  
 end

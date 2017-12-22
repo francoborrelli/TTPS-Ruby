@@ -31,6 +31,7 @@ class Examination < ApplicationRecord
   end
 
   private
+
   def standarize
     self.min_score = min_score.round(2)
     self.title = title.downcase.titleize

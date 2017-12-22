@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class CourseTest < ActiveSupport::TestCase
-
   test 'should not save empty course' do
     course = Course.new
     assert_not course.save
@@ -43,7 +42,7 @@ class CourseTest < ActiveSupport::TestCase
   end
 
   # testing interactions with other models
-  
+
   test 'should not save course when exists another with the same year' do
     course_one = courses(:one)
     course_two = course_one.dup

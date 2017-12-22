@@ -4,7 +4,7 @@ class ScoreTest < ActiveSupport::TestCase
   def setup
     @score = scores(:one)
   end
-  
+
   test 'should not save empty score' do
     score = Score.new
     assert_not score.save

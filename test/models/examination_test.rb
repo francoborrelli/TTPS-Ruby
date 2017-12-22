@@ -56,17 +56,17 @@ class ExaminationTest < ActiveSupport::TestCase
   end
 
   test 'should have no more than 40 letters' do
-    @examination.title = "hola, esto es una prueba de un titulo con más de 40 caracteres"
+    @examination.title = 'hola, esto es una prueba de un titulo con más de 40 caracteres'
     assert_not @examination.save
 
-    @examination.title = "Titulo dentro del rango"
+    @examination.title = 'Titulo dentro del rango'
     assert @examination.save
   end
 
   test 'should standarize title' do
-    @examination.title = "este TiTuLO"
+    @examination.title = 'este TiTuLO'
     @examination.save
-    assert_equal("Este Titulo", @examination.title)
+    assert_equal('Este Titulo', @examination.title)
   end
 
   # Date
@@ -76,16 +76,16 @@ class ExaminationTest < ActiveSupport::TestCase
   end
 
   test 'date should be inside the range' do
-    @examination.date = "2016-03-04"
+    @examination.date = '2016-03-04'
     assert_not @examination.save
 
-    @examination.date = "2017-03-04"
+    @examination.date = '2017-03-04'
     assert @examination.save
 
-    @examination.date = "2018-02-04"
+    @examination.date = '2018-02-04'
     assert @examination.save
 
-    @examination.date = "2019-05-05"
+    @examination.date = '2019-05-05'
     assert_not @examination.save
   end
 
@@ -93,7 +93,7 @@ class ExaminationTest < ActiveSupport::TestCase
 
   test 'should not save nil score' do
     size = @examination.scores.size
-    @examination.scores.build()
+    @examination.scores.build
     assert_not @examination.save
   end
 

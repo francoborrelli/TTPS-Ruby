@@ -35,7 +35,7 @@ class StudentTest < ActiveSupport::TestCase
     @student.dni = 243_434.3
     assert_not @student.valid?
 
-    @student.dni = 39831172
+    @student.dni = 39_831_172
     assert @student.valid?
   end
 
@@ -43,12 +43,12 @@ class StudentTest < ActiveSupport::TestCase
     @student.dni = 1
     assert_not @student.valid?
 
-    @student.dni = 111111111111
+    @student.dni = 111_111_111_111
     assert_not @student.valid?
   end
 
   test 'dni should be positive' do
-    @student.dni = -39831172
+    @student.dni = -39_831_172
     assert_not @student.valid?
   end
 
