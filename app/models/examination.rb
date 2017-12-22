@@ -1,15 +1,15 @@
 class Examination < ApplicationRecord
-  default_scope { order(:date) }
+  default_scope { order(:date, :title) }
   before_save :standarize
 
   belongs_to :course
   has_many :scores, dependent: :restrict_with_error
   accepts_nested_attributes_for :scores, reject_if: proc { |a| a['score'].blank? }
 
-
   validate :proper_year
-  validates :title, presence: true, uniqueness: { scope: :course }
   validates :date, presence: true
+  validates :title, presence: true, uniqueness: { scope: :course },
+                    length: { in: 1..40 }
   validates :min_score, presence: true,
                         numericality: { greater_than_or_equal_to: 0,
                                         less_than_or_equal_to: 100 }
@@ -31,9 +31,10 @@ class Examination < ApplicationRecord
   end
 
   private
+
   def proper_year
     range = years_range
-    errors.add(:date, :invalid_year) unless date.present? && range === date.year 
+    errors.add(:date, :invalid_year) unless date.present? && range === date.year
   end
 
   def standarize
@@ -44,5 +45,4 @@ class Examination < ApplicationRecord
   def years_range
     course.year..(course.year + 1) unless course.nil?
   end
-
 end
