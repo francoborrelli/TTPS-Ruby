@@ -19,8 +19,8 @@
 <%= render 'layouts/card', title: title, xl: true %>
 
 <script>
-  fSDate =  new Date(<%= @examination.course.year %>, 1, 1);
-  fEDate = new Date(<%= @examination.course.year + 1 %>, 2, 31);
+  fSDate =  new Date("<%= @examination.course.min_date + 1.day %>");
+  fEDate = new Date("<%= @examination.course.max_date %>");
   lang = "<%= I18n.locale %>";
 </script>
 

@@ -31,7 +31,6 @@ class Examination < ApplicationRecord
   end
 
   private
-
   def standarize
     self.min_score = min_score.round(2)
     self.title = title.downcase.titleize
@@ -43,14 +42,6 @@ class Examination < ApplicationRecord
   end
 
   def dates_range
-    (min_date..max_date) unless course.nil?
-  end
-
-  def min_date
-    Date.parse("#{course.year}-1-1")
-  end
-
-  def max_date
-    Date.parse("#{course.year + 1}-3-1")
+    (course.min_date..course.max_date) unless course.nil?
   end
 end
