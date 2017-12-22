@@ -7,11 +7,11 @@ class Student < ApplicationRecord
   has_many :scores, dependent: :restrict_with_error
 
   validates :name, presence: true,
-                   length: { in: 0..50 },
+                   length: { in: 1..50 },
                    format: { with: /\A[a-zA-Z]+\z/,
                              message: :only_letters }
   validates :surname, presence: true,
-                      length: { in: 0..50 },
+                      length: { in: 1..50 },
                       format: { with: /\A[a-zA-Z]+\z/,
                                 message: :only_letters }
   validates :s_number, presence: true,
@@ -27,7 +27,7 @@ class Student < ApplicationRecord
   validates :dni, presence: true,
                   uniqueness: { scope: :course },
                   length: { in: 6..11 },
-                  numericality: { only_integer: true }
+                  numericality: { only_integer: true, greater_than: 0 }
 
   def score_for_exam(exam)
     scores.find_by(examination: exam)
@@ -44,7 +44,7 @@ class Student < ApplicationRecord
   private
 
   def standarize_name
-    self.name = name.titleize
-    self.surname = surname.titleize
+    self.name = name.downcase.titleize
+    self.surname = surname.downcase.titleize
   end
 end
