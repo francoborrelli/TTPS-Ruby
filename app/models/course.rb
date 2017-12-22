@@ -8,6 +8,7 @@ class Course < ApplicationRecord
 
   validates :year, presence: true, uniqueness: true,
                    length: { is: 4 },
-                   numericality: { only_integer: true }
+                   numericality: { only_integer: true },
+                   inclusion: { in: 1950..(Time.zone.today.year + 5) }
 
 end
