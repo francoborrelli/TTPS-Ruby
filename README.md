@@ -41,7 +41,7 @@ docker-compose exec web rails test test/models/score_test.rb
 ```
 
 ### Terminando
-Para finalizar es necesario detener los containers de Docker ejecutando:
+Para finalizar es necesario ejecutar:
 
 ```sh
 docker-compose down
