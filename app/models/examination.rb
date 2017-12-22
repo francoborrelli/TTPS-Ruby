@@ -32,17 +32,25 @@ class Examination < ApplicationRecord
 
   private
 
-  def proper_year
-    range = years_range
-    errors.add(:date, :invalid_year) unless date.present? && range === date.year
-  end
-
   def standarize
     self.min_score = min_score.round(2)
-    self.title = title.titleize
+    self.title = title.downcase.titleize
   end
 
-  def years_range
-    course.year..(course.year + 1) unless course.nil?
+  def proper_year
+    range = dates_range
+    errors.add(:date, :invalid_year) unless date.present? && range === date.to_date
+  end
+
+  def dates_range
+    (min_date..max_date) unless course.nil?
+  end
+
+  def min_date
+    Date.parse("#{course.year}-1-1")
+  end
+
+  def max_date
+    Date.parse("#{course.year + 1}-3-1")
   end
 end
