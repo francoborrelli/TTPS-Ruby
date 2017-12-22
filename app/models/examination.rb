@@ -36,16 +36,16 @@ class Examination < ApplicationRecord
 
   def proper_year
     range = years_range
-    errors.add(:date, :invalid_year) unless date.present? && range === date.year
+    errors.add(:date, :invalid_year) unless date.present? && range === date.year 
   end
 
   def standarize
     self.min_score = min_score.round(2)
-    self.title = title.downcase.capitalize
+    self.title = title.titleize
   end
 
   def years_range
-    course.year..(course.year + 1)
+    course.year..(course.year + 1) unless course.nil?
   end
 
 end

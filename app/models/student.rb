@@ -44,7 +44,7 @@ class Student < ApplicationRecord
   private
 
   def standarize_name
-    self.name = name.downcase.capitalize
-    self.surname = surname.downcase.capitalize
+    self.name = name.titleize
+    self.surname = surname.titleize
   end
 end
