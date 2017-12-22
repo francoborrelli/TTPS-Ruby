@@ -9,6 +9,11 @@
   <%= course_title(@examination.course) %>
 <% end %>
 
+<% content_for :no_results do %>
+  <%= render 'layouts/no_results', title: :no_students, icon: "book", 
+  path: new_course_student_path(@examination.course), text: :new_student   %>
+<% end %>
+
 <% content_for :btns do %>
   <button class="btn btn btn-primary btn-sm float-right" id="edit-btn">
     <%= t :edit_scores %>
@@ -79,4 +84,4 @@
   <% end %>
 <% end %>
 
-<%= render 'layouts/contentCard', card_title: t(:scores), collection: nil %>
+<%= render 'layouts/contentCard', card_title: t(:scores), collection: [] %>
