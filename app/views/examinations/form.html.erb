@@ -7,7 +7,7 @@
       <%= f.input :date, as: :string, input_html: { placeholder: t(:examination_date) ,class: "datepicker", readonly: true, value: time_format(f.object.date) } %>
     </div>
     <div class="form-group">
-      <%= f.input :min_score, required: true, placeholder: t(:min_score) + ' ' + t(:in_percentage) %>
+      <%= f.input :min_score, required: true, placeholder: t(:min_score) + ' ' + t(:in_percentage), input_html: {step: "0.01"} %>
     </div>
     <div class="form-actions text-right">
       <%= link_to t(:cancel), course_examinations_path(@examination.course), class: "btn btn-secondary" %>
