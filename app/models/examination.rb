@@ -15,7 +15,7 @@ class Examination < ApplicationRecord
                                         less_than_or_equal_to: 100 }
 
   def passing_percentage
-    (passing_students * 100.00) / students.size
+    (passing_students * 100.00) / course.students.size
   end
 
   def passing_students
@@ -27,13 +27,10 @@ class Examination < ApplicationRecord
   end
 
   def absent_students
-    students.size - scores.size
+    course.students.size - scores.size
   end
 
-  delegate :students, to: :course
-
   private
-
   def proper_year
     range = years_range
     errors.add(:date, :invalid_year) unless date.present? && range === date.year 

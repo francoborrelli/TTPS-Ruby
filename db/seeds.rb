@@ -23,7 +23,7 @@ Course.all.each do |course|
 end
 
 Examination.all.each do |exam|
-  students = exam.students.shuffle.first(4) 
+  students = exam.course.students.shuffle.first(4) 
     students.each do |student| 
     score = rand(0..100.0).round(2)
     exam.scores.build(score: score, student: student)

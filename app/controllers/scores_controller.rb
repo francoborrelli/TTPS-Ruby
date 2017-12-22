@@ -24,7 +24,7 @@ class ScoresController < ApplicationController
   end
 
   def build_scores
-    @examination.students.each do |student|
+    @examination.course.students.each do |student|
       @examination.scores.build(student: student) unless student.took_exam?(@examination)
     end
   end
