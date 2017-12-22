@@ -9,7 +9,7 @@
 <% end %>
 
 <% content_for :subtitle do %>
-  <%= course_title(@course)%>
+  <%= link_to course_title(@course), course_path(@course), class: "black"  %>
 <% end %>
 
 <% content_for :no_results do %>

@@ -6,7 +6,7 @@
 
 <% content_for :subtitle do %>
   <%= @examination.title %> -
-  <%= course_title(@examination.course) %>
+  <%= link_to course_title(@examination.course), course_path(@examination.course), class: "black"  %>
 <% end %>
 
 <% content_for :no_results do %>
