@@ -7,6 +7,7 @@ class CourseTest < ActiveSupport::TestCase
     assert_not course.save
   end
 
+  # Year
   test 'should not save course without year' do
     course = Course.new
     assert_not course.save
@@ -32,10 +33,17 @@ class CourseTest < ActiveSupport::TestCase
     assert_not course.save
   end
 
+  test 'should not save course with negative year' do
+    course = Course.new(year: -2017)
+    assert_not course.save
+  end
+
   test 'should save course with valid year' do
     assert Course.create(year: 2017)
   end
 
+  # testing interactions with other models
+  
   test 'should not save course when exists another with the same year' do
     course_one = courses(:one)
     course_two = course_one.dup
@@ -71,5 +79,10 @@ class CourseTest < ActiveSupport::TestCase
     assert_equal(2, course.examinations.size)
     assert_includes(course.examinations, exam_one)
     assert_includes(course.examinations, exam_two)
+  end
+
+  test 'should not destroy course if it has students or examinations' do
+    assert_not courses(:one).destroy
+    assert courses(:three).destroy
   end
 end

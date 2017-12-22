@@ -10,7 +10,8 @@ class ExaminationTest < ActiveSupport::TestCase
     assert_not examination.save
   end
 
-  # min_score
+  # Min_score
+
   test 'shouldnt save if min_score is a string' do
     @examination.min_score = 'hola'
     assert_not @examination.save
@@ -39,26 +40,63 @@ class ExaminationTest < ActiveSupport::TestCase
     assert @examination.save
   end
 
-  # title
+  # Title
+
   test 'should not save if it has no title' do
     @examination.title = nil
+    assert_not @examination.save
+    @examination.title = '  '
     assert_not @examination.save
   end
 
   test 'should not be two exams with the same title in the same course' do
     examination_two = examinations(:three)
     examination_two.title = @examination.title
-
     assert_not examination_two.save
   end
 
-  # date
+  test 'should have no more than 40 letters' do
+    @examination.title = "hola, esto es una prueba de un titulo con más de 40 caracteres"
+    assert_not @examination.save
+
+    @examination.title = "Titulo dentro del rango"
+    assert @examination.save
+  end
+
+  test 'should standarize title' do
+    @examination.title = "este TiTuLO"
+    @examination.save
+    assert_equal("Este Titulo", @examination.title)
+  end
+
+  # Date
   test 'should not save if it has no date' do
     @examination.date = nil
     assert_not @examination.save
   end
 
-  # testing interactions with other models
+  test 'date should be inside the range' do
+    @examination.date = "2016-03-04"
+    assert_not @examination.save
+
+    @examination.date = "2017-03-04"
+    assert @examination.save
+
+    @examination.date = "2018-02-04"
+    assert @examination.save
+
+    @examination.date = "2019-05-05"
+    assert_not @examination.save
+  end
+
+  # Testing interactions with other models
+
+  test 'should not save nil score' do
+    size = @examination.scores.size
+    @examination.scores.build()
+    assert_not @examination.save
+  end
+
   test 'should assert number of passing students' do
     assert_equal(0, @examination.passing_students)
 
@@ -109,5 +147,10 @@ class ExaminationTest < ActiveSupport::TestCase
 
     result = 200 / 3.to_f
     assert_equal(result, @examination.passing_percentage)
+  end
+
+  test 'should not destroy examination if it has scores' do
+    assert_not @examination.destroy
+    assert examinations(:two).destroy
   end
 end

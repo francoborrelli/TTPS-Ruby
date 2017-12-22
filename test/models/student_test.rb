@@ -12,10 +12,51 @@ class StudentTest < ActiveSupport::TestCase
     assert_not student.save
   end
 
+  # DNI
+
+  test 'should not save if dni is not present' do
+    @student.dni = ''
+    assert_not @student.save
+  end
+
   test 'student dni should be unique in a course' do
     student_two = students(:two)
     student_two.dni = @student.dni
     assert_not student_two.save
+  end
+
+  test 'should not save if dni is not integer' do
+    @student.dni = 'hola'
+    assert_not @student.valid?
+
+    @student.dni = '34hola'
+    assert_not @student.valid?
+
+    @student.dni = 243_434.3
+    assert_not @student.valid?
+
+    @student.dni = 39831172
+    assert @student.valid?
+  end
+
+  test 'dni should have between 6 and 11 digits' do
+    @student.dni = 1
+    assert_not @student.valid?
+
+    @student.dni = 111111111111
+    assert_not @student.valid?
+  end
+
+  test 'dni should be positive' do
+    @student.dni = -39831172
+    assert_not @student.valid?
+  end
+
+  # Student Number
+
+  test 'should not save if student number is not present' do
+    @student.s_number = nil
+    assert_not @student.save
   end
 
   test 'student number should be unique in a course' do
@@ -24,23 +65,57 @@ class StudentTest < ActiveSupport::TestCase
     assert_not @student.save
   end
 
+  test 'student number should be valid' do
+    assert @student.valid?
+    @student.s_number = '123123123'
+    assert_not @student.valid?
+    @student.s_number = '1231/'
+    assert_not @student.valid?
+    @student.s_number = '13732/5'
+    assert @student.valid?
+    @student.s_number = '12313/45'
+    assert_not @student.valid?
+  end
+
+  # Email
+
   test 'email should be unique in a course' do
     student_two = students(:two)
     student_two.email = @student.email
     assert_not student_two.save
   end
 
+  test 'should not save if email is not present' do
+    @student.email = ''
+    assert_not @student.save
+
+    @student.email = 'francoborrelli@email.com'
+    assert @student.save
+  end
+
+  test 'student email should be valid' do
+    @student.email = '34r3'
+    assert_not @student.valid?
+
+    @student.email = '34r3@'
+    assert_not @student.valid?
+
+    @student.email = 'test@'
+    assert_not @student.valid?
+
+    @student.email = 'test.com'
+    assert_not @student.valid?
+
+    @student.email = 'test@c.com'
+    assert @student.valid?
+  end
+
+  # Name
+
   test 'student name should be present' do
     @student.name = ''
     assert_not @student.save
     @student.name = 'franco'
-    assert @student.save
-  end
-
-  test 'student surname should be present' do
-    @student.surname = ''
-    assert_not @student.save
-    @student.surname = 'Borrelli'
     assert @student.save
   end
 
@@ -56,44 +131,25 @@ class StudentTest < ActiveSupport::TestCase
     assert_equal('Franco', @student.name)
   end
 
-  test 'student number should be valid' do
-    assert @student.valid?
-    @student.s_number = '123123123'
-    assert_not @student.valid?
-    @student.s_number = '1231/'
-    assert_not @student.valid?
-    @student.s_number = '13732/5'
-    assert @student.valid?
-    @student.s_number = '12313/45'
-    assert_not @student.valid?
+  # Surname
+
+  test 'student surname should be present' do
+    @student.surname = ''
+    assert_not @student.save
+    @student.surname = 'Borrelli'
+    assert @student.save
   end
 
-  test 'dni should be valid' do
-    @student.dni = ''
-    assert_not @student.valid?
-    @student.dni = '1231/'
-    assert_not @student.valid?
-    @student.dni = '39831178'
-    assert @student.valid?
-    @student.dni = 243_434.3
-    assert_not @student.valid?
-    @student.dni = 39_831_178
-    assert @student.valid?
+  test 'student surname should be standarize' do
+    @student.name = 'BORRELLI'
+    @student.save
+    assert_equal('Borrelli', @student.surname)
   end
 
-  test 'student email should be valid' do
-    @student.email = ''
-    assert_not @student.valid?
-    @student.email = '34r3'
-    assert_not @student.valid?
-    @student.email = '34r3@'
-    assert_not @student.valid?
-    @student.email = 'test@'
-    assert_not @student.valid?
-    @student.email = 'test.com'
-    assert_not @student.valid?
-    @student.email = 'test@c.com'
-    assert @student.valid?
+  # Full name
+
+  test 'should return student full name' do
+    assert_equal('Franco Borrelli', @student.full_name)
   end
 
   # testing interactions with other models
@@ -128,5 +184,10 @@ class StudentTest < ActiveSupport::TestCase
   test 'should be in a course' do
     @student.course = nil
     assert_not @student.save
+  end
+
+  test 'should not destroy student if it has scores' do
+    assert_not @student.destroy
+    assert students(:three).destroy
   end
 end
