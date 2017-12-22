@@ -36,8 +36,7 @@
                 </td>
                 <% @examinations.each do |exam| %>
                     <% if student.took_exam?(exam) %>
-                        <% score = student.score_for_exam(exam) %>
-                            <td><%= score.score %>%</td>
+                        <td><%= student.score_for_exam(exam).score %>%</td>
                     <% else %>
                         <td>-</td>
                     <% end %>
