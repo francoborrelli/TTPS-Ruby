@@ -4,7 +4,7 @@
     <h1><%= card_title.capitalize %></h1>
     <h5><%= yield :subtitle %></h5>
     <hr>
-    <% if !collection.nil? && collection.empty? %>
+    <% if collection.try(:empty?) %>
       <%= yield :no_results %>
     <% else %>
         <div class="card-btns">
@@ -19,7 +19,7 @@
         <% end %>
         <% if !collection.nil? && !collection.empty? %>
             <div class="float-right">
-            <%= paginate collection %>
+            <%= paginate collection.page %>
             </div>
         <% end %>
       <% end %> 
