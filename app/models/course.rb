@@ -12,7 +12,7 @@ class Course < ApplicationRecord
 
   def min_date
     Date.parse("#{year}-1-1")
- end
+  end
 
   def max_date
     Date.parse("#{year + 1}-3-1")

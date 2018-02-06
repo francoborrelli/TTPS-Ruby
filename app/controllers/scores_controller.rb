@@ -3,8 +3,6 @@ class ScoresController < ApplicationController
 
   before_action :build_scores, only: [:index]
 
-  def index; end
-
   def update
     @examination.assign_attributes(score_params)
     if @examination.save
