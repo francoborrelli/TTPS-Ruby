@@ -5,50 +5,34 @@ class ScoreTest < ActiveSupport::TestCase
     @score = scores(:one)
   end
 
-  test 'should not save empty score' do
-    score = Score.new
-    assert_not score.save
+  test 'should not be valid an empty score' do
+    assert_not Score.new.valid?
   end
 
-  test 'should not save score if it does not have a student' do
-    @score.student = nil
-    assert_not @score.save
-  end
-
-  test 'should not save score if it does not have an examination' do
-    @score.examination = nil
-    assert_not @score.save
-  end
-
-  test 'should not exists two scores with the same student for the same examination' do
+  test 'should not exists two scores for the same student in the same examination' do
     score_two = @score.dup
     score_two.score = 10
-    assert_not score_two.save
+    assert_not score_two.valid?
   end
 
-  test 'should save score if valid' do
-    assert @score.save
-  end
+  test 'score should be within the range 0..100' do
+    @score.score = -1
+    assert_not @score.valid?
 
-  test 'score should not be smaller than 0' do
-    @score.score = -21
-    assert_not @score.save
-  end
+    @score.score = 101
+    assert_not @score.valid?
 
-  test 'score should not be bigger than 100' do
-    @score.score = 210
-    assert_not @score.save
-  end
+    @score.score = 0
+    assert @score.valid?
 
-  test 'score should be a number' do
-    @score.score = 'test'
-    assert_not @score.save
+    @score.score = 100
+    assert @score.valid?
   end
 
   test 'should know if student passed exam' do
     assert_not @score.passed?
 
-    score_two = scores(:two)
-    assert score_two.passed?
+    assert scores(:two).passed?
   end
+
 end

@@ -5,62 +5,19 @@ class ExaminationTest < ActiveSupport::TestCase
     @examination = examinations(:one)
   end
 
-  test 'shouldnt save empty examination' do
-    examination = Examination.new
-    assert_not examination.save
+  test 'shouldnt be valid an examination with missing attributes' do
+    assert_not Examination.new.valid?
   end
 
-  # Min_score
+  test 'date should be inside the range' do
+    @examination.date = '2016-03-04'
+    assert_not @examination.valid?
 
-  test 'shouldnt save if min_score is a string' do
-    @examination.min_score = 'hola'
-    assert_not @examination.save
-  end
+    @examination.date = '2019-05-05'
+    assert_not @examination.valid?
 
-  test 'shouldnt save if min_score is nil' do
-    @examination.min_score = nil
-    assert_not @examination.save
-  end
-
-  test 'shouldnt save if min_score smaller than 0' do
-    @examination.min_score = -1
-    assert_not @examination.save
-  end
-
-  test 'shouldnt save if min_score bigger than 100' do
-    @examination.min_score = 100.1
-    assert_not @examination.save
-  end
-
-  test 'should save if min_score valid' do
-    @examination.min_score = 10.01
-    assert @examination.save
-
-    @examination.min_score = 10
-    assert @examination.save
-  end
-
-  # Title
-
-  test 'should not save if it has no title' do
-    @examination.title = nil
-    assert_not @examination.save
-    @examination.title = '  '
-    assert_not @examination.save
-  end
-
-  test 'should not be two exams with the same title in the same course' do
-    examination_two = examinations(:three)
-    examination_two.title = @examination.title
-    assert_not examination_two.save
-  end
-
-  test 'should have no more than 40 letters' do
-    @examination.title = 'hola, esto es una prueba de un titulo con más de 40 caracteres'
-    assert_not @examination.save
-
-    @examination.title = 'Titulo dentro del rango'
-    assert @examination.save
+    @examination.date = '2017-03-04'
+    assert @examination.valid?
   end
 
   test 'should standarize title' do
@@ -69,81 +26,47 @@ class ExaminationTest < ActiveSupport::TestCase
     assert_equal('Este Titulo', @examination.title)
   end
 
-  # Date
-  test 'should not save if it has no date' do
-    @examination.date = nil
-    assert_not @examination.save
-  end
+  #Testing Uniqueness
 
-  test 'date should be inside the range' do
-    @examination.date = '2016-03-04'
-    assert_not @examination.save
-
-    @examination.date = '2017-03-04'
-    assert @examination.save
-
-    @examination.date = '2018-02-04'
-    assert @examination.save
-
-    @examination.date = '2019-05-05'
-    assert_not @examination.save
+  test 'should not be two exams with the same title in the same course' do
+    examination_two = examinations(:three)
+    examination_two.title = @examination.title
+    assert_not examination_two.valid?
   end
 
   # Testing interactions with other models
 
-  test 'should not save nil score' do
-    size = @examination.scores.size
-    @examination.scores.build
-    assert_not @examination.save
-  end
-
   test 'should assert number of passing students' do
     assert_equal(0, @examination.passing_students)
 
-    student = students(:two)
-    @examination.scores.build(score: 100, student: student)
-    assert_equal(1, @examination.passing_students)
+    @examination.scores.build(score: 100, student: students(:two))
+    @examination.scores.build(score: 1, student: students(:three))
 
-    student = students(:three)
-    @examination.scores.build(score: 1, student: student)
     assert_equal(1, @examination.passing_students)
   end
 
   test 'should assert number of failed students' do
     assert_equal(1, @examination.failed_students)
 
-    student = students(:two)
-    @examination.scores.build(score: 100, student: student)
-    assert_equal(1, @examination.failed_students)
-
-    student = students(:three)
-    @examination.scores.build(score: 1, student: student)
+    @examination.scores.build(score: 1, student: students(:three))
     assert_equal(2, @examination.failed_students)
   end
 
   test 'should assert number of absent students' do
     assert_equal(2, @examination.absent_students)
 
-    student = students(:two)
-    @examination.scores.build(score: 1, student: student)
+    @examination.scores.build(score: 1, student: students(:two))
     assert_equal(1, @examination.absent_students)
 
-    student = students(:three)
-    @examination.scores.build(score: 1, student: student)
+    @examination.scores.build(score: 1, student: students(:three))
     assert_equal(0, @examination.absent_students)
   end
 
   test 'should assert average of passing students' do
     assert_equal(0, @examination.passing_percentage)
 
-    student = students(:two)
-    @examination.scores.build(score: 100, student: student)
-
-    result = 100 / 3.to_f
-    assert_equal(result, @examination.passing_percentage)
-
-    student = students(:three)
-    @examination.scores.build(score: 95, student: student)
+    @examination.scores.build(score: 100, student: students(:two))
+    @examination.scores.build(score: 95, student: students(:three))
 
     result = 200 / 3.to_f
     assert_equal(result, @examination.passing_percentage)
